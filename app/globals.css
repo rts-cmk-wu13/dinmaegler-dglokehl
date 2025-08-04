@@ -36,31 +36,31 @@
     --color-app-red: #F21515;
     --color-app-green: #15F26E;
 
-    --color-primary-1: #162A41;
-    --color-primary-2: #FA983A;
-    --color-primary-3: #A3CB38;
-    --color-primary-4: #10AC84;
+    --color-app-primary-1: #162A41;
+    --color-app-primary-2: #FA983A;
+    --color-app-primary-3: #A3CB38;
+    --color-app-primary-4: #10AC84;
 
-    --color-heading-1: #263048;
-    --color-heading-2: #2A2C30;
+    --color-app-heading-1: #263048;
+    --color-app-heading-2: #2A2C30;
 
-    --color-para-1: #333333;
-    --color-para-2: #7B7B7B;
-    --color-para-3: #D5E0EA;
+    --color-app-para-1: #333333;
+    --color-app-para-2: #7B7B7B;
+    --color-app-para-3: #D5E0EA;
 
-    --color-bg-1: #F8F8FB;
-    --color-bg-2: #F9FCFF;
-    --color-bg-3: #25517A;
+    --color-app-bg-1: #F8F8FB;
+    --color-app-bg-2: #F9FCFF;
+    --color-app-bg-3: #25517A;
 
-    --color-shape-1: #D3DEE8;
-    --color-shape-2: #EEF7FF;
-    --color-shape-3: #33628D;
+    --color-app-shape-1: #D3DEE8;
+    --color-app-shape-2: #EEF7FF;
+    --color-app-shape-3: #33628D;
 
-    --color-multiply-1: #33485C;
-    --color-multiply-2: #51789D;
-    --color-multiply-3: #465F78;
-    --color-multiply-4: #444444;
-    --color-multiply-5: #455463;
+    --color-app-multiply-1: #33485C;
+    --color-app-multiply-2: #51789D;
+    --color-app-multiply-3: #465F78;
+    --color-app-multiply-4: #444444;
+    --color-app-multiply-5: #455463;
 
 
     /* TEXT HEADINGS */
