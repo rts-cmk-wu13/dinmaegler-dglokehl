@@ -9,7 +9,7 @@ type HeaderProps = {
 export default function Header({ className, ...rest}: HeaderProps) {
     return (
         <header className="h-app-header flex flex-col text-para-1 *:px-96" {...rest}>
-            <ul className="h-14 flex items-center gap-4 bg-primary-1 text-app-white *:*:flex *:*:items-center *:*:gap-2 *:*:hover:underline">
+            <ul className="h-14 flex items-center gap-4 bg-app-primary-1 text-app-white *:*:flex *:*:items-center *:*:gap-2 *:*:hover:underline">
                 <li>
                     <Link href="mailto:4000@dinmaegler.com">
                         <FaPaperPlane /> 4000@dinmaegler.com
