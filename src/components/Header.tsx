@@ -8,7 +8,7 @@ type HeaderProps = {
 
 export default function Header({ className, ...rest}: HeaderProps) {
     return (
-        <header className="h-header-default flex flex-col text-body-1 *:px-padding-default" {...rest}>
+        <header className="h-header-default flex flex-col body-1 *:px-padding-default" {...rest}>
             <ul className="h-14 flex items-center gap-4 bg-c-primary-1 text-c-white *:*:flex *:*:items-center *:*:gap-2 *:*:hover:underline">
                 <li>
                     <Link href="mailto:4000@dinmaegler.com">
@@ -30,7 +30,7 @@ export default function Header({ className, ...rest}: HeaderProps) {
             </ul>
 
 
-            <nav className="flex-1 flex items-center justify-between text-c-body-1">
+            <nav className="flex-1 flex items-center justify-between">
                 <Link href="/">
                     <img src="/dmlogo_text_dark.svg" alt="" className="h-12" />
                 </Link>

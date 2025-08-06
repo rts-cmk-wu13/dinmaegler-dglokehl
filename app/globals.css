@@ -36,6 +36,8 @@
 
     --color-c-red: #F21515;
     --color-c-green: #15F26E;
+    --color-c-yellow: #F2C94C;
+    --color-c-orange: #F2994A;
 
     --color-c-primary-1: #162A41;
     --color-c-primary-2: #FA983A;
@@ -127,6 +129,49 @@
     --text-body-italic--font-style: italic;
 }
 
+@layer components {
+    .heading-main {
+        @apply text-heading-main text-c-white
+    }
+    .heading-1 {
+        @apply text-heading-1 text-c-heading-1
+    }
+    .heading-2 {
+        @apply text-heading-2 text-c-heading-2
+    }
+    .heading-3 {
+        @apply text-heading-3 text-c-heading-2
+    }
+    .heading-4 {
+        @apply text-heading-4 text-c-heading-2
+    }
+    .heading-5 {
+        @apply text-heading-5 text-c-heading-2
+    }
+
+    .body-1 {
+        @apply text-body-1 text-c-body-1
+    }
+    .body-2 {
+        @apply text-body-2 text-c-body-1
+    }
+    .body-3 {
+        @apply text-body-3 text-c-body-1
+    }
+    .body-4 {
+        @apply text-body-4 text-c-body-1
+    }
+    .body-5 {
+        @apply text-body-5 text-c-body-1
+    }
+    .body-6 {
+        @apply text-body-6 text-c-body-1
+    }
+
+    .button {
+        @apply px-8 inline-block bg-c-primary-1 text-c-white cursor-pointer
+    }
+}
 
 body {
     font-family: var(--font-roboto);

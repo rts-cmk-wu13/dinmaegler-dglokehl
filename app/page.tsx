@@ -1,10 +1,23 @@
-import PageWrapper from "@/components/PageWrapper";
+import Link from "next/link";
 
 import { FaHouseLaptop, FaHouseMedical, FaLocationDot, FaUsersBetweenLines } from "react-icons/fa6";
 import { BsBuildingsFill } from "react-icons/bs";
 
+import PageWrapper from "@/components/PageWrapper";
+import SectionWrapper from "@/components/SectionWrapper";
 
-export default function Home() {
+import HouseCard from "@/components/HouseCard";
+
+
+export default async function Home() {
+    const data = await fetch('https://dinmaegler.onrender.com/homes')
+    const posts = await data.json()
+    console.log(posts)
+
+    const homes = []
+    for (let i = 0; i < 4; i++) {
+        homes.push(posts[i])
+    }
     return (
         <PageWrapper className="flex flex-col *:w-full *:self-center">
             <div className="h-[698px] flex justify-center items-center relative">
@@ -12,18 +25,18 @@ export default function Home() {
                     <h1 className="text-5xl font-bold text-c-white text-center mb-10">Søg efter din drømmebolig</h1>
 
                     <div className="p-8 bg-c-white">
-                        <h4 className="text-heading-4 text-c-heading-2">
+                        <h4 className="heading-4">
                             Søg blandt 158 boliger til salg i 74 butikker
                         </h4>
 
                         <hr className="mt-1 mb-5" />
 
-                        <label htmlFor="herosearch" className="pb-1 block text-body-2 text-c-body-1">
+                        <label htmlFor="herosearch" className="pb-1 block body-2">
                             Hvad skal din næste bolig indeholde?
                         </label>
-                        <div className="h-12 flex gap-2.5 text-body-2 *:rounded-xs">
+                        <div className="h-12 flex gap-2.5 body-2 *:rounded-xs">
                             <input type="search" name="herosearch" id="herosearch" placeholder="Søg på fx. glaskeramisk komfur, bryggers, kælder eller lignende" className="w-full p-2.5 border-1 border-c-shape-1 focus:outline-0 placeholder:text-c-body-2" />
-                            <input type="submit" value="Søg" className="px-10 bg-c-primary-1 text-c-white cursor-pointer" />
+                            <input type="submit" value="Søg" className="button px-10" />
                         </div>
                     </div>
                 </div>
@@ -52,17 +65,17 @@ export default function Home() {
                     </div>
 
                     <div className="w-full flex-1">
-                        <h2 className="mb-8 text-heading-1 text-c-heading-1">
+                        <h2 className="mb-8 heading-1">
                             Vi har fulgt danskerne hjem i snart 4 årtier
                         </h2>
 
-                        <h3 className="mb-3 text-heading-3 text-c-primary-1">
+                        <h3 className="mb-3 heading-3 text-c-primary-1">
                             Det synes vi siger noget om os!
                         </h3>
-                        <p className="mb-5 text-body-1 text-c-body1">
+                        <p className="mb-5 body-1">
                             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has normal distribution.
                         </p>
-                        <p className="text-body-1 text-c-body1">
+                        <p className="body-1">
                             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
                         </p>
 
@@ -72,10 +85,10 @@ export default function Home() {
                                     <FaHouseLaptop className="size-10 text-c-primary-1" />
                                 </div>
                                 <div>
-                                    <h3 className="text-heading-3 text-c-heading-2">
+                                    <h3 className="heading-3">
                                         4829
                                     </h3>
-                                    <p className="text-body-1 text-c-body-1">
+                                    <p className="body-1">
                                         boliger solgt
                                     </p>
                                 </div>
@@ -85,10 +98,10 @@ export default function Home() {
                                     <FaHouseMedical className="size-10 text-c-primary-1" />
                                 </div>
                                 <div>
-                                    <h3 className="text-heading-3 text-c-heading-2">
+                                    <h3 className="heading-3">
                                         158
                                     </h3>
-                                    <p className="text-body-1 text-c-body-1">
+                                    <p className="body-1">
                                         boliger til salg
                                     </p>
                                 </div>
@@ -105,10 +118,10 @@ export default function Home() {
                             <BsBuildingsFill className="size-9 text-c-primary-1" />
                         </div>
                         <div className="flex-1">
-                            <h3 className="text-heading-3 text-c-heading-2">
+                            <h3 className="heading-3">
                                 Bestil et salgstjek
                             </h3>
-                            <p className="mt-4 text-body-1 text-c-body-1">
+                            <p className="mt-4 body-1">
                                 Med et Din Mægler Salgstjek bliver du opdateret på værdien af din bolig.
                             </p>
                         </div>
@@ -119,10 +132,10 @@ export default function Home() {
                             <FaLocationDot className="size-9 text-c-primary-1" />
                         </div>
                         <div className="flex-1">
-                            <h3 className="text-heading-3 text-c-heading-2">
+                            <h3 className="heading-3">
                                 74 butikker
                             </h3>
-                            <p className="mt-4 text-body-1 text-c-body-1">
+                            <p className="mt-4 body-1">
                                 Hos Din Mægler er din bolig til salg i alle vores 74 butikker, som er fordelt rundt om i Danmark.
                             </p>
                         </div>
@@ -133,16 +146,37 @@ export default function Home() {
                             <FaUsersBetweenLines className="size-9 text-c-primary-1" />
                         </div>
                         <div className="flex-1">
-                            <h3 className="text-heading-3 text-c-heading-2">
+                            <h3 className="heading-3">
                                 Tilmeld køberkartotek
                             </h3>
-                            <p className="mt-4 text-body-1 text-c-body-1">
+                            <p className="mt-4 body-1">
                                 Når du er tilmeldt vores køberkartotek, bliver du kontaktet inden en ny bolig bliver annonceret.
                             </p>
                         </div>
                     </article>
                 </div>
             </div>
+
+            <SectionWrapper bg>
+                <section className="max-w-maxw-default flex flex-col items-center gap-14">
+                    <div>
+                        <h2 className="heading-1 text-center">
+                            Udvalgte Boliger
+                        </h2>
+                        <p className="body-1">
+                            There are many variations of passages of Lorem Ipsum available but the this in majority have suffered alteration in some
+                        </p>
+                    </div>
+
+                    <div className="w-full grid grid-cols-2 gap-7">
+                        {homes.map((home, i) => <HouseCard obj={home} key={i} />)}
+                    </div>
+
+                    <Link href="/homes" className="button py-4">
+                        Se alle boliger
+                    </Link>
+                </section>
+            </SectionWrapper>
 
         </PageWrapper>
     );
