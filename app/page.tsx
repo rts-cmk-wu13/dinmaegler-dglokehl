@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { FaHouseLaptop, FaHouseMedical, FaLocationDot, FaUsersBetweenLines } from "react-icons/fa6";
+import { FaHouseLaptop, FaHouseMedical, FaLocationDot, FaUsersBetweenLines, FaArrowRightLong } from "react-icons/fa6";
 import { BsBuildingsFill } from "react-icons/bs";
 
 import PageWrapper from "@/components/PageWrapper";
@@ -158,9 +158,9 @@ export default async function Home() {
             </div>
 
             <SectionWrapper bg>
-                <section className="max-w-maxw-default flex flex-col items-center gap-14">
+                <section className="flex flex-col items-center gap-14">
                     <div>
-                        <h2 className="heading-1 text-center">
+                        <h2 className="mb-4 heading-1 text-center">
                             Udvalgte Boliger
                         </h2>
                         <p className="body-1">
@@ -177,6 +177,22 @@ export default async function Home() {
                     </Link>
                 </section>
             </SectionWrapper>
+
+            <div className="h-72 flex flex-col justify-center items-center relative">
+                <div className="max-w-maxw-default w-full grid grid-cols-2 items-center gap-8 absolute z-9">
+                    <h2 className="heading-2 text-c-white">
+                        Tilmeld dig vores nyhedsbrev og hold dig opdateret på boligmarkedet
+                    </h2>
+
+                    <div className="w-full flex items-center relative">
+                        <FaArrowRightLong className="w-7 h-auto absolute right-6 z-2" />
+                        <input type="text" name="newsletter" id="newsletter" placeholder="Indtast din email adresse" className="p-6 w-full bg-c-white rounded-sm" />
+                    </div>
+                </div>
+                <figure className="size-full bg-c-multiply-5">
+                    <img src="/building_background.jpg" alt="" className="size-full object-cover opacity-25 mix-blend-multiply" />
+                </figure>
+            </div>
 
         </PageWrapper>
     );
