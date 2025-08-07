@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { FaHouseLaptop, FaHouseMedical, FaLocationDot, FaUsersBetweenLines, FaArrowRightLong } from "react-icons/fa6";
+import { FaHouseLaptop, FaHouseMedical, FaLocationDot, FaUsersBetweenLines, FaArrowRightLong, FaGooglePlay, FaApple } from "react-icons/fa6";
 import { BsBuildingsFill } from "react-icons/bs";
 
 import PageWrapper from "@/components/PageWrapper";
@@ -113,7 +113,9 @@ export default async function Home() {
                     </div>
                 </section>
 
+
                 <hr className="my-16" />
+
 
                 <div className="grid grid-cols-3 gap-8">
                     <article className="flex gap-3">
@@ -160,6 +162,7 @@ export default async function Home() {
                 </div>
             </div>
 
+
             <SectionWrapper bg>
                 <SectionDefault obj={{
                     heading: "Udvalgte Boliger",
@@ -170,6 +173,7 @@ export default async function Home() {
                     <HouseGrid amount={4} />
                 </SectionDefault>
             </SectionWrapper>
+
 
             <div className="h-72 flex flex-col justify-center items-center relative">
                 <div className="max-w-maxw-default w-full grid grid-cols-2 items-center gap-8 absolute z-9">
@@ -187,6 +191,7 @@ export default async function Home() {
                 </figure>
             </div>
 
+
             <SectionWrapper>
                 <SectionDefault obj={{
                     heading: "Mød vores engagerede medarbejdere",
@@ -197,6 +202,32 @@ export default async function Home() {
                     <AgentGrid amount={3} />
                 </SectionDefault>
             </SectionWrapper>
+
+
+            <div className="h-128 flex justify-center items-center bg-c-primary-1">
+                <div className="max-w-maxw-default h-full flex justify-center items-center gap-10">
+                    <div className="flex-1">
+                        <h2 className="mb-5 heading-1 text-c-white">
+                            Hold dig opdateret på salgsprocessen
+                        </h2>
+                        <p className="body-1 text-c-white">
+                            Når du sælger din bolig hos Din Mægler, kommunikerer du nemt med den ansvarlige mægler eller butik med vores app. Her kan du også se statistik på interessen for din bolig i alle vores salgskanaler.
+                        </p>
+
+                        <div className="mt-6 flex gap-4">
+                            <Link href="https://play.google.com/" target="_blank" className="px-8 py-4 size-fit flex items-center justify-center gap-1 bg-c-white text-button rounded-xs">
+                                <FaGooglePlay className="size-6" /> Google Play
+                            </Link>
+
+                            <Link href="https://www.apple.com/app-store/" target="_blank" className="px-8 py-4 size-fit flex items-center justify-center gap-1 text-button text-c-white rounded-xs inset-shadow-[0_0_0_1px] inset-shadow-c-white">
+                                <FaApple className="size-6" /> Apple Store
+                            </Link>
+                        </div>
+                    </div>
+
+                    <img src="/iphones.png" alt="" className="self-end" />
+                </div>
+            </div>
 
         </PageWrapper>
     );
