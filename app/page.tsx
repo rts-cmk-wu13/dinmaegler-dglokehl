@@ -5,8 +5,11 @@ import { BsBuildingsFill } from "react-icons/bs";
 
 import PageWrapper from "@/components/PageWrapper";
 import SectionWrapper from "@/components/SectionWrapper";
+import SectionDefault from "@/components/SectionDefault";
 
+import HouseGrid from "@/components/HouseGrid";
 import HouseCard from "@/components/HouseCard";
+import AgentGrid from "@/components/AgentGrid";
 
 
 export default async function Home() {
@@ -158,24 +161,14 @@ export default async function Home() {
             </div>
 
             <SectionWrapper bg>
-                <section className="flex flex-col items-center gap-14">
-                    <div>
-                        <h2 className="mb-4 heading-1 text-center">
-                            Udvalgte Boliger
-                        </h2>
-                        <p className="body-1">
-                            There are many variations of passages of Lorem Ipsum available but the this in majority have suffered alteration in some
-                        </p>
-                    </div>
-
-                    <div className="w-full grid grid-cols-2 gap-7">
-                        {homes.map((home, i) => <HouseCard obj={home} key={i} />)}
-                    </div>
-
-                    <Link href="/homes" className="button py-4">
-                        Se alle boliger
-                    </Link>
-                </section>
+                <SectionDefault obj={{
+                    heading: "Udvalgte Boliger",
+                    subheading: "There are many variations of passages of Lorem Ipsum available but the this in majority have suffered alteration in some",
+                    href: "/homes",
+                    button: "Se alle boliger"
+                }}>
+                    <HouseGrid amount={4} />
+                </SectionDefault>
             </SectionWrapper>
 
             <div className="h-72 flex flex-col justify-center items-center relative">
@@ -193,6 +186,17 @@ export default async function Home() {
                     <img src="/building_background.jpg" alt="" className="size-full object-cover opacity-25 mix-blend-multiply" />
                 </figure>
             </div>
+
+            <SectionWrapper>
+                <SectionDefault obj={{
+                    heading: "Mød vores engagerede medarbejdere",
+                    subheading: "Din Mægler er garant for altid veluddannet assistance i dit boligsalg. Kontakt en af vores medarbejdere.",
+                    href: "/agents",
+                    button: "Se alle mæglere"
+                }}>
+                    <AgentGrid amount={3} />
+                </SectionDefault>
+            </SectionWrapper>
 
         </PageWrapper>
     );
