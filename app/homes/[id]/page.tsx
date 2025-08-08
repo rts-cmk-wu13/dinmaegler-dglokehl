@@ -1,9 +1,8 @@
-import Link from "next/link";
 import type { HomeProps } from "@/types/homes";
 import { IoImageOutline, IoLayersOutline, IoLocationOutline, IoHeartOutline } from "react-icons/io5";
-import { FaPhone, FaPaperPlane } from "react-icons/fa6";
 
 import PageWrapper from "@/components/PageWrapper";
+import AgentContact from "@/components/AgentContact";
 
 
 interface ParamsProps {
@@ -124,30 +123,7 @@ export default async function Home({ params }: ParamsProps) {
                         <h2 className="heading-3">
                             Ansvarlig mægler:
                         </h2>
-                        <article className="p-10 pr-24 w-fit flex gap-8 inset-shadow-[0_0_0_1px] inset-shadow-c-shape-1">
-                            <figure className="relative">
-                                <img src={home.agent.image.url} alt="" className="size-70 object-cover" />
-                            </figure>
-
-                            <div>
-                                <h3 className="heading-3">
-                                    {home.agent.name}
-                                </h3>
-                                <p className="mt-1 body-1 text-c-body-2">
-                                    {home.agent.title}
-                                </p>
-
-                                <hr className="mt-4 mb-5" />
-
-                                <Link href={`tel:${home.agent.phone}`} className="mb-3 flex items-center gap-4 body-1">
-                                    <FaPhone className="size-5" /> {home.agent.phone}
-                                </Link>
-
-                                <Link href={`mailto:${home.agent.email}`} className="flex items-center gap-4 body-1">
-                                    <FaPaperPlane className="size-5" /> {home.agent.email}
-                                </Link>
-                            </div>
-                        </article>
+                        <AgentContact agent={home.agent} className="p-10 pr-24" />
                     </section>
                 </div>
             </div>

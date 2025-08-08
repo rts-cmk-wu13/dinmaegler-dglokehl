@@ -171,6 +171,10 @@
     .button {
         @apply px-8 inline-block bg-c-primary-1 text-c-white cursor-pointer
     }
+
+    .inset-shadow-default {
+        @apply inset-shadow-[0_0_0_1px] inset-shadow-c-shape-1
+    }
 }
 
 body {
