@@ -6,6 +6,7 @@ import PageWrapper from "@/components/PageWrapper";
 import PageHeading from "@/components/PageHeading";
 import AgentContact from "@/components/AgentContact";
 import FormField from "@/components/FormField";
+import ContactForm from "@/components/ContactForm";
 
 
 interface ParamsProps {
@@ -15,7 +16,7 @@ interface ParamsProps {
 }
 
 
-export default async function Home({ params }: ParamsProps) {
+export default async function Agent({ params }: ParamsProps) {
     const { id } = await params;
 
     const data = await fetch(`https://dinmaegler.onrender.com/agents/${id}`)
@@ -39,19 +40,7 @@ export default async function Home({ params }: ParamsProps) {
                         </p>
                     </section>
 
-                    <form action="" className="p-10 inset-shadow-default">
-                        <h2 className="mb-3 heading-4">
-                            Kontakt {agent.name}
-                        </h2>
-
-                        <div className="grid grid-cols-2 gap-5">
-                            <FormField obj={{ type: "text", name: "name", placeholder: "Indtast navn", label: "Navn" }} />
-                            <FormField obj={{ type: "email", name: "email", placeholder: "Indtast email", label: "Email" }} />
-                            <FormField obj={{ type: "text", name: "subject", placeholder: "Hvad drejer din henvendelse sig om?", label: "Emne" }} className="col-span-2" />
-                            <FormField obj={{ type: "textarea", name: "message", placeholder: "Skriv din besked her...", label: "Besked" }} className="col-span-2" />
-                        </div>
-                            <input type="submit" value="Send besked" className="button py-4 mt-7.5 rounded-xs" />
-                    </form>
+                    <ContactForm heading={`Kontakt ${agent.name}`} />
                 </div>
 
 
