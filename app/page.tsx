@@ -8,7 +8,6 @@ import SectionWrapper from "@/components/SectionWrapper";
 import SectionDefault from "@/components/SectionDefault";
 
 import HouseGrid from "@/components/HouseGrid";
-import HouseCard from "@/components/HouseCard";
 import AgentGrid from "@/components/AgentGrid";
 
 

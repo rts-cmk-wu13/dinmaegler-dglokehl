@@ -8,26 +8,19 @@ type HouseGridProps = {
     amount?: number;
 }
 
-
 export default async function HouseGrid({ children, className, amount, ...rest}: HouseGridProps) {
-    const data = await fetch('https://dinmaegler.onrender.com/homes')
-    let homes = await data.json()
-
+    let link = "https://dinmaegler.onrender.com/homes"
     if (amount) {
-        if (amount > homes.length) {
-            amount = homes.length | 0
-        }
-        homes = homes.slice(0, amount)
+        link = `https://dinmaegler.onrender.com/homes?_limit=${amount}`
     }
+
+    const data = await fetch(link)
+    let homes = await data.json()
     console.log(homes)
 
     return (
         <div className={`w-full grid grid-cols-2 gap-7 ${className ? className : ""}`} {...rest}>
-            {
-                homes.map((home: HomeProps, i: number) => {
-                    return <HouseCard obj={home} key={i} />
-                }
-            )}
+            {homes.map((home: HomeProps, i: number) => <HouseCard obj={home} key={i} />)}
         </div>
     )
 }

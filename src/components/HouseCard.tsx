@@ -41,7 +41,7 @@ export default function HouseCard({ children, className, obj, ...rest}: HouseCar
                         <EnergyLabel label={obj.energylabel} />
 
                         <p className="body-2">
-                            {obj.rooms} værelser · {String(obj.lotsize)} m²
+                            {obj.rooms.slice(0,1)} værelser · {String(obj.lotsize)} m²
                         </p>
                     </div>
 
