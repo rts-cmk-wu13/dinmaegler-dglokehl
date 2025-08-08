@@ -11,7 +11,7 @@ import HouseGrid from "@/components/HouseGrid";
 import AgentGrid from "@/components/AgentGrid";
 
 
-export default async function Home() {
+export default async function Index() {
     const data = await fetch('https://dinmaegler.onrender.com/homes')
     const posts = await data.json()
     console.log(posts)
