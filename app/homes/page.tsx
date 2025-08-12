@@ -1,11 +1,41 @@
 import PageWrapper from "@/components/PageWrapper";
 import PageHeading from "@/components/PageHeading";
 
-import HouseGrid from "@/components/HouseGrid";
+import CardGrid from "@/components/CardGrid";
 import PriceRange from "@/components/PriceRange";
+import HomeType from "@/components/HomeType";
+
+import type { HomeProps } from "@/types/homes";
+
+export default async function Homes(props: {
+    searchParams?: Promise<{
+        type_eq?: string;
+        price_gte?: string;
+        price_lte?: string;
+    }>;
+}) {
+    const searchParams = await props.searchParams;
+    console.log(searchParams)
+
+    let link = "https://dinmaegler.onrender.com/homes"
+    if (searchParams) {
+        let index = 0
+        for (const [key, value] of Object.entries(searchParams)) {
+            if (index === 0) {
+                link += `?${key}=${value}`
+            } else {
+                link += `&${key}=${value}`
+            }
+            index++
+            // console.log(`${key}: ${value}`);
+        }
+    }
+
+    const data = await fetch(link)
+    let homes = await data.json()
+    console.log(homes)
 
 
-export default async function Homes() {
     return (
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">
             <PageHeading heading="Boliger til salg" />
@@ -19,39 +49,13 @@ export default async function Homes() {
                     <hr className="mt-1 mb-5" />
 
                     <div className="w-full flex gap-3 body-2">
-                        <div>
-                            <h3 className="mb-1">
-                                Ejendomstype
-                            </h3>
-                            <select name="type" id="type" className="p-2.5 w-84 rounded-xs inset-shadow-[0_0_0_1px] inset-shadow-c-shape-1 text-c-body-2">
-                                <option value="">Ejerlejlighed</option>
-                                <option value="">Villa</option>
-                                <option value="">Landejendom</option>
-                                <option value="">Byhus</option>
-                            </select>
-                        </div>
+                        <HomeType />
 
-                        <div>
-                            <h3 className="mb-1 body-2">
-                                Pris-interval
-                            </h3>
-                            <div className="w-135 flex flex-col">
-                                <PriceRange />
-
-                                <div className="w-full flex justify-between">
-                                    <p className="body-2 text-c-body-2">
-                                        0kr.
-                                    </p>
-                                    <p className="body-2 text-c-body-2">
-                                        7.999.000kr.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                        <PriceRange />
                     </div>
                 </div>
 
-                <HouseGrid />
+                <CardGrid data={homes} type="homes" />
 
             </div>
         </PageWrapper>

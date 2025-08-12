@@ -7,19 +7,18 @@ import PageWrapper from "@/components/PageWrapper";
 import SectionWrapper from "@/components/SectionWrapper";
 import SectionDefault from "@/components/SectionDefault";
 
-import HouseGrid from "@/components/HouseGrid";
-import AgentGrid from "@/components/AgentGrid";
+import CardGrid from "@/components/CardGrid";
 
 
 export default async function Index() {
-    const data = await fetch('https://dinmaegler.onrender.com/homes')
-    const posts = await data.json()
-    console.log(posts)
+    const homesData = await fetch('https://dinmaegler.onrender.com/homes?_limit=4')
+    const homes = await homesData.json()
+    console.log(homes)
 
-    const homes = []
-    for (let i = 0; i < 4; i++) {
-        homes.push(posts[i])
-    }
+    const agentsData = await fetch('https://dinmaegler.onrender.com/agents?_limit=3')
+    const agents = await agentsData.json()
+    console.log(agents)
+
     return (
         <PageWrapper className="flex flex-col *:w-full *:self-center">
             <div className="h-[698px] flex justify-center items-center relative">
@@ -71,7 +70,7 @@ export default async function Index() {
                             Vi har fulgt danskerne hjem i snart 4 årtier
                         </h2>
 
-                        <h3 className="mb-3 heading-3 text-c-primary-1">
+                        <h3 className="mb-3 heading-3">
                             Det synes vi siger noget om os!
                         </h3>
                         <p className="mb-5 body-1">
@@ -169,7 +168,7 @@ export default async function Index() {
                     href: "/homes",
                     button: "Se alle boliger"
                 }}>
-                    <HouseGrid amount={4} />
+                    <CardGrid data={homes} type="homes" />
                 </SectionDefault>
             </SectionWrapper>
 
@@ -198,7 +197,7 @@ export default async function Index() {
                     href: "/agents",
                     button: "Se alle mæglere"
                 }}>
-                    <AgentGrid amount={3} />
+                    <CardGrid data={agents} type="agents" />
                 </SectionDefault>
             </SectionWrapper>
 

@@ -1,4 +1,4 @@
-import type { ImageProps } from "next/image";
+import type { DataImagesProps } from "./images";
 
 
 type UserProps = {
@@ -18,7 +18,7 @@ export type HomeProps = {
     energylabel: string;
     type: string;
 
-    images: ImageProps[];
+    images: DataImagesProps[];
 
     gross: number;
     payment: number;
@@ -38,7 +38,7 @@ export type HomeProps = {
         title: string;
         phone: string;
         email: string;
-        image: ImageProps;
+        image: DataImagesProps;
         description: string;
         id: string;
     };
@@ -47,7 +47,7 @@ export type HomeProps = {
     built: number;
     remodel: number;
 
-    floorplan: ImageProps;
+    floorplan: DataImagesProps;
 
     lat: number;
     long: number;

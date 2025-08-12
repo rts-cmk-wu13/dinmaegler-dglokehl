@@ -1,4 +1,4 @@
-export type ThumbnailProps = {
+export type DataThumbnailsProps = {
     name: string;
     hash: string;
     ext: string;
@@ -14,15 +14,14 @@ export type ThumbnailProps = {
     }
 }
 
-export type ImageProps = {
+export type DataImagesProps = {
     name: string;
     size: number;
     width: number;
     height: number;
     url: string;
     id: string;
-
     formats: {
-        thumbnail: ThumbnailProps;
+        thumbnail: DataThumbnailsProps;
     }
 }
