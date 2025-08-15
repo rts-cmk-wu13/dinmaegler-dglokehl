@@ -31,7 +31,7 @@ export default function ContactForm({ children, className, heading, newsletter, 
                 </div>
 
 
-                <input type="submit" value="Send besked" className="button py-4 mt-7.5 rounded-xs" />
+                <input type="submit" value="Send besked" className="button hover-75 py-4 mt-7.5 rounded-xs" />
             </form>
     )
 }

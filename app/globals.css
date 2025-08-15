@@ -127,6 +127,10 @@
     --text-body-italic--line-height: 2rem;
     --text-body-italic--font-weight: 400;
     --text-body-italic--font-style: italic;
+
+
+    --inset-shadow-default: inset 0 0 0 1px var(--color-c-shape-1);
+    --shadow-default: inset 0 10px 30px 1px var(--color-c-shape-1);
 }
 
 @layer components {
@@ -168,12 +172,12 @@
         @apply text-body-6 text-c-body-1
     }
 
-    .button {
-        @apply px-8 inline-block bg-c-primary-1 text-c-white cursor-pointer
+    .hover-75 {
+        @apply cursor-pointer select-none duration-75 hover:opacity-75
     }
 
-    .inset-shadow-default {
-        @apply inset-shadow-[0_0_0_1px] inset-shadow-c-shape-1
+    .button {
+        @apply px-8 inline-block bg-c-primary-1 text-c-white cursor-pointer
     }
 }
 

@@ -9,6 +9,8 @@ import SectionDefault from "@/components/SectionDefault";
 
 import CardGrid from "@/components/CardGrid";
 
+import { getUserObj } from "@/utils/helpers";
+
 
 export default async function Index() {
     const homesData = await fetch('https://dinmaegler.onrender.com/homes?_limit=4')
@@ -18,6 +20,9 @@ export default async function Index() {
     const agentsData = await fetch('https://dinmaegler.onrender.com/agents?_limit=3')
     const agents = await agentsData.json()
     console.log(agents)
+
+    const userObj = await getUserObj()
+
 
     return (
         <PageWrapper className="flex flex-col *:w-full *:self-center">
@@ -37,7 +42,7 @@ export default async function Index() {
                         </label>
                         <div className="h-12 flex gap-2.5 body-2 *:rounded-xs">
                             <input type="search" name="herosearch" id="herosearch" placeholder="Søg på fx. glaskeramisk komfur, bryggers, kælder eller lignende" className="w-full p-2.5 border-1 border-c-shape-1 focus:outline-0 placeholder:text-c-body-2" />
-                            <input type="submit" value="Søg" className="button px-10" />
+                            <input type="submit" value="Søg" className="button hover-75 px-10" />
                         </div>
                     </div>
                 </div>
@@ -168,7 +173,7 @@ export default async function Index() {
                     href: "/homes",
                     button: "Se alle boliger"
                 }}>
-                    <CardGrid data={homes} type="homes" />
+                    {<CardGrid data={homes} dataType="homes" userObj={userObj} />}
                 </SectionDefault>
             </SectionWrapper>
 
@@ -197,7 +202,7 @@ export default async function Index() {
                     href: "/agents",
                     button: "Se alle mæglere"
                 }}>
-                    <CardGrid data={agents} type="agents" />
+                    <CardGrid data={agents} dataType="agents" />
                 </SectionDefault>
             </SectionWrapper>
 
@@ -213,11 +218,11 @@ export default async function Index() {
                         </p>
 
                         <div className="mt-6 flex gap-4">
-                            <Link href="https://play.google.com/" target="_blank" className="px-8 py-4 size-fit flex items-center justify-center gap-1 bg-c-white text-button rounded-xs">
+                            <Link href="https://play.google.com/" target="_blank" className="px-8 py-4 size-fit flex items-center justify-center gap-1 bg-c-white text-button rounded-xs hover-75">
                                 <FaGooglePlay className="size-6" /> Google Play
                             </Link>
 
-                            <Link href="https://www.apple.com/app-store/" target="_blank" className="px-8 py-4 size-fit flex items-center justify-center gap-1 text-button text-c-white rounded-xs inset-shadow-[0_0_0_1px] inset-shadow-c-white">
+                            <Link href="https://www.apple.com/app-store/" target="_blank" className="px-8 py-4 size-fit flex items-center justify-center gap-1 text-button text-c-white rounded-xs inset-shadow-[0_0_0_1px] inset-shadow-c-white hover-75">
                                 <FaApple className="size-6" /> Apple Store
                             </Link>
                         </div>

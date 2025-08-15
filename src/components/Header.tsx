@@ -1,12 +1,16 @@
 import Link from "next/link"
 
 import { FaPaperPlane, FaPhoneAlt, FaUser } from "react-icons/fa";
+import { hasCookie } from "@/utils/cookies";
+
+import LogoutButton from "./LogoutButton";
 
 type HeaderProps = {
     className?: string;
 }
 
-export default function Header({ className, ...rest}: HeaderProps) {
+
+export default async function Header({ className, ...rest}: HeaderProps) {
     return (
         <header className="h-header-default flex flex-col body-1 *:px-padding-default" {...rest}>
             <ul className="h-14 flex items-center gap-4 bg-c-primary-1 text-c-white *:*:flex *:*:items-center *:*:gap-2 *:*:hover:underline">
@@ -23,9 +27,13 @@ export default function Header({ className, ...rest}: HeaderProps) {
                 </li>
 
                 <li className="ml-auto">
-                    <Link href="/login">
-                        <FaUser /> Log ind
-                    </Link>
+                    {!await hasCookie("loginToken") ? (
+                        <Link href="/login">
+                            <FaUser /> Log ind
+                        </Link>
+                    ) : (
+                        <LogoutButton />
+                    )}
                 </li>
             </ul>
 

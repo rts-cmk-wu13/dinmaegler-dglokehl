@@ -5,7 +5,7 @@ import CardGrid from "@/components/CardGrid";
 import PriceRange from "@/components/PriceRange";
 import HomeType from "@/components/HomeType";
 
-import type { HomeProps } from "@/types/homes";
+import { getUserObj } from "@/utils/helpers";
 
 export default async function Homes(props: {
     searchParams?: Promise<{
@@ -15,7 +15,7 @@ export default async function Homes(props: {
     }>;
 }) {
     const searchParams = await props.searchParams;
-    console.log(searchParams)
+    // console.log(searchParams)
 
     let link = "https://dinmaegler.onrender.com/homes"
     if (searchParams) {
@@ -35,6 +35,7 @@ export default async function Homes(props: {
     let homes = await data.json()
     console.log(homes)
 
+    const userData = await getUserObj()
 
     return (
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">
@@ -55,7 +56,7 @@ export default async function Homes(props: {
                     </div>
                 </div>
 
-                <CardGrid data={homes} type="homes" />
+                <CardGrid data={homes} dataType="homes" userObj={userData} />
 
             </div>
         </PageWrapper>

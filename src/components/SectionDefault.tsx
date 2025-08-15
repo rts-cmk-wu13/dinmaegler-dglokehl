@@ -25,7 +25,7 @@ export default function SectionDefault({ children, className, obj, ...rest}: Sec
 
             {children}
 
-            <Link href={obj.href} className="button py-4">
+            <Link href={obj.href} className="button hover-75 py-4">
                 {obj.button}
             </Link>
         </section>

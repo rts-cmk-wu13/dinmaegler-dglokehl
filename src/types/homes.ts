@@ -1,7 +1,7 @@
 import type { DataImagesProps } from "./images";
 
 
-type UserProps = {
+export type UserProps = {
     confirmed: boolean;
     blocked: boolean;
 
@@ -10,7 +10,12 @@ type UserProps = {
     username: string;
     email: number;
     role: number;
-    id: number;
+    id: string;
+}
+
+export type UserDataProps = {
+    loginToken: string;
+    userData: UserProps;
 }
 
 

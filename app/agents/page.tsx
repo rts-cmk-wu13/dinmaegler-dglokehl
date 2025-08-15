@@ -15,7 +15,7 @@ export default async function Agents() {
 
             <div className="max-w-maxw-default py-24">
 
-                <CardGrid data={agents} type="agents" />
+                <CardGrid data={agents} dataType="agents" />
             </div>
         </PageWrapper>
     )
