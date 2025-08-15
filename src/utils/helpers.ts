@@ -1,6 +1,7 @@
 import { getCookie } from "./cookies"
 import { getUserData } from "./fetches"
 
+
 export async function getUserObj() {
     const loginToken = await getCookie("loginToken")
     if (loginToken) {
