@@ -176,6 +176,13 @@
         @apply cursor-pointer select-none duration-75 hover:opacity-75
     }
 
+    .hover-scale-sm {
+        @apply cursor-pointer select-none hover:scale-110 duration-200
+    }
+    .hover-scale-lg {
+        @apply cursor-pointer select-none hover:scale-101 duration-200
+    }
+
     .button {
         @apply px-8 inline-block bg-c-primary-1 text-c-white cursor-pointer
     }

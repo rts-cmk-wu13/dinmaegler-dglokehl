@@ -15,7 +15,7 @@ export default async function Homes(props: {
     }>;
 }) {
     const searchParams = await props.searchParams;
-    // console.log(searchParams)
+    // console.log("searchParams:", searchParams)
 
     let link = "https://dinmaegler.onrender.com/homes"
     if (searchParams) {
@@ -27,13 +27,13 @@ export default async function Homes(props: {
                 link += `&${key}=${value}`
             }
             index++
-            // console.log(`${key}: ${value}`);
+            // console.log(`key: ${key}:, value: ${value}`);
         }
     }
 
     const data = await fetch(link)
     let homes = await data.json()
-    console.log(homes)
+    console.log("homes:", homes)
 
     const userData = await getUserObj()
 

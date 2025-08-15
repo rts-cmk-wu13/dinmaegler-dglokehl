@@ -1,17 +1,20 @@
 import { setCookie, getCookie } from "./cookies";
 
 
-export async function getUserData (loginToken: string) {
-    const response = await fetch(`https://dinmaegler.onrender.com/users/me`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + loginToken
-        }
-    });
-    const responseData = await response.json();
+export async function getUserData () {
+    const loginToken = await getCookie("loginToken")
+    if (loginToken) {
+        const response = await fetch(`https://dinmaegler.onrender.com/users/me`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + loginToken.value
+            }
+        });
+        const responseData = await response.json();
 
-    return responseData
+        return responseData
+    }
 }
 
 

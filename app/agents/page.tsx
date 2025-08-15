@@ -7,7 +7,7 @@ import CardGrid from "@/components/CardGrid";
 export default async function Agents() {
     const data = await fetch("https://dinmaegler.onrender.com/agents")
     const agents = await data.json()
-    console.log(agents)
+    console.log("agents:", agents)
 
     return (
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">

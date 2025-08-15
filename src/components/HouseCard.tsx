@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { FaRegHeart, FaHeart } from "react-icons/fa6";
 
 import type { HomeProps, UserDataProps } from "@/types/homes"
+import { formatPrice, formatRemoveDecimals } from "@/utils/helpers";
 
 import EnergyLabel from "./EnergyLabel"
 import FavoriteButton from "./FavoriteButton";
@@ -16,8 +18,13 @@ type HouseCardProps = {
 export default async function HouseCard({ children, className, home, userObj, ...rest}: HouseCardProps) {
     return (
         <Link href={`/homes/${home.id}`} className="z-1">
-            <article className={`relative rounded-sm shadow-[0_10px_30px] shadow-black/6 ${className ? className : ""}`} {...rest}>
-                {userObj && <FavoriteButton homeId={home.id} userObj={userObj} />}
+            <article className={`relative rounded-sm shadow-[0_10px_30px] shadow-black/6 hover-scale-lg ${className ? className : ""}`} {...rest}>
+                {userObj && <FavoriteButton
+                    className="size-9 absolute top-6 right-6 z-99 *:size-5"
+                    homeId={home.id}
+                    userObj={userObj}
+                    icons={{ outline: <FaRegHeart />, fill: <FaHeart />}}
+                />}
 
                 <img src={home.images[0].formats.thumbnail.url} alt="" className="w-full h-56 object-cover rounded-t-sm" />
 
@@ -30,7 +37,7 @@ export default async function HouseCard({ children, className, home, userObj, ..
                             {String(home.postalcode)} {home.city}
                         </p>
                         <p className="body-2">
-                            <span className="body-6">{home.type}</span> · Ejerudgift: {home.cost} kr.
+                            <span className="body-6">{home.type}</span> · Ejerudgift: {formatPrice(home.cost)} kr.
                         </p>
                     </div>
 
@@ -41,12 +48,12 @@ export default async function HouseCard({ children, className, home, userObj, ..
                             <EnergyLabel label={home.energylabel} />
 
                             <p className="body-2">
-                                {home.rooms.slice(0,1)} værelser · {String(home.lotsize)} m²
+                                {home.rooms.slice(0,1)} værelser · {formatRemoveDecimals(home.floorplan.size)} m²
                             </p>
                         </div>
 
                         <p className="body-6">
-                            Kr. {String(home.price)}
+                            Kr. {formatPrice(home.price)}
                         </p>
                     </div>
                 </div>

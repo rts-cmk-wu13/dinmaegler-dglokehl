@@ -22,7 +22,7 @@ export default function LogoutButton({ children, className, ...rest}: LogoutButt
 
     return (
         <button className={`cursor-pointer ${className ? className : ""}`} onClick={handleLogout} {...rest}>
-            Log ud
+            {children}
         </button>
     )
 }

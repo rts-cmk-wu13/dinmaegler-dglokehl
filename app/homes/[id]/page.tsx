@@ -1,9 +1,10 @@
-import type { HomeProps } from "@/types/homes";
-import { IoImageOutline, IoLayersOutline, IoLocationOutline, IoHeartOutline } from "react-icons/io5";
+import type { HomeProps, UserDataProps } from "@/types/homes";
 
 import PageWrapper from "@/components/PageWrapper";
 import AgentContact from "@/components/AgentContact";
+import HouseLightbox from "@/components/HouseLightbox";
 
+import { getUserObj, formatPrice, formatRemoveDecimals } from "@/utils/helpers";
 
 interface ParamsProps {
     params: {
@@ -17,43 +18,15 @@ export default async function Home({ params }: ParamsProps) {
 
     const data = await fetch(`https://dinmaegler.onrender.com/homes/${id}`)
     const home: HomeProps = await data.json()
-    console.log(home)
+    console.log("home:", home)
+
+    const userObj = await getUserObj()
 
     return (
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">
-            <img src={home.images[0].url} alt="" className="w-full h-195 object-cover" />
+            <HouseLightbox userObj={userObj} home={home} />
 
             <div className="pt-10 pb-60 max-w-maxw-default">
-                <div className="flex justify-between">
-                    <div className="heading-4">
-                        <h1>
-                            {home.adress1}
-                        </h1>
-                        <h2>
-                            {home.postalcode} {home.city}
-                        </h2>
-                    </div>
-
-                    <ul className="flex justify-center items-center gap-12 *:*:size-12 *:*:cursor-pointer">
-                        <li>
-                            <IoImageOutline />
-                        </li>
-                        <li>
-                            <IoLayersOutline />
-                        </li>
-                        <li>
-                            <IoLocationOutline />
-                        </li>
-                        <li>
-                            <IoHeartOutline />
-                        </li>
-                    </ul>
-
-                    <h2 className="heading-2">
-                        Kr. {home.price}
-                    </h2>
-                </div>
-
 
                 <hr className="my-8 border-c-shape-1" />
 
@@ -64,10 +37,10 @@ export default async function Home({ params }: ParamsProps) {
                             Sagsnummer: <span>123456789</span>
                         </li>
                         <li>
-                            Boligareal: <span>{home.livingspace} m²</span>
+                            Boligareal: <span>{formatRemoveDecimals(home.livingspace)} m²</span>
                         </li>
                         <li>
-                            Grundareal: <span>{home.lotsize} m²</span>
+                            Grundareal: <span>{formatRemoveDecimals(home.lotsize)} m²</span>
                         </li>
                         <li>
                             Rum/værelser: <span>{home.rooms}</span>
@@ -79,7 +52,7 @@ export default async function Home({ params }: ParamsProps) {
 
                     <ul>
                         <li>
-                            Kælder: <span>{home.basementsize}</span>
+                            Kælder: <span>{formatRemoveDecimals(home.basementsize)}</span>
                         </li>
                         <li>
                             Byggeår: <span>{home.built}</span>
@@ -94,16 +67,16 @@ export default async function Home({ params }: ParamsProps) {
 
                     <ul>
                         <li>
-                            Udbetaling: <span>{home.payment}</span>
+                            Udbetaling: <span>{formatPrice(home.payment)} kr.</span>
                         </li>
                         <li>
-                            Brutto ex ejerudgift: <span>{home.gross}</span>
+                            Brutto ex ejerudgift: <span>{formatPrice(home.gross)} kr.</span>
                         </li>
                         <li>
-                            Netto ex ejerudgift: <span>{home.netto}</span>
+                            Netto ex ejerudgift: <span>{formatPrice(home.netto)} kr.</span>
                         </li>
                         <li>
-                            Ejerudgifter: <span>{home.cost}</span>
+                            Ejerudgifter: <span>{formatPrice(home.cost)} kr.</span>
                         </li>
                     </ul>
                 </div>
@@ -123,7 +96,7 @@ export default async function Home({ params }: ParamsProps) {
                         <h2 className="heading-3">
                             Ansvarlig mægler:
                         </h2>
-                        <AgentContact agent={home.agent} className="p-10 pr-24" />
+                        <AgentContact agent={home.agent} className="p-10 pr-24 inset-shadow-default" />
                     </section>
                 </div>
             </div>

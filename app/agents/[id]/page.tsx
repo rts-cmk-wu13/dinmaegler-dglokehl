@@ -21,7 +21,7 @@ export default async function Agent({ params }: ParamsProps) {
 
     const data = await fetch(`https://dinmaegler.onrender.com/agents/${id}`)
     const agent: AgentProps = await data.json()
-    console.log(agent)
+    console.log("agent:", agent)
 
     return (
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">

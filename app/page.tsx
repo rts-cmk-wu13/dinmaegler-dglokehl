@@ -15,11 +15,11 @@ import { getUserObj } from "@/utils/helpers";
 export default async function Index() {
     const homesData = await fetch('https://dinmaegler.onrender.com/homes?_limit=4')
     const homes = await homesData.json()
-    console.log(homes)
+    console.log("homes:", homes)
 
     const agentsData = await fetch('https://dinmaegler.onrender.com/agents?_limit=3')
     const agents = await agentsData.json()
-    console.log(agents)
+    console.log("agents:", agents)
 
     const userObj = await getUserObj()
 
