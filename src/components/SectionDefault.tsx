@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Button from "./Button"
 
 type SectionDefaultProps = {
     children?: React.ReactNode
@@ -25,9 +25,9 @@ export default function SectionDefault({ children, className, obj, ...rest}: Sec
 
             {children}
 
-            <Link href={obj.href} className="button hover-75 py-4">
+            <Button href={obj.href} className="!py-4">
                 {obj.button}
-            </Link>
+            </Button>
         </section>
     )
 }

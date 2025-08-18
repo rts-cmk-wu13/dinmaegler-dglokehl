@@ -2,8 +2,8 @@ import PageWrapper from "@/components/PageWrapper";
 import PageHeading from "@/components/PageHeading";
 
 import CardGrid from "@/components/CardGrid";
-import PriceRange from "@/components/PriceRange";
-import HomeType from "@/components/HomeType";
+import PriceRange from "@/components/house/PriceRange";
+import HomeType from "@/components/house/HomeType";
 
 import { getUserObj } from "@/utils/helpers";
 

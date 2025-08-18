@@ -1,7 +1,7 @@
 "use client"
 
-import { deleteCookie } from "@/utils/cookies"
 import { useRouter } from 'next/navigation'
+import { deleteCookie } from "@/utils/cookies"
 
 type LogoutButtonProps = {
     children?: React.ReactNode

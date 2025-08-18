@@ -1,10 +1,9 @@
 type PageHeadingProps = {
-    children?: React.ReactNode
     className?: string;
     heading: string
 }
 
-export default function PageHeading({ children, className, heading, ...rest}: PageHeadingProps) {
+export default function PageHeading({ className, heading, ...rest}: PageHeadingProps) {
     return (
         <div className={`w-full relative grid place-items-center ${className ? className : ""}`} {...rest}>
             <h1 className="heading-main absolute z-9">

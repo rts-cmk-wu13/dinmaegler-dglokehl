@@ -3,7 +3,7 @@ import { FaPhone, FaPaperPlane, FaLocationDot } from "react-icons/fa6";
 
 import PageWrapper from "@/components/PageWrapper";
 import PageHeading from "@/components/PageHeading";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/forms/ContactForm";
 
 
 export default async function Contact() {

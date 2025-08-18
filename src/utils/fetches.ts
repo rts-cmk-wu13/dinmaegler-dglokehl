@@ -1,4 +1,6 @@
 import { setCookie, getCookie } from "./cookies";
+import type { HomeProps } from "@/types/homes";
+import { addToStorage } from "./localStorage";
 
 
 export async function getUserData () {

@@ -6,10 +6,9 @@ import { IoImageOutline, IoLayersOutline, IoLocationOutline, IoHeartOutline, IoH
 import type { HomeProps, UserDataProps } from "@/types/homes";
 import { formatPrice } from "@/utils/helpers";
 
-import FavoriteButton from "@/components/FavoriteButton";
+import FavoriteButton from "./FavoriteButton";
 
 type HouseLightboxProps = {
-    children?: React.ReactNode
     className?: string;
     userObj?: UserDataProps;
     home: HomeProps;

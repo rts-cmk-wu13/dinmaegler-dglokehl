@@ -4,12 +4,11 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { handleNewsletter } from "@/utils/fetches";
 
 type NewsletterFormProps = {
-    children?: React.ReactNode
     className?: string;
 }
 
 
-export default function NewsletterForm({ children, className, ...rest}: NewsletterFormProps) {
+export default function NewsletterForm({ className, ...rest}: NewsletterFormProps) {
     return (
         <form
             action=""

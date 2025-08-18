@@ -5,14 +5,13 @@ import type { AgentProps } from "@/types/agents"
 
 
 type AgentCardProps = {
-    children?: React.ReactNode
     className?: string;
     agent: AgentProps;
 }
 
-export default function AgentCard({ children, className, agent, ...rest}: AgentCardProps) {
+export default function AgentCard({ className, agent, ...rest}: AgentCardProps) {
     return (
-        <article className={`rounded-sm shadow-[0_10px_30px] shadow-black/6 border-1 border-c-shape-1 hover-scale-lg ${className ? className : ""}`} {...rest}>
+        <article className={`rounded-sm shadow-default hover-scale-lg ${className ? className : ""}`} {...rest}>
             <Link href={`/agents/${agent.id}`}>
                 <img src={agent.image.formats.thumbnail.url} alt="" className="w-full h-56 object-cover rounded-t-sm" />
             </Link>
@@ -25,15 +24,15 @@ export default function AgentCard({ children, className, agent, ...rest}: AgentC
                     {agent.title}
                 </p>
 
-                <div className="mt-4 flex justify-center items-center gap-4 *:size-6 *:*:size-full">
-                    <Link href={`tel:${agent.phone}`}>
+                {/* <div className="mt-4 flex justify-center items-center gap-4 *:size-6 *:*:size-full">
+                    <Link href={`tel:${agent.phone}`} className="hover-scale-sm">
                         <FaPhone />
                     </Link>
 
-                    <Link href={`mailto:${agent.email}`}>
+                    <Link href={`mailto:${agent.email}`} className="hover-scale-sm">
                         <FaEnvelope />
                     </Link>
-                </div>
+                </div> */}
             </div>
         </article>
     )

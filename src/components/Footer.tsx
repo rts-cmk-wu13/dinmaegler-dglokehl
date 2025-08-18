@@ -2,11 +2,10 @@ import Link from "next/link";
 import { FaPhone, FaPaperPlane, FaLocationDot } from "react-icons/fa6";
 
 type FooterProps = {
-    children?: React.ReactNode
     className?: string;
 }
 
-export default function Footer({ children, className, ...rest}: FooterProps) {
+export default function Footer({ className, ...rest}: FooterProps) {
     return (
         <footer className={`py-20 flex justify-center items-center bg-c-bg-1 ${className ? className : ""}`} {...rest}>
             <div className="max-w-maxw-default w-full">
@@ -30,7 +29,7 @@ export default function Footer({ children, className, ...rest}: FooterProps) {
                                         <p className="body-4 text-c-body-2">
                                             Ring til os
                                         </p>
-                                        <Link href="tel:+4570704000" className="text-button">
+                                        <Link href="tel:+4570704000" className="text-button hover:underline">
                                             +45 7070 4000
                                         </Link>
                                     </div>
@@ -45,7 +44,7 @@ export default function Footer({ children, className, ...rest}: FooterProps) {
                                         <p className="body-4 text-c-body-2">
                                             Send en mail
                                         </p>
-                                        <Link href="mailto:4000@dinmaegler.com" className="text-button">
+                                        <Link href="mailto:4000@dinmaegler.com" className="text-button hover:underline">
                                             4000@dinmaegler.com
                                         </Link>
                                     </div>
@@ -60,9 +59,9 @@ export default function Footer({ children, className, ...rest}: FooterProps) {
                                         <p className="body-4 text-c-body-2">
                                             Butik
                                         </p>
-                                        <p className="text-button">
+                                        <Link href="https://maps.app.goo.gl/fcRgnySdCMnvbxix7" target="_blank" className="text-button hover:underline">
                                             Stændertorvet 78, 4000 Roskilde
-                                        </p>
+                                        </Link>
                                     </div>
                                 </li>
                             </ul>
@@ -76,7 +75,7 @@ export default function Footer({ children, className, ...rest}: FooterProps) {
                                 <h3 className="heading-3">
                                     Quick Links
                                 </h3>
-                                <ul className="mt-5 flex flex-col gap-3 body-1">
+                                <ul className="mt-5 flex flex-col gap-3 body-1 *:*:hover:underline">
                                     <li>
                                         <Link href="">
                                             Boliger til salg

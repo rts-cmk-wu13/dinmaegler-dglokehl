@@ -6,9 +6,12 @@ import { BsBuildingsFill } from "react-icons/bs";
 import PageWrapper from "@/components/PageWrapper";
 import SectionWrapper from "@/components/SectionWrapper";
 import SectionDefault from "@/components/SectionDefault";
+import Button from "@/components/Button";
 
 import CardGrid from "@/components/CardGrid";
-import NewsletterForm from "@/components/NewsletterForm";
+import NewsletterForm from "@/components/forms/NewsletterForm";
+import InfoCard from "@/components/InfoCard";
+import Search from "@/components/forms/Search";
 
 import { getUserObj } from "@/utils/helpers";
 
@@ -25,26 +28,64 @@ export default async function Index() {
     const userObj = await getUserObj()
 
 
+    const infoCardsLg = [
+        {
+            icon: <FaHouseLaptop />,
+            heading: "4829",
+            body: "boliger solgt",
+        },
+        {
+            icon: <FaHouseMedical />,
+            heading: "158",
+            body: "boliger til salg",
+        }
+    ]
+
+    const infoCardsSm = [
+        {
+            icon: <BsBuildingsFill />,
+            heading: "Bestil et salgstjek",
+            body: "Med et Din Mægler Salgstjek bliver du opdateret på værdien af din bolig.",
+        },
+        {
+            icon: <FaLocationDot />,
+            heading: "74 butikker",
+            body: "Hos Din Mægler er din bolig til salg i alle vores 74 butikker, som er fordelt rundt om i Danmark.",
+        },
+        {
+            icon: <FaUsersBetweenLines />,
+            heading: "Tilmeld køberkartotek",
+            body: "Når du er tilmeldt vores køberkartotek, bliver du kontaktet inden en ny bolig bliver annonceret.",
+        }
+    ]
+
+
     return (
         <PageWrapper className="flex flex-col *:w-full *:self-center">
             <div className="h-[698px] flex justify-center items-center relative">
                 <div className="max-w-4xl w-full absolute z-9">
                     <h1 className="text-5xl font-bold text-c-white text-center mb-10">Søg efter din drømmebolig</h1>
 
-                    <div className="p-8 bg-c-white">
+                    <div className="p-8 bg-c-white rounded-sm">
                         <h4 className="heading-4">
                             Søg blandt 158 boliger til salg i 74 butikker
                         </h4>
 
                         <hr className="mt-1 mb-5" />
 
-                        <label htmlFor="herosearch" className="pb-1 block body-2">
+                        <label htmlFor="search" className="pb-1 block body-2">
                             Hvad skal din næste bolig indeholde?
                         </label>
-                        <div className="h-12 flex gap-2.5 body-2 *:rounded-xs">
-                            <input type="search" name="herosearch" id="herosearch" placeholder="Søg på fx. glaskeramisk komfur, bryggers, kælder eller lignende" className="w-full p-2.5 border-1 border-c-shape-1 focus:outline-0 placeholder:text-c-body-2" />
-                            <input type="submit" value="Søg" className="button hover-75 px-10" />
-                        </div>
+
+                        <Search>
+                            <input
+                                type="search"
+                                name="search"
+                                id="search"
+                                placeholder="Søg på fx. glaskeramisk komfur, bryggers, kælder eller lignende"
+                                className="size-full p-2.5 border-1 border-c-shape-1 focus:outline-0 placeholder:text-c-body-2"
+                            />
+                        </Search>
                     </div>
                 </div>
 
@@ -54,17 +95,15 @@ export default async function Index() {
 
             <div className="py-32 max-w-maxw-default">
                 <section className="flex gap-32">
-                    <div className="relative size-[448px]">
-                        <div className="absolute top-8 left-8 z-9 size-full">
-                            <div className="size-full relative inset-shadow-[0_0_0_12px] inset-shadow-c-primary-1">
-                                <div className="size-[210px] absolute bottom-0 flex flex-col justify-center items-center gap-2 right-0 bg-c-primary-1 text-c-white text-center">
-                                    <p className="text-6xl font-bold">
-                                        38+
-                                    </p>
-                                    <p className="text-2xl">
-                                        års mægler-<br />erfaring
-                                    </p>
-                                </div>
+                    <div className="relative size-[448px] select-none">
+                        <div className="size-full absolute top-8 left-8 z-5 inset-shadow-[0_0_0_12px] inset-shadow-c-primary-1">
+                            <div className="p-9 absolute bottom-0 right-0 flex flex-col justify-center items-center gap-2 bg-c-primary-1 text-c-white text-center">
+                                <p className="text-6xl font-bold">
+                                    38+
+                                </p>
+                                <p className="text-2xl">
+                                    års mægler-<br />erfaring
+                                </p>
                             </div>
                         </div>
 
@@ -87,32 +126,9 @@ export default async function Index() {
                         </p>
 
                         <div className="mt-10 flex justify-between items-center">
-                            <div className="flex gap-5">
-                                <div className="size-16 grid place-items-center bg-c-shape-2">
-                                    <FaHouseLaptop className="size-10 text-c-primary-1" />
-                                </div>
-                                <div>
-                                    <h3 className="heading-3">
-                                        4829
-                                    </h3>
-                                    <p className="body-1">
-                                        boliger solgt
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex gap-5">
-                                <div className="size-16 grid place-items-center bg-c-shape-2">
-                                    <FaHouseMedical className="size-10 text-c-primary-1" />
-                                </div>
-                                <div>
-                                    <h3 className="heading-3">
-                                        158
-                                    </h3>
-                                    <p className="body-1">
-                                        boliger til salg
-                                    </p>
-                                </div>
-                            </div>
+                            {infoCardsLg.map((card, i) =>
+                                <InfoCard card={card} size="size-16" key={i} />
+                            )}
                         </div>
                     </div>
                 </section>
@@ -122,47 +138,9 @@ export default async function Index() {
 
 
                 <div className="grid grid-cols-3 gap-8">
-                    <article className="flex gap-3">
-                        <div className="size-12 grid place-items-center bg-c-shape-2">
-                            <BsBuildingsFill className="size-9 text-c-primary-1" />
-                        </div>
-                        <div className="flex-1">
-                            <h3 className="heading-3">
-                                Bestil et salgstjek
-                            </h3>
-                            <p className="mt-4 body-1">
-                                Med et Din Mægler Salgstjek bliver du opdateret på værdien af din bolig.
-                            </p>
-                        </div>
-                    </article>
-
-                    <article className="flex gap-3">
-                        <div className="size-12 grid place-items-center bg-c-shape-2">
-                            <FaLocationDot className="size-9 text-c-primary-1" />
-                        </div>
-                        <div className="flex-1">
-                            <h3 className="heading-3">
-                                74 butikker
-                            </h3>
-                            <p className="mt-4 body-1">
-                                Hos Din Mægler er din bolig til salg i alle vores 74 butikker, som er fordelt rundt om i Danmark.
-                            </p>
-                        </div>
-                    </article>
-
-                    <article className="flex gap-3">
-                        <div className="size-12 grid place-items-center bg-c-shape-2">
-                            <FaUsersBetweenLines className="size-9 text-c-primary-1" />
-                        </div>
-                        <div className="flex-1">
-                            <h3 className="heading-3">
-                                Tilmeld køberkartotek
-                            </h3>
-                            <p className="mt-4 body-1">
-                                Når du er tilmeldt vores køberkartotek, bliver du kontaktet inden en ny bolig bliver annonceret.
-                            </p>
-                        </div>
-                    </article>
+                    {infoCardsSm.map((card, i) =>
+                        <InfoCard card={card} key={i} />
+                    )}
                 </div>
             </div>
 
@@ -216,13 +194,13 @@ export default async function Index() {
                         </p>
 
                         <div className="mt-6 flex gap-4">
-                            <Link href="https://play.google.com/" target="_blank" className="px-8 py-4 size-fit flex items-center justify-center gap-1 bg-c-white text-button rounded-xs hover-75">
+                            <Button href="https://play.google.com/" target="_blank" className="bg-c-white text-button !text-c-primary-1">
                                 <FaGooglePlay className="size-6" /> Google Play
-                            </Link>
+                            </Button>
 
-                            <Link href="https://www.apple.com/app-store/" target="_blank" className="px-8 py-4 size-fit flex items-center justify-center gap-1 text-button text-c-white rounded-xs inset-shadow-[0_0_0_1px] inset-shadow-c-white hover-75">
+                            <Button href="https://www.apple.com/app-store/" target="_blank" className="text-button inset-shadow-[0_0_0_1px] inset-shadow-c-white">
                                 <FaApple className="size-6" /> Apple Store
-                            </Link>
+                            </Button>
                         </div>
                     </div>
 

@@ -4,21 +4,20 @@ import { FaRegHeart, FaHeart } from "react-icons/fa6";
 import type { HomeProps, UserDataProps } from "@/types/homes"
 import { formatPrice, formatRemoveDecimals } from "@/utils/helpers";
 
-import EnergyLabel from "./EnergyLabel"
+import EnergyLabel from "./EnergyLabel";
 import FavoriteButton from "./FavoriteButton";
 
 type HouseCardProps = {
-    children?: React.ReactNode
     className?: string;
     home: HomeProps;
     userObj?: UserDataProps;
 }
 
 
-export default async function HouseCard({ children, className, home, userObj, ...rest}: HouseCardProps) {
+export default async function HouseCard({ className, home, userObj, ...rest}: HouseCardProps) {
     return (
-        <Link href={`/homes/${home.id}`} className="z-1">
-            <article className={`relative rounded-sm shadow-[0_10px_30px] shadow-black/6 hover-scale-lg ${className ? className : ""}`} {...rest}>
+        <Link href={`/homes/${home.id}`}>
+            <article className={`relative rounded-sm shadow-default hover-scale-lg ${className ? className : ""}`} {...rest}>
                 {userObj && <FavoriteButton
                     className="size-9 absolute top-6 right-6 z-99 *:size-5"
                     homeId={home.id}

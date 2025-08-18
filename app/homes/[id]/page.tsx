@@ -1,8 +1,8 @@
 import type { HomeProps, UserDataProps } from "@/types/homes";
 
 import PageWrapper from "@/components/PageWrapper";
-import AgentContact from "@/components/AgentContact";
-import HouseLightbox from "@/components/HouseLightbox";
+import AgentContact from "@/components/agent/AgentContact";
+import HouseLightbox from "@/components/house/HouseLightbox";
 
 import { getUserObj, formatPrice, formatRemoveDecimals } from "@/utils/helpers";
 

@@ -1,18 +1,17 @@
-import HouseCard from "./HouseCard";
-import AgentCard from "./AgentCard";
+import HouseCard from "./house/HouseCard";
+import AgentCard from "./agent/AgentCard";
 
 import type { HomeProps, UserDataProps } from "@/types/homes";
 import type { AgentProps } from "@/types/agents";
 
 type CardGridProps = {
-    children?: React.ReactNode
     className?: string;
     data: HomeProps[] & AgentProps[];
     dataType: string;
     userObj?: UserDataProps;
 }
 
-export default async function CardGrid({ children, className, data, dataType, userObj, ...rest}: CardGridProps) {
+export default async function CardGrid({ className, data, dataType, userObj, ...rest}: CardGridProps) {
     if (dataType === "homes") {
         return (
             <div className={`w-full grid grid-cols-2 gap-7 ${className ? className : ""}`} {...rest}>

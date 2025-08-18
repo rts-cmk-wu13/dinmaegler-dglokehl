@@ -2,9 +2,10 @@ import Link from "next/link";
 
 import PageWrapper from "@/components/PageWrapper";
 import PageHeading from "@/components/PageHeading";
+import Button from "@/components/Button";
 
-import FormField from "@/components/FormField";
-import AuthForm from "@/components/AuthForm";
+import FormField from "@/components/forms/FormField";
+import AuthForm from "@/components/forms/AuthForm";
 
 import { hasCookie } from "@/utils/cookies";
 import { redirect } from 'next/navigation'
@@ -43,7 +44,9 @@ export default async function SignupPage() {
                             <input type="password" name="password2" id="password2" placeholder="Bekræft password" />
                         </FormField>
 
-                        <input type="submit" value="Log ind" className="button hover-75 py-4 w-full" />
+                        <Button className="!py-4 !w-full">
+                            Opret bruger
+                        </Button>
                     </div>
 
                     <p className="body-1 text-center">

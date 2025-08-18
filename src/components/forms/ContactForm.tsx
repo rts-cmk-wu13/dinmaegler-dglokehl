@@ -1,23 +1,23 @@
+import Button from "../Button"
 import FormField from "./FormField"
 
 type ContactFormProps = {
-    children?: React.ReactNode
     className?: string;
 
     heading?: string;
     newsletter?: boolean;
 }
 
-export default function ContactForm({ children, className, heading, newsletter, ...rest}: ContactFormProps) {
+export default function ContactForm({ className, heading, newsletter, ...rest}: ContactFormProps) {
     return (
-        <form action="" className={`p-10 inset-shadow-default ${className ? className : ""}`} {...rest}>
+        <form action="" className={`p-10 inset-shadow-default rounded-sm ${className ? className : ""}`} {...rest}>
             {heading ? (
                 <h2 className="mb-3 heading-4">
                     {heading}
                 </h2>
             ) : ""}
 
-            <div className="grid grid-cols-2 gap-5">
+            <div className="mb-7.5 grid grid-cols-2 gap-5">
                 <FormField label="Navn">
                     <input type="text" name="name" id="name" placeholder="Indtast navn" />
                 </FormField>
@@ -39,7 +39,9 @@ export default function ContactForm({ children, className, heading, newsletter, 
             </div>
 
 
-            <input type="submit" value="Send besked" className="button hover-75 py-4 mt-7.5 rounded-xs" />
+            <Button className="!py-4 mt-7.5">
+                Send besked
+            </Button>
         </form>
     )
 }

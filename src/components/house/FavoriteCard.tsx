@@ -7,7 +7,8 @@ import type { HomeProps, UserDataProps } from "@/types/homes";
 import { addToFavorites } from "@/utils/fetches";
 import { formatPrice, formatRemoveDecimals } from "@/utils/helpers";
 
-import EnergyLabel from "@/components/EnergyLabel";
+import EnergyLabel from "./EnergyLabel";
+import Button from "../Button";
 
 type FavoriteCardProps = {
     className?: string;
@@ -60,9 +61,9 @@ export default function FavoriteCard({ className, home, userObj, ...rest}: Favor
                         </p>
                     </div>
 
-                    <button className="button py-4 hover-75" onClick={handleRemove}>
+                    <Button className="!py-4" onClick={handleRemove}>
                         Fjern fra favoritter
-                    </button>
+                    </Button>
                 </div>
             </article>
         </Link>

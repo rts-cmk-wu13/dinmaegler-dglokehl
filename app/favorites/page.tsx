@@ -1,6 +1,6 @@
 import PageWrapper from "@/components/PageWrapper";
 import PageHeading from "@/components/PageHeading";
-import FavoriteCard from "@/components/FavoriteCard";
+import FavoriteCard from "@/components/house/FavoriteCard";
 
 
 import { getUserObj } from "@/utils/helpers";

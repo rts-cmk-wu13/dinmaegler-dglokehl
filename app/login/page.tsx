@@ -2,9 +2,10 @@ import Link from "next/link";
 
 import PageWrapper from "@/components/PageWrapper";
 import PageHeading from "@/components/PageHeading";
+import Button from "@/components/Button";
 
-import FormField from "@/components/FormField";
-import AuthForm from "@/components/AuthForm";
+import FormField from "@/components/forms/FormField";
+import AuthForm from "@/components/forms/AuthForm";
 
 import { hasCookie } from "@/utils/cookies";
 import { redirect } from 'next/navigation'
@@ -35,7 +36,9 @@ export default async function LoginPage() {
                             <input type="password" name="password" id="password" placeholder="Password" />
                         </FormField>
 
-                        <input type="submit" value="Log ind" className="button hover-75 py-4 w-full" />
+                        <Button className="!py-4 w-full">
+                            Log ind
+                        </Button>
                     </div>
 
                     <div>
@@ -43,15 +46,15 @@ export default async function LoginPage() {
                             Log ind med
                         </p>
                         <div className="grid grid-cols-3 gap-4">
-                            <button className="button hover-75 py-4 bg-[#DD4B39]">
+                            <Button className="!py-4 !bg-[#DD4B39]">
                                 Google
-                            </button>
-                            <button className="button hover-75 py-4 bg-[#3B5999]">
+                            </Button>
+                            <Button className="!py-4 !bg-[#3B5999]">
                                 Facebook
-                            </button>
-                            <button className="button hover-75 py-4 bg-[#1DA1F2]">
+                            </Button>
+                            <Button className="!py-4 !bg-[#1DA1F2]">
                                 Twitter
-                            </button>
+                            </Button>
                         </div>
                     </div>
 

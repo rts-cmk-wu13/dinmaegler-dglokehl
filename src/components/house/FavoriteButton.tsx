@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react";
-import { FaRegHeart, FaHeart } from "react-icons/fa6";
 import type { UserDataProps } from "@/types/homes";
 
 import { addToFavorites } from "@/utils/fetches";

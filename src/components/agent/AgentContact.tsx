@@ -13,7 +13,7 @@ export default function AgentContact({ className, agent, outline, ...rest}: Agen
     return (
         <article className={`w-fit flex gap-8 ${outline ? "inset-shadow-[0_0_0_1px] inset-shadow-c-shape-1" : ""} ${className ? className : ""}`} {...rest}>
             <figure className="relative">
-                <img src={agent.image.url} alt="" className="size-70 object-cover" />
+                <img src={agent.image.url} alt="" className="size-70 object-cover rounded-sm" />
             </figure>
 
             <div className="py-2.5">
@@ -26,13 +26,15 @@ export default function AgentContact({ className, agent, outline, ...rest}: Agen
 
                 <hr className="mt-4 mb-5" />
 
-                <Link href={`tel:${agent.phone}`} className="mb-3 flex items-center gap-4 body-1">
-                    <FaPhone className="size-5" /> {agent.phone}
-                </Link>
+                <div className="flex flex-col gap-3 body-1 *:flex *:items-center *:gap-4 *:hover:underline">
+                    <Link href={`tel:${agent.phone}`}>
+                        <FaPhone className="size-5" /> {agent.phone}
+                    </Link>
 
-                <Link href={`mailto:${agent.email}`} className="flex items-center gap-4 body-1">
-                    <FaPaperPlane className="size-5" /> {agent.email}
-                </Link>
+                    <Link href={`mailto:${agent.email}`}>
+                        <FaPaperPlane className="size-5" /> {agent.email}
+                    </Link>
+                </div>
             </div>
         </article>
     )
