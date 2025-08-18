@@ -1,5 +1,4 @@
 import { setCookie } from "@/utils/cookies";
-import { getUserData } from "@/utils/fetches";
 
 type LoginDataProps = {
     email: string;
@@ -35,11 +34,8 @@ export async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     console.log("responseData: ", responseData);
 
     if (responseData.jwt) {
-        const userData = await getUserData(responseData.jwt)
-        if (userData) {
-            setCookie("loginToken", responseData.jwt)
-            setCookie("userId", userData.id)
-        }
+        setCookie("loginToken", responseData.jwt)
+        setCookie("userId", responseData.user.id)
     }
 }
 

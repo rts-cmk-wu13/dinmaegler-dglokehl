@@ -34,3 +34,24 @@ export async function addToFavorites (homesArray: string[], loginToken: any, use
         console.log("responseData", responseData);
     }
 }
+
+
+export async function handleNewsletter (e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+
+    const formData = new FormData(e.currentTarget)
+    const newsletterData = Object.fromEntries(formData.entries());
+
+    const response = await fetch(`https://dinmaegler.onrender.com/subscribers`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "email": newsletterData.newsletter
+        })
+    });
+
+    const responseData = await response.json();
+    console.log("responseData: ", responseData);
+}

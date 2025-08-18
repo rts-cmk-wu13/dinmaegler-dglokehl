@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { FaHouseLaptop, FaHouseMedical, FaLocationDot, FaUsersBetweenLines, FaArrowRightLong, FaGooglePlay, FaApple } from "react-icons/fa6";
+import { FaHouseLaptop, FaHouseMedical, FaLocationDot, FaUsersBetweenLines, FaGooglePlay, FaApple } from "react-icons/fa6";
 import { BsBuildingsFill } from "react-icons/bs";
 
 import PageWrapper from "@/components/PageWrapper";
@@ -8,6 +8,7 @@ import SectionWrapper from "@/components/SectionWrapper";
 import SectionDefault from "@/components/SectionDefault";
 
 import CardGrid from "@/components/CardGrid";
+import NewsletterForm from "@/components/NewsletterForm";
 
 import { getUserObj } from "@/utils/helpers";
 
@@ -184,10 +185,7 @@ export default async function Index() {
                         Tilmeld dig vores nyhedsbrev og hold dig opdateret på boligmarkedet
                     </h2>
 
-                    <div className="w-full flex items-center relative">
-                        <FaArrowRightLong className="w-7 h-auto absolute right-6 z-2" />
-                        <input type="text" name="newsletter" id="newsletter" placeholder="Indtast din email adresse" className="p-6 w-full bg-c-white rounded-sm" />
-                    </div>
+                    <NewsletterForm />
                 </div>
                 <figure className="size-full bg-c-multiply-5">
                     <img src="/building_background.jpg" alt="" className="size-full object-cover opacity-25 mix-blend-multiply" />
