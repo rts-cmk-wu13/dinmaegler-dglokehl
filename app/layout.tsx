@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Roboto } from 'next/font/google'
 
 import { ToastContainer } from 'react-toastify';
 
@@ -12,9 +13,14 @@ export const metadata = {
     },
 }
 
+const roboto = Roboto({
+    subsets: ['latin'],
+    display: 'swap',
+})
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en">
+        <html lang="en" className={roboto.className}>
             <body className="min-h-dvh flex flex-col bg-app-white text-app-black">
                 <ToastContainer hideProgressBar={true} pauseOnHover={false} autoClose={2500} style={{top: "10rem", zIndex: "99999999"}}/>
 

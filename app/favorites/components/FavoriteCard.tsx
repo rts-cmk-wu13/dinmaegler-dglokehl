@@ -1,6 +1,7 @@
 "use client"
-import { useRouter } from 'next/navigation'
 import Link from "next/link";
+import Image from "next/image";
+import { useRouter } from 'next/navigation'
 
 import EnergyLabel from "@/components/house/EnergyLabel";
 import Button from "@/components/Button";
@@ -34,7 +35,13 @@ export default function FavoriteCard({ className, home, userObj, ...rest}: Favor
     return (
         <Link href={`/homes/${home.id}`}>
             <article className={`p-9 flex gap-12 inset-shadow-default rounded-sm hover-scale-lg ${className ? className : ""}`} {...rest}>
-                <img src={home.images[0].formats.thumbnail.url} alt="" className="w-70 h-35 rounded-sm" />
+                <Image
+                    src={home.images[0].formats.thumbnail.url}
+                    alt={home.adress1}
+                    width={home.images[0].formats.thumbnail.width}
+                    height={home.images[0].formats.thumbnail.height}
+                    className="w-70 h-35 rounded-sm"
+                />
 
                 <div className="flex flex-col gap-2.5">
                     <h2 className="heading-4">

@@ -1,3 +1,9 @@
+import Image from "next/image";
+import HeroImage from "@/assets/img/hero_house.jpg"
+import FamilyPhotoImage from "@/assets/img/familyphoto.jpg"
+import BuildingBgImage from "@/assets/img/building_background.jpg"
+import iPhonesImage from "@/assets/img/iphones.png"
+
 import { FaHouseLaptop, FaHouseMedical, FaLocationDot, FaUsersBetweenLines, FaGooglePlay, FaApple } from "react-icons/fa6";
 import { BsBuildingsFill } from "react-icons/bs";
 
@@ -86,7 +92,11 @@ export default async function Index() {
                     </div>
                 </div>
 
-                <img src="/hero_house.jpg" alt="" className="size-full object-cover brightness-50" />
+                <Image
+                    src={HeroImage}
+                    alt=""
+                    className="size-full object-cover brightness-50"
+                />
             </div>
 
 
@@ -104,7 +114,11 @@ export default async function Index() {
                             </div>
                         </div>
 
-                        <img src="/familyphoto.jpg" alt="" className="size-full object-cover" />
+                        <Image
+                            src={FamilyPhotoImage}
+                            alt=""
+                            className="size-full object-cover"
+                        />
                     </div>
 
                     <div className="w-full flex-1">
@@ -163,7 +177,7 @@ export default async function Index() {
                     <NewsletterForm />
                 </div>
                 <figure className="size-full bg-c-multiply-5">
-                    <img src="/building_background.jpg" alt="" className="size-full object-cover opacity-25 mix-blend-multiply" />
+                    <Image src={BuildingBgImage} alt="" className="size-full object-cover opacity-25 mix-blend-multiply" />
                 </figure>
             </div>
 
@@ -201,7 +215,7 @@ export default async function Index() {
                         </div>
                     </div>
 
-                    <img src="/iphones.png" alt="" className="self-end" />
+                    <Image src={iPhonesImage} alt="" className="self-end" />
                 </div>
             </div>
 

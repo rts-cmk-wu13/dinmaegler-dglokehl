@@ -1,9 +1,12 @@
 "use client"
 
+import * as z from "zod";
 import { toast } from 'react-toastify';
 
 import Button from "../Button"
 import FormField from "./FormField"
+
+import { ContactSchema } from "@/api/schemas";
 
 type ContactFormProps = {
     className?: string;
@@ -20,26 +23,33 @@ export default function ContactForm({ className, heading, newsletter, ...rest}: 
         const formData = new FormData(e.currentTarget)
         const contactData = Object.fromEntries(formData.entries());
 
+        const result = ContactSchema.safeParse(contactData);
+        
+        if (!result.success) {
+            const zodError = z.flattenError(result.error);
+            // console.log(zodError)
+            const errorMsgs = Object.values(zodError.fieldErrors).flatMap(msgs => msgs ?? [])
+            errorMsgs.forEach(msg => {
+                toast.error(msg)
+            })
+        }
+
         const res = await fetch(`https://dinmaegler.onrender.com/contact`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                "name": contactData.name,
-                "email": contactData.email,
-                "subject": contactData.subject,
-                "message": contactData.message,
-                "newsletter": contactData.newsletter
-            })
+            body: JSON.stringify(result.data)
         });
 
         const responseData = await res.json();
         console.log("responseData: ", responseData);
 
         if (!res.ok) {
-            toast("Please enter a valid email address");
+            toast("Error submitting your message");
         }
+
+        toast.success("yay")
     }
 
     return (

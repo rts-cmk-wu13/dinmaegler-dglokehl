@@ -1,6 +1,8 @@
 "use client"
 
+import Form from "next/form";
 import { toast } from 'react-toastify';
+
 import { FaArrowRightLong } from "react-icons/fa6";
 
 type NewsletterFormProps = {
@@ -30,13 +32,15 @@ export default function NewsletterForm({ className, ...rest}: NewsletterFormProp
         console.log("responseData: ", responseData);
 
         if (!res.ok) {
-            toast("Please enter a valid email address");
+            toast.error("Please enter a valid email address");
+        } else {
+            toast.success("Du er nu tilmeldt vores nyhedsbrev");
         }
     }
 
 
     return (
-        <form
+        <Form
             action=""
             noValidate
             onSubmit={handleNewsletter}
@@ -49,6 +53,6 @@ export default function NewsletterForm({ className, ...rest}: NewsletterFormProp
             </button>
 
             <input type="email" name="newsletter" id="newsletter" placeholder="Indtast din email adresse" className="p-6 w-full bg-c-white rounded-sm focus:outline-0" />
-        </form>
+        </Form>
     )
 }

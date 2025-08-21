@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image";
 import { useState } from "react";
 import { IoImageOutline, IoLayersOutline, IoLocationOutline, IoHeartOutline, IoHeartSharp, IoClose, IoChevronBack, IoChevronForward } from "react-icons/io5";
 
@@ -70,13 +71,23 @@ export default function HouseLightbox({ className, userObj, home, ...rest}: Hous
                 {isOpen && lightboxType === "map" ? (
                     <iframe src={`https://www.openstreetmap.org/export/embed.html?bbox=${home.long}%2C${home.lat}%2C${home.long}%2C${home.lat}&amp;layer=mapnik&amp;marker=${home.lat}%2C${home.long}`} className="size-full"></iframe>
                 ) : (
-                    <img
+                    <Image
                         src={
                             isOpen && lightboxType === "gallery" ? home.images[galleryIndex].url :
                             isOpen && lightboxType === "plan" ? home.floorplan.url : 
                             home.images[0].url
                         }
-                        alt=""
+                        alt={home.adress1}
+                        width={
+                            isOpen && lightboxType === "gallery" ? home.images[galleryIndex].width :
+                            isOpen && lightboxType === "plan" ? home.floorplan.width : 
+                            home.images[0].width
+                        }
+                        height={
+                            isOpen && lightboxType === "gallery" ? home.images[galleryIndex].height :
+                            isOpen && lightboxType === "plan" ? home.floorplan.height : 
+                            home.images[0].height
+                        }
                         className={`object-cover ${isOpen ? "size-fit" : "w-full h-195"}`}
                     />
                 )}

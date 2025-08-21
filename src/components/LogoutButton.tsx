@@ -20,7 +20,8 @@ export default function LogoutButton({ children, className, ...rest}: LogoutButt
         deleteCookie("loginToken")
         deleteCookie("userId")
         router.refresh()
-        toast("Successfully logged out")
+
+        toast.success("Successfully logged out")
     }
 
     return (

@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { toast } from 'react-toastify';
 import { setCookie } from "@/utils/cookies";
 
@@ -37,7 +38,7 @@ export async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     if (responseData.jwt) {
         setCookie("loginToken", responseData.jwt)
         setCookie("userId", responseData.user.id)
-        toast("Successfully logged in")
+        toast.success("Successfully logged in")
     }
 }
 
@@ -50,17 +51,22 @@ export async function handleSignup(e: React.FormEvent<HTMLFormElement>) {
     const signupData = Object.fromEntries(formData.entries()) as SignupDataProps;
 
 
-    const response = await fetch(`https://dinmaegler.onrender.com/register/local`, {
+    const response = await fetch(`https://dinmaegler.onrender.com/auth/local/register`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            "name": signupData.name,
-            "identifier": signupData.email,
+            "username": signupData.name,
+            "email": signupData.email,
             "password": signupData.password
         })
     });
     const responseData = await response.json();
     console.log("responseData: ", responseData);
+
+    if (responseData.jwt) {
+        toast.success("Successfully signed up")
+        redirect(`/login`)
+    }
 }

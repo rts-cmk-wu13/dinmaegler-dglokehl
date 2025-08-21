@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 
-@font-face {
+/* @font-face {
     font-family: "Roboto";
     src: url("@/assets/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf")
         format("truetype-variations");
@@ -19,11 +19,11 @@
     font-stretch: 75% 100%;
     font-style: italic;
     font-display: swap;
-}
+} */
 
 
 @theme {
-    --font-roboto: "Roboto", sans-serif;
+    /* --font-roboto: "Roboto", sans-serif; */
 
     --spacing-padding-default: 1.5rem;
     --height-header-default: 9.5rem;
@@ -187,7 +187,7 @@
         @apply px-8 inline-block bg-c-primary-1 text-c-white cursor-pointer
     }
 }
-
+/* 
 body {
     font-family: var(--font-roboto);
-}
+} */

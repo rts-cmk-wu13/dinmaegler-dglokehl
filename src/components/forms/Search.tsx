@@ -1,12 +1,16 @@
 "use client"
-import { useState } from "react"
-import { useRouter, useSearchParams } from "next/navigation";
+
+import Form from "next/form";
 import Link from "next/link"
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react"
+import { toast } from 'react-toastify';
 
 import Button from "../Button"
 
 import { formatPrice } from "@/utils/helpers"
 import { HomeProps } from "@/types/homes"
+import Image from "next/image";
 
 type SearchProps = {
     children?: React.ReactNode
@@ -52,23 +56,15 @@ export default function Search({ children, className, agentId, ...rest}: SearchP
 
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-
-        const searchQ = e.currentTarget.search.value.toLowerCase().trim()
-        // console.log("searchQ:", searchQ)
-
-        if (searchQ === "") {
-            return
+        if (e.currentTarget.search.value === "") {
+            e.preventDefault()
         }
-        const params = new URLSearchParams(searchParams);
-        params.set('search', `${String(searchQ)}`);
-        router.push(`/homes?${params}`)
     }
 
 
     return (
-        <form
-            action=""
+        <Form
+            action="/homes/"
             noValidate
             onChange={handleChange}
             onSubmit={handleSubmit}
@@ -83,7 +79,13 @@ export default function Search({ children, className, agentId, ...rest}: SearchP
                     {homeArr.map((home, i) =>
                         <Link href={`/homes/${home.id}`} className="p-4 w-full flex justify-between items-center bg-c-white select-none hover:bg-black/10 duration-75 rounded-sm" key={i}>
                             <div className="flex items-center gap-4">
-                                <img src={home.images[0].formats.thumbnail.url} alt="" className="w-20 h-14 object-cover rounded-sm" />
+                                <Image
+                                    src={home.images[0].formats.thumbnail.url}
+                                    alt=""
+                                    width={home.images[0].formats.thumbnail.width}
+                                    height={home.images[0].formats.thumbnail.height}
+                                    className="w-20 h-14 object-cover rounded-sm"
+                                />
 
                                 <p className="body-2">
                                     {home.adress1}
@@ -107,6 +109,6 @@ export default function Search({ children, className, agentId, ...rest}: SearchP
                     Søg
                 </Button>
             )}
-        </form>
+        </Form>
     )
 }

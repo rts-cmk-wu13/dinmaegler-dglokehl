@@ -32,7 +32,7 @@ export default async function SignupPage() {
                         </h2>
 
                         <FormField label="Fulde navn">
-                            <input type="text" name="fullname" id="fullname" placeholder="Fulde navn" />
+                            <input type="text" name="name" id="name" placeholder="Fulde navn" />
                         </FormField>
 
                         <FormField label="Email">

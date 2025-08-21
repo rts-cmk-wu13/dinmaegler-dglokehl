@@ -1,3 +1,6 @@
+import Image from "next/image";
+import PageHeadingImage from "@/assets/img/page_heading_bg.jpg"
+
 type PageHeadingProps = {
     className?: string;
     heading: string
@@ -12,7 +15,7 @@ export default function PageHeading({ className, heading, ...rest}: PageHeadingP
             </h1>
 
             <figure className="w-full h-48 bg-c-multiply-1">
-                <img src="/page_heading_bg.jpg" alt="" className="size-full object-cover mix-blend-multiply" />
+                <Image src={PageHeadingImage} alt="" className="size-full object-cover mix-blend-multiply" />
             </figure>
         </div>
     )

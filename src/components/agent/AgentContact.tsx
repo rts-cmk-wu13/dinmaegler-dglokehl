@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image";
 import { FaPhone, FaPaperPlane } from "react-icons/fa6";
 
 import type { AgentProps } from "@/types/agents";
@@ -13,7 +14,12 @@ export default function AgentContact({ className, agent, outline, ...rest}: Agen
     return (
         <article className={`w-fit flex gap-8 ${outline ? "inset-shadow-[0_0_0_1px] inset-shadow-c-shape-1" : ""} ${className ? className : ""}`} {...rest}>
             <figure className="relative">
-                <img src={agent.image.url} alt="" className="size-70 object-cover rounded-sm" />
+                <Image
+                    src={agent.image.url}
+                    alt={agent.name}
+                    width={agent.image.width}
+                    height={agent.image.height}
+                    className="size-70 object-cover rounded-sm" />
             </figure>
 
             <div className="py-2.5">

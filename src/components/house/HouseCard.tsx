@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FaRegHeart, FaHeart } from "react-icons/fa6";
 
 import EnergyLabel from "./EnergyLabel";
@@ -26,7 +27,13 @@ export default async function HouseCard({ className, home, userObj, ...rest}: Ho
                     icons={{ outline: <FaRegHeart />, fill: <FaHeart />}}
                 />}
 
-                <img src={home.images[0].formats.thumbnail.url} alt="" className="w-full h-56 object-cover rounded-t-sm" />
+                <Image
+                    src={home.images[0].formats.thumbnail.url}
+                    alt={home.adress1}
+                    width={home.images[0].formats.thumbnail.width}
+                    height={home.images[0].formats.thumbnail.height}
+                    className="w-full h-56 object-cover rounded-t-sm"
+                />
 
                 <div className="p-6 flex flex-col gap-4">
                     <div className="flex flex-col gap-2.5">
