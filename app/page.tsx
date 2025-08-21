@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { FaHouseLaptop, FaHouseMedical, FaLocationDot, FaUsersBetweenLines, FaGooglePlay, FaApple } from "react-icons/fa6";
 import { BsBuildingsFill } from "react-icons/bs";
 
@@ -8,21 +6,20 @@ import SectionWrapper from "@/components/SectionWrapper";
 import SectionDefault from "@/components/SectionDefault";
 import Button from "@/components/Button";
 
-import CardGrid from "@/components/CardGrid";
 import NewsletterForm from "@/components/forms/NewsletterForm";
 import InfoCard from "@/components/InfoCard";
 import Search from "@/components/forms/Search";
+import HouseGrid from "@/components/house/HouseGrid";
+import AgentGrid from "@/components/agent/AgentGrid";
 
-import { getUserObj } from "@/utils/helpers";
+import { getAgentsData, getHomesData, getUserObj } from "@/api/fetches";
 
 
 export default async function Index() {
-    const homesData = await fetch('https://dinmaegler.onrender.com/homes?_limit=4')
-    const homes = await homesData.json()
+    const homes = await getHomesData("https://dinmaegler.onrender.com/homes?_limit=4")
     console.log("homes:", homes)
 
-    const agentsData = await fetch('https://dinmaegler.onrender.com/agents?_limit=3')
-    const agents = await agentsData.json()
+    const agents = await getAgentsData("https://dinmaegler.onrender.com/agents?_limit=3")
     console.log("agents:", agents)
 
     const userObj = await getUserObj()
@@ -152,7 +149,7 @@ export default async function Index() {
                     href: "/homes",
                     button: "Se alle boliger"
                 }}>
-                    {<CardGrid data={homes} dataType="homes" userObj={userObj} />}
+                    {<HouseGrid data={homes} userObj={userObj} />}
                 </SectionDefault>
             </SectionWrapper>
 
@@ -178,7 +175,7 @@ export default async function Index() {
                     href: "/agents",
                     button: "Se alle mæglere"
                 }}>
-                    <CardGrid data={agents} dataType="agents" />
+                    <AgentGrid data={agents} />
                 </SectionDefault>
             </SectionWrapper>
 

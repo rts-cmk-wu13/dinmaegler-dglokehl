@@ -5,6 +5,7 @@ type FooterProps = {
     className?: string;
 }
 
+
 export default function Footer({ className, ...rest}: FooterProps) {
     return (
         <footer className={`py-20 flex justify-center items-center bg-c-bg-1 ${className ? className : ""}`} {...rest}>

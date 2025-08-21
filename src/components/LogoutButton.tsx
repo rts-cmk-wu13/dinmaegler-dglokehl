@@ -1,5 +1,6 @@
 "use client"
 
+import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation'
 import { deleteCookie } from "@/utils/cookies"
 
@@ -7,6 +8,7 @@ type LogoutButtonProps = {
     children?: React.ReactNode
     className?: string;
 }
+
 
 export default function LogoutButton({ children, className, ...rest}: LogoutButtonProps) {
     const router = useRouter()
@@ -18,6 +20,7 @@ export default function LogoutButton({ children, className, ...rest}: LogoutButt
         deleteCookie("loginToken")
         deleteCookie("userId")
         router.refresh()
+        toast("Successfully logged out")
     }
 
     return (

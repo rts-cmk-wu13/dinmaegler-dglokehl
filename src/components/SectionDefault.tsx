@@ -11,6 +11,7 @@ type SectionDefaultProps = {
     }
 }
 
+
 export default function SectionDefault({ children, className, obj, ...rest}: SectionDefaultProps) {
     return (
         <section className={`flex flex-col items-center gap-14 ${className ? className : ""}`} {...rest}>

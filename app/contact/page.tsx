@@ -5,6 +5,10 @@ import PageWrapper from "@/components/PageWrapper";
 import PageHeading from "@/components/PageHeading";
 import ContactForm from "@/components/forms/ContactForm";
 
+export const metadata = {
+    title: 'Kontakt os',
+}
+
 
 export default async function Contact() {
     return (

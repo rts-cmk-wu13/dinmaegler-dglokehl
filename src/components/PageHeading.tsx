@@ -3,6 +3,7 @@ type PageHeadingProps = {
     heading: string
 }
 
+
 export default function PageHeading({ className, heading, ...rest}: PageHeadingProps) {
     return (
         <div className={`w-full relative grid place-items-center ${className ? className : ""}`} {...rest}>

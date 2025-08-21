@@ -1,10 +1,23 @@
-import type { HomeProps, UserDataProps } from "@/types/homes";
-
 import PageWrapper from "@/components/PageWrapper";
 import AgentContact from "@/components/agent/AgentContact";
 import HouseLightbox from "@/components/house/HouseLightbox";
 
-import { getUserObj, formatPrice, formatRemoveDecimals } from "@/utils/helpers";
+import { getHomeData, getUserObj } from "@/api/fetches";
+import { formatPrice, formatRemoveDecimals } from "@/utils/helpers";
+
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
+
+    const data = await fetch(`https://dinmaegler.onrender.com/homes/${id}`).then((res) =>
+        res.json()
+    )
+
+    return {
+        title: data.adress1
+    }
+}
+
 
 interface ParamsProps {
     params: {
@@ -12,12 +25,10 @@ interface ParamsProps {
     };
 }
 
-
 export default async function Home({ params }: ParamsProps) {
     const { id } = await params;
 
-    const data = await fetch(`https://dinmaegler.onrender.com/homes/${id}`)
-    const home: HomeProps = await data.json()
+    const home = await getHomeData(id)
     console.log("home:", home)
 
     const userObj = await getUserObj()

@@ -1,14 +1,17 @@
+import { redirect } from 'next/navigation'
 import Link from "next/link";
 
 import PageWrapper from "@/components/PageWrapper";
 import PageHeading from "@/components/PageHeading";
 import Button from "@/components/Button";
-
 import FormField from "@/components/forms/FormField";
 import AuthForm from "@/components/forms/AuthForm";
 
 import { hasCookie } from "@/utils/cookies";
-import { redirect } from 'next/navigation'
+
+export const metadata = {
+    title: 'Log ind',
+}
 
 
 export default async function LoginPage() {

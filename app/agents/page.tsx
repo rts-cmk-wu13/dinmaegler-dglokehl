@@ -1,12 +1,16 @@
 import PageWrapper from "@/components/PageWrapper";
 import PageHeading from "@/components/PageHeading";
+import AgentGrid from "@/components/agent/AgentGrid";
 
-import CardGrid from "@/components/CardGrid";
+import { getAgentsData } from "@/api/fetches";
+
+export const metadata = {
+    title: 'Mæglere',
+}
 
 
 export default async function Agents() {
-    const data = await fetch("https://dinmaegler.onrender.com/agents")
-    const agents = await data.json()
+    const agents = await getAgentsData("https://dinmaegler.onrender.com/agents")
     console.log("agents:", agents)
 
     return (
@@ -15,7 +19,7 @@ export default async function Agents() {
 
             <div className="max-w-maxw-default py-24">
 
-                <CardGrid data={agents} dataType="agents" />
+                <AgentGrid data={agents} />
             </div>
         </PageWrapper>
     )

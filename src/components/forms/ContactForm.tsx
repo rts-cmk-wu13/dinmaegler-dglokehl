@@ -1,3 +1,7 @@
+"use client"
+
+import { toast } from 'react-toastify';
+
 import Button from "../Button"
 import FormField from "./FormField"
 
@@ -8,9 +12,44 @@ type ContactFormProps = {
     newsletter?: boolean;
 }
 
+
 export default function ContactForm({ className, heading, newsletter, ...rest}: ContactFormProps) {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        const formData = new FormData(e.currentTarget)
+        const contactData = Object.fromEntries(formData.entries());
+
+        const res = await fetch(`https://dinmaegler.onrender.com/contact`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "name": contactData.name,
+                "email": contactData.email,
+                "subject": contactData.subject,
+                "message": contactData.message,
+                "newsletter": contactData.newsletter
+            })
+        });
+
+        const responseData = await res.json();
+        console.log("responseData: ", responseData);
+
+        if (!res.ok) {
+            toast("Please enter a valid email address");
+        }
+    }
+
     return (
-        <form action="" className={`p-10 inset-shadow-default rounded-sm ${className ? className : ""}`} {...rest}>
+        <form
+            action=""
+            noValidate
+            onSubmit={handleSubmit}
+            className={`p-10 inset-shadow-default rounded-sm ${className ? className : ""}`}
+            {...rest}
+        >
             {heading ? (
                 <h2 className="mb-3 heading-4">
                     {heading}

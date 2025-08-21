@@ -1,41 +1,63 @@
 import PageWrapper from "@/components/PageWrapper";
 import PageHeading from "@/components/PageHeading";
 
-import CardGrid from "@/components/CardGrid";
+import HouseGrid from "@/components/house/HouseGrid";
 import PriceRange from "@/components/house/PriceRange";
 import HomeType from "@/components/house/HomeType";
 
-import { getUserObj } from "@/utils/helpers";
+import { getUserObj } from "@/api/fetches";
+import { HomeProps } from "@/types/homes";
+import { getHomesData } from "@/api/fetches";
+
+export const metadata = {
+    title: 'Boliger',
+}
+
 
 export default async function Homes(props: {
     searchParams?: Promise<{
         type_eq?: string;
         price_gte?: string;
         price_lte?: string;
+        search?: string;
     }>;
 }) {
     const searchParams = await props.searchParams;
+    console.log(searchParams)
     // console.log("searchParams:", searchParams)
 
     let link = "https://dinmaegler.onrender.com/homes"
     if (searchParams) {
-        let index = 0
-        for (const [key, value] of Object.entries(searchParams)) {
-            if (index === 0) {
-                link += `?${key}=${value}`
-            } else {
-                link += `&${key}=${value}`
+        if (searchParams.type_eq || searchParams.price_gte || searchParams?.price_lte) {
+            let index = 0
+            for (const [key, value] of Object.entries(searchParams)) {
+                if (index === 0) {
+                    link += `?${key}=${value}`
+                } else {
+                    link += `&${key}=${value}`
+                }
+                index++
+                // console.log(`key: ${key}:, value: ${value}`);
             }
-            index++
-            // console.log(`key: ${key}:, value: ${value}`);
         }
     }
 
-    const data = await fetch(link)
-    let homes = await data.json()
+    let homes = await getHomesData(link)
     console.log("homes:", homes)
 
     const userData = await getUserObj()
+
+    if (homes && searchParams && searchParams.search) {
+        homes = homes.filter((home: HomeProps) =>
+            Object.values(home).some(
+                (value) =>
+                typeof value !== "object" &&
+                String(searchParams.search) !== "" &&
+                String(value).toLowerCase().includes(String(searchParams.search))
+            )
+        )
+        console.log(homes)
+    }
 
     return (
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">
@@ -56,7 +78,7 @@ export default async function Homes(props: {
                     </div>
                 </div>
 
-                <CardGrid data={homes} dataType="homes" userObj={userData} />
+                <HouseGrid data={homes} userObj={userData} />
 
             </div>
         </PageWrapper>

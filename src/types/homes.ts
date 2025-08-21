@@ -1,23 +1,5 @@
 import type { DataImagesProps } from "./images";
-
-
-export type UserProps = {
-    confirmed: boolean;
-    blocked: boolean;
-
-    homes: string[];
-
-    username: string;
-    email: number;
-    role: number;
-    id: string;
-}
-
-export type UserDataProps = {
-    loginToken: string;
-    userData: UserProps;
-}
-
+import type { UserProps } from "./users";
 
 export type HomeProps = {
     energylabel: string;
@@ -35,6 +17,7 @@ export type HomeProps = {
     netto: number;
     postalcode: number;
     adress1: string;
+    adress2?: string;
     description: string;
     livingspace: number;
 

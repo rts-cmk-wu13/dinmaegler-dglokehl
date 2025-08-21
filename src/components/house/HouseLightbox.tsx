@@ -3,16 +3,18 @@
 import { useState } from "react";
 import { IoImageOutline, IoLayersOutline, IoLocationOutline, IoHeartOutline, IoHeartSharp, IoClose, IoChevronBack, IoChevronForward } from "react-icons/io5";
 
-import type { HomeProps, UserDataProps } from "@/types/homes";
-import { formatPrice } from "@/utils/helpers";
-
 import FavoriteButton from "./FavoriteButton";
+
+import { formatPrice } from "@/utils/helpers";
+import type { HomeProps } from "@/types/homes";
+import type { UserDataProps } from "@/types/users";
 
 type HouseLightboxProps = {
     className?: string;
     userObj?: UserDataProps;
     home: HomeProps;
 }
+
 
 export default function HouseLightbox({ className, userObj, home, ...rest}: HouseLightboxProps) {
     const [isOpen, setIsOpen] = useState(false);
@@ -75,7 +77,7 @@ export default function HouseLightbox({ className, userObj, home, ...rest}: Hous
                             home.images[0].url
                         }
                         alt=""
-                        className={`object-cover ${isOpen ? "size-fit" :"w-full h-195"}`}
+                        className={`object-cover ${isOpen ? "size-fit" : "w-full h-195"}`}
                     />
                 )}
 
@@ -95,7 +97,7 @@ export default function HouseLightbox({ className, userObj, home, ...rest}: Hous
                             {home.adress1}
                         </h1>
                         <h2>
-                            {home.postalcode} {home.city}
+                            {home.postalcode} {home.city} {home.adress2 && `· ${home.adress2}`}
                         </h2>
                     </div>
 

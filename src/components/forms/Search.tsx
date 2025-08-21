@@ -1,10 +1,12 @@
 "use client"
 import { useState } from "react"
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link"
 
-import { HomeProps } from "@/types/homes"
 import Button from "../Button"
+
 import { formatPrice } from "@/utils/helpers"
+import { HomeProps } from "@/types/homes"
 
 type SearchProps = {
     children?: React.ReactNode
@@ -14,10 +16,12 @@ type SearchProps = {
 
 
 export default function Search({ children, className, agentId, ...rest}: SearchProps) {
+    const router = useRouter()
+    const searchParams = useSearchParams();
 
     const [homeArr, setHomeArr] = useState<HomeProps[]>([])
 
-    const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleChange = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
         const searchQ = e.currentTarget.search.value.toLowerCase().trim()
@@ -28,22 +32,37 @@ export default function Search({ children, className, agentId, ...rest}: SearchP
 
         const filtered = homes.filter((home) =>
             agentId ? home.agent.id === agentId &&
-                Object.values(home).some(
-                    (value) =>
-                    typeof value !== "object" &&
-                    searchQ !== "" &&
-                    String(value).toLowerCase().includes(searchQ)
-                )
-            : Object.values(home).some(
-                    (value) =>
-                    typeof value !== "object" &&
-                    searchQ !== "" &&
-                    String(value).toLowerCase().includes(searchQ)
-                )
-        )
+            [home.adress1, home.city, home.postalcode, home.type].some((key) =>
+                key &&
+                typeof key !== "object" &&
+                searchQ !== "" &&
+                String(key).toLowerCase().includes(searchQ)
+            ) :
+            [home.adress1, home.city, home.postalcode, home.type].some((key) =>
+                key &&
+                typeof key !== "object" &&
+                searchQ !== "" &&
+                String(key).toLowerCase().includes(searchQ)
+            )
+        );
 
         // console.log("filtered:", filtered)
         setHomeArr(filtered)
+    }
+
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        const searchQ = e.currentTarget.search.value.toLowerCase().trim()
+        // console.log("searchQ:", searchQ)
+
+        if (searchQ === "") {
+            return
+        }
+        const params = new URLSearchParams(searchParams);
+        params.set('search', `${String(searchQ)}`);
+        router.push(`/homes?${params}`)
     }
 
 
@@ -51,7 +70,8 @@ export default function Search({ children, className, agentId, ...rest}: SearchP
         <form
             action=""
             noValidate
-            onChange={handleSearch}
+            onChange={handleChange}
+            onSubmit={handleSubmit}
             className={`h-12 flex gap-2.5 body-2 *:*:rounded-sm ${className ? className : ""}`}
             {...rest}
         >

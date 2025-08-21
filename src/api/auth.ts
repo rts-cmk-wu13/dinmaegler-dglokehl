@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { setCookie } from "@/utils/cookies";
 
 type LoginDataProps = {
@@ -36,6 +37,7 @@ export async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     if (responseData.jwt) {
         setCookie("loginToken", responseData.jwt)
         setCookie("userId", responseData.user.id)
+        toast("Successfully logged in")
     }
 }
 

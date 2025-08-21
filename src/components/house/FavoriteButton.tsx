@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react";
-import type { UserDataProps } from "@/types/homes";
+import type { UserDataProps } from "@/types/users";
 
-import { addToFavorites } from "@/utils/fetches";
+import { addToFavorites } from "@/api/fetches";
 
 type FavoriteButtonProps = {
     className?: string;

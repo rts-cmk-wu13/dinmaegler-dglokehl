@@ -1,14 +1,15 @@
 "use client"
-
-import Link from "next/link";
 import { useRouter } from 'next/navigation'
+import Link from "next/link";
 
-import type { HomeProps, UserDataProps } from "@/types/homes";
-import { addToFavorites } from "@/utils/fetches";
+import EnergyLabel from "@/components/house/EnergyLabel";
+import Button from "@/components/Button";
+
 import { formatPrice, formatRemoveDecimals } from "@/utils/helpers";
+import { addToFavorites } from "@/api/fetches";
 
-import EnergyLabel from "./EnergyLabel";
-import Button from "../Button";
+import type { HomeProps } from "@/types/homes";
+import type { UserDataProps } from "@/types/users";
 
 type FavoriteCardProps = {
     className?: string;

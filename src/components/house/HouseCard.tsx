@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { FaRegHeart, FaHeart } from "react-icons/fa6";
 
-import type { HomeProps, UserDataProps } from "@/types/homes"
-import { formatPrice, formatRemoveDecimals } from "@/utils/helpers";
-
 import EnergyLabel from "./EnergyLabel";
 import FavoriteButton from "./FavoriteButton";
+
+import { formatPrice, formatRemoveDecimals } from "@/utils/helpers";
+import type { HomeProps } from "@/types/homes"
+import type { UserDataProps } from "@/types/users";
 
 type HouseCardProps = {
     className?: string;
@@ -33,7 +34,7 @@ export default async function HouseCard({ className, home, userObj, ...rest}: Ho
                             {home.adress1}
                         </h4>
                         <p className="body-2">
-                            {String(home.postalcode)} {home.city}
+                            {String(home.postalcode)} {home.city} {home.adress2 && `· ${home.adress2}`}
                         </p>
                         <p className="body-2">
                             <span className="body-6">{home.type}</span> · Ejerudgift: {formatPrice(home.cost)} kr.

@@ -12,7 +12,7 @@ export default function FormField({ children, className, label, ...rest}: FormFi
             </label>
 
             {children}
-            
+
         </div>
     )
 }

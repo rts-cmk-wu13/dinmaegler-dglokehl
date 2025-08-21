@@ -1,9 +1,9 @@
 import Link from "next/link"
-
 import { FaPaperPlane, FaPhone, FaUser, FaRegUser } from "react-icons/fa6";
-import { hasCookie } from "@/utils/cookies";
 
 import LogoutButton from "./LogoutButton";
+
+import { hasCookie } from "@/utils/cookies";
 
 type HeaderProps = {
     className?: string;

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import type { AgentProps } from "@/types/agents";
 import { LuSearch } from "react-icons/lu";
 
 import PageWrapper from "@/components/PageWrapper";
@@ -8,6 +7,21 @@ import AgentContact from "@/components/agent/AgentContact";
 import ContactForm from "@/components/forms/ContactForm";
 import Search from "@/components/forms/Search";
 
+import { getAgentData } from "@/api/fetches";
+
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
+
+    const data = await fetch(`https://dinmaegler.onrender.com/agents/${id}`).then((res) =>
+        res.json()
+    )
+
+    return {
+        title: data.name
+    }
+}
+
 
 interface ParamsProps {
     params: {
@@ -15,12 +29,9 @@ interface ParamsProps {
     };
 }
 
-
 export default async function Agent({ params }: ParamsProps) {
     const { id } = await params;
-
-    const data = await fetch(`https://dinmaegler.onrender.com/agents/${id}`)
-    const agent: AgentProps = await data.json()
+    const agent = await getAgentData(id)
     console.log("agent:", agent)
 
     return (
