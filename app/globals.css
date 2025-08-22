@@ -186,8 +186,52 @@
     .button {
         @apply px-8 inline-block bg-c-primary-1 text-c-white cursor-pointer
     }
+
+    .reverse-dir {
+        direction: rtl;
+    }
 }
 /* 
 body {
     font-family: var(--font-roboto);
+} */
+
+
+/* .slider {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.slider::-webkit-slider-runnable-track, .slider::-moz-range-track {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    height: 5px;
+    border-radius: 100px;
+
+    background-color: var(--color-c-body-3);
+}
+
+
+.slider::-webkit-slider-thumb, .slider::-moz-range-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    height: 20px;
+    width: 20px;
+    
+    border: none;
+    border-radius: 100px;
+
+    background-color: var(--color-c-body-3);
+
+    cursor: pointer;
+    transition: all 75ms ease-out;
+
+    &:hover {
+        background-color: var(--color-c-body-2);
+    }
 } */

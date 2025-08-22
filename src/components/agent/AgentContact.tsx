@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image";
-import { FaPhone, FaPaperPlane } from "react-icons/fa6";
+import { FaPhone, FaPaperPlane, FaInstagram, FaLinkedinIn, FaSkype } from "react-icons/fa6";
 
 import type { AgentProps } from "@/types/agents";
 
@@ -19,7 +19,21 @@ export default function AgentContact({ className, agent, outline, ...rest}: Agen
                     alt={agent.name}
                     width={agent.image.width}
                     height={agent.image.height}
-                    className="size-70 object-cover rounded-sm" />
+                    className="size-70 object-cover rounded-sm"
+                />
+                <ul className="px-6 py-3 flex gap-5 absolute bottom-8 left-0 bg-c-primary-1 text-c-white">
+                    <Link href="https://www.instagram.com" target="_blank">
+                        <FaInstagram className="size-5 hover-75" />
+                    </Link>
+
+                    <Link href="https://www.linkedin.com" target="_blank">
+                        <FaLinkedinIn className="size-5 hover-75" />
+                    </Link>
+
+                    <Link href="https://teams.live.com" target="_blank">
+                        <FaSkype className="size-5 hover-75" />
+                    </Link>
+                </ul>
             </figure>
 
             <div className="py-2.5">

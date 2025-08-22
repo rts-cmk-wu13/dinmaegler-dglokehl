@@ -69,7 +69,7 @@ export default function HouseLightbox({ className, userObj, home, ...rest}: Hous
                 {isOpen && <IoClose className="size-14 absolute top-8 right-8 text-c-white hover-scale-sm" onClick={() => setIsOpen(false)} />}
 
                 {isOpen && lightboxType === "map" ? (
-                    <iframe src={`https://www.openstreetmap.org/export/embed.html?bbox=${home.long}%2C${home.lat}%2C${home.long}%2C${home.lat}&amp;layer=mapnik&amp;marker=${home.lat}%2C${home.long}`} className="size-full"></iframe>
+                    <iframe src={`https://www.openstreetmap.org/export/embed.html?bbox=${home.long}%2C${home.lat}%2C${home.long}%2C${home.lat}&amp;layer=mapnik&amp;marker=${home.lat}%2C${home.long}`} className="size-full p-24 pb-36"></iframe>
                 ) : (
                     <Image
                         src={

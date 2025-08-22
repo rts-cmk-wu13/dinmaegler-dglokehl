@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
+import { formatPrice } from "@/utils/helpers";
+
 type PriceRangeProps = {
     className?: string;
 };
@@ -17,23 +19,25 @@ export default function PriceRange({ className, ...rest }: PriceRangeProps) {
     const [maxPrice, setMaxPrice] = useState(7999000);
 
 
-    function handleText(num: number, type: string) {
-        if (type === "min") {
+    function handleChange(e: any) {
+        const num = Number(e.currentTarget.value)
+        if (e.currentTarget.id === "min") {
             setMinPrice(num)
         }
-        if (type === "max") {
+        if (e.currentTarget.id === "max") {
             setMaxPrice(num)
         }
     }
 
-    function handleSearch(num: number, type: string) {
+    function handleMouseUp(e: any) {
+        const num = Number(e.currentTarget.value)
         const params = new URLSearchParams(searchParams);
 
-        if (type === "min") {
+        if (e.currentTarget.id === "min") {
             params.set('price_gte', `${String(num)}`);
             params.set('price_lte', `${String(maxPrice)}`);
         }
-        if (type === "max") {
+        if (e.currentTarget.id === "max") {
             params.set('price_gte', `${String(minPrice)}`);
             params.set('price_lte', `${String(num)}`);
         }
@@ -53,35 +57,37 @@ export default function PriceRange({ className, ...rest }: PriceRangeProps) {
         <div className={`w-full flex flex-col ${className ? className : ""}`}>
             <h3 className="mb-1">Pris-interval</h3>
 
-            <div className="w-full *:w-full">
+            <div className="w-full *:w-full flex items-center *:appearance-none *:[&::-moz-range-track]:h-1 *:[&::-moz-range-thumb]:size-5 *:[&::-moz-range-thumb]:border-0 *:[&::-moz-range-thumb]:bg-c-body-3 *:[&::-moz-range-thumb]:hover:bg-c-body-2 *:[&::-moz-range-thumb]:cursor-pointer *:[&::-moz-range-thumb]:duration-75 *:[&::-moz-range-progress]:h-1">
                 <input
                     type="range"
-                    name="price"
-                    id="price"
+                    name="min"
+                    id="min"
+                    className="[&::-moz-range-progress]:bg-c-body-3 [&::-moz-range-track]:bg-c-body-2 [&::-moz-range-track]:rounded-l-full [&::-moz-range-progress]:rounded-l-full"
                     min={0}
-                    max={7999000}
+                    max={maxPrice}
                     step={31996}
-                    onChange={(e) => handleText(Number(e.target.value), "min")}
-                    onMouseUp={(e) => handleSearch(Number(e.currentTarget.value), "min")}
+                    onChange={handleChange}
+                    onMouseUp={handleMouseUp}
                 />
                 <input
                     type="range"
-                    name="price"
-                    id="price"
-                    min={0}
+                    name="max"
+                    id="max"
+                    className="[&::-moz-range-track]:bg-c-body-3 [&::-moz-range-progress]:bg-c-body-2 [&::-moz-range-track]:rounded-r-full [&::-moz-range-progress]:rounded-r-full"
+                    min={minPrice}
                     max={7999000}
                     step={31996}
-                    onChange={(e) => handleText(Number(e.target.value), "max")}
-                    onMouseUp={(e) => handleSearch(Number(e.currentTarget.value), "max")}
+                    onChange={handleChange}
+                    onMouseUp={handleMouseUp}
                 />
             </div>
 
             <div className="w-full flex justify-between">
                 <p className="body-2 text-c-body-2">
-                    {minPrice}kr.
+                    {formatPrice(minPrice)}kr.
                 </p>
                 <p className="body-2 text-c-body-2">
-                    {maxPrice}kr.
+                    {formatPrice(maxPrice)}kr.
                 </p>
             </div>
         </div>
