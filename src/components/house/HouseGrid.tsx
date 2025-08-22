@@ -12,7 +12,7 @@ type CardGridProps = {
 
 export default async function HouseGrid({ className, data, userObj, ...rest}: CardGridProps) {
     return (
-        <div className={`w-full grid grid-cols-2 gap-7 ${className ? className : ""}`} {...rest}>
+        <div className={`w-full grid lg:grid-cols-2 gap-7 ${className ? className : ""}`} {...rest}>
             {data.map((home, i: number) => <HouseCard home={home} key={home.id} userObj={userObj} />)}
         </div>
     )

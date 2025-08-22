@@ -23,7 +23,7 @@ export default async function Contact() {
                     Der kan opstå tvivl om mange ting nå man gerne vil, eller er i gang med at sælge sin bolig. Vores medarbejdere sider klar alle ugens dage til at svare på dine spørgsmål.
                 </p>
 
-                <div className="mt-16 flex justify-between gap-7.5">
+                <div className="mt-16 flex max-lg:flex-col justify-between gap-7.5">
                     <ContactForm newsletter />
 
                     <div className="flex-1 px-8 py-14 flex flex-col items-center gap-12 inset-shadow-default text-center">
@@ -34,7 +34,7 @@ export default async function Contact() {
                             <h3 className="heading-4">
                                 Ring til os
                             </h3>
-                            <Link href="tel:+4570704000" className="body-1">
+                            <Link href="tel:+4570704000" className="body-1 hover:underline">
                                 +45 7070 4000
                             </Link>
                         </div>
@@ -48,7 +48,7 @@ export default async function Contact() {
                             <h3 className="heading-4">
                                 Send en mail
                             </h3>
-                            <Link href="mailto:4000@dinmaegler.dk" className="body-1">
+                            <Link href="mailto:4000@dinmaegler.dk" className="body-1 hover:underline">
                                 4000@dinmaegler.dk
                             </Link>
                         </div>
@@ -62,10 +62,10 @@ export default async function Contact() {
                             <h3 className="heading-4">
                                 Besøg butikken
                             </h3>
-                            <p className="body-1">
+                            <Link href="https://maps.app.goo.gl/fcRgnySdCMnvbxix7" target="_blank" className="body-1 hover:underline">
                                 Stændertorvet 78, <br />
                                 4000 Roskilde
-                            </p>
+                            </Link>
                         </div>
                     </div>
                 </div>

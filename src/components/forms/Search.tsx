@@ -81,7 +81,7 @@ export default function Search({ children, className, agentId, ...rest}: SearchP
                             <div className="flex items-center gap-4">
                                 <Image
                                     src={home.images[0].formats.thumbnail.url}
-                                    alt=""
+                                    alt={home.adress1}
                                     width={home.images[0].formats.thumbnail.width}
                                     height={home.images[0].formats.thumbnail.height}
                                     className="w-20 h-14 object-cover rounded-sm"

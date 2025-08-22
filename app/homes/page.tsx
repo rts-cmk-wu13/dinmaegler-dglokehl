@@ -71,7 +71,7 @@ export default async function Homes(props: {
 
                     <hr className="mt-1 mb-5" />
 
-                    <div className="w-full flex gap-3 body-2">
+                    <div className="w-full grid lg:grid-cols-2 gap-6 body-2">
                         <HomeType />
 
                         <PriceRange />

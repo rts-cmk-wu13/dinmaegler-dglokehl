@@ -2,6 +2,7 @@ import Link from "next/link"
 import { FaPaperPlane, FaPhone, FaUser, FaRegUser } from "react-icons/fa6";
 
 import LogoutButton from "./LogoutButton";
+import BurgerMenu from "./BurgerMenu";
 
 import { hasCookie } from "@/utils/cookies";
 
@@ -17,13 +18,13 @@ export default async function Header({ className, ...rest}: HeaderProps) {
                 <ul className="h-14 flex items-center gap-4 bg-c-primary-1 text-c-white *:*:flex *:*:items-center *:*:gap-2 *:*:hover:underline">
                     <li>
                         <Link href="mailto:4000@dinmaegler.com">
-                            <FaPaperPlane /> 4000@dinmaegler.com
+                            <FaPaperPlane /> <span className="hidden sm:block">4000@dinmaegler.com</span>
                         </Link>
                     </li>
 
                     <li>
                         <Link href="tel:+4570704000">
-                            <FaPhone /> +45 7070 4000
+                            <FaPhone /> <span className="hidden sm:block">+45 7070 4000</span>
                         </Link>
                     </li>
 
@@ -43,10 +44,10 @@ export default async function Header({ className, ...rest}: HeaderProps) {
 
                 <nav className="flex-1 flex items-center justify-between">
                     <Link href="/">
-                        <img src="/dmlogo_text_dark.svg" alt="" className="h-12" />
+                        <img src="/dmlogo_text_dark.svg" alt="Din Mægler logo" className="h-12" />
                     </Link>
 
-                    <ul className="flex items-center gap-10 *:*:hover:underline">
+                    <BurgerMenu className="lg:flex lg:items-center gap-10 bg-c-white whitespace-nowrap *:*:hover:underline">
                         <li>
                             <Link href="/homes">
                                 Boliger til salg
@@ -72,7 +73,7 @@ export default async function Header({ className, ...rest}: HeaderProps) {
                                 Kontakt os
                             </Link>
                         </li>
-                    </ul>
+                    </BurgerMenu>
                 </nav>
             </div>
         </header>

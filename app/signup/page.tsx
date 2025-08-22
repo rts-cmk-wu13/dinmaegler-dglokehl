@@ -25,7 +25,7 @@ export default async function SignupPage() {
             <PageHeading heading="Account Register" />
 
             <div className="max-w-maxw-default py-24">
-                <AuthForm onSubmit="handleSignup" className="p-48 py-16 flex flex-col gap-10 inset-shadow-default">
+                <AuthForm onSubmit="handleSignup" className="lg:p-48 py-16 flex flex-col gap-10 inset-shadow-default">
                     <div className="flex flex-col gap-6">
                         <h2 className="heading-2 text-center">
                             Opret bruger hos Din Mægler

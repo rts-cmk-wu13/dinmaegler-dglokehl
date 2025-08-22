@@ -34,7 +34,7 @@ export default function FavoriteCard({ className, home, userObj, ...rest}: Favor
 
     return (
         <Link href={`/homes/${home.id}`}>
-            <article className={`p-9 flex gap-12 inset-shadow-default rounded-sm hover-scale-lg ${className ? className : ""}`} {...rest}>
+            <article className={`p-9 flex max-lg:flex-col max-lg:items-center gap-12 inset-shadow-default rounded-sm hover-scale-lg ${className ? className : ""}`} {...rest}>
                 <Image
                     src={home.images[0].formats.thumbnail.url}
                     alt={home.adress1}
@@ -55,8 +55,8 @@ export default function FavoriteCard({ className, home, userObj, ...rest}: Favor
                     </p>
                 </div>
 
-                <div className="ml-auto flex flex-col justify-between items-end">
-                    <div className="flex gap-20">
+                <div className="lg:ml-auto flex flex-col justify-between max-lg:items-center lg:items-end max-lg:gap-8">
+                    <div className="flex max-lg:flex-col max-lg:items-center max-lg:gap-6 lg:gap-20">
                         <div className="flex gap-7">
                             <EnergyLabel label="A" />
                             <p className="body-2">

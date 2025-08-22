@@ -94,14 +94,14 @@ export default async function Index() {
 
                 <Image
                     src={HeroImage}
-                    alt=""
+                    alt="Et stort hus"
                     className="size-full object-cover brightness-50"
                 />
             </div>
 
 
             <div className="py-32 max-w-maxw-default">
-                <section className="flex gap-32">
+                <section className="flex flex-col lg:flex-row gap-32">
                     <div className="relative size-[448px] select-none">
                         <div className="size-full absolute top-8 left-8 z-5 inset-shadow-[0_0_0_12px] inset-shadow-c-primary-1">
                             <div className="p-9 absolute bottom-0 right-0 flex flex-col justify-center items-center gap-2 bg-c-primary-1 text-c-white text-center">
@@ -116,7 +116,7 @@ export default async function Index() {
 
                         <Image
                             src={FamilyPhotoImage}
-                            alt=""
+                            alt="Glad familie"
                             className="size-full object-cover"
                         />
                     </div>
@@ -136,7 +136,7 @@ export default async function Index() {
                             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
                         </p>
 
-                        <div className="mt-10 flex justify-between items-center">
+                        <div className="mt-10 grid sm:grid-cols-2 gap-8">
                             {infoCardsLg.map((card, i) =>
                                 <InfoCard card={card} size="size-16" key={i} />
                             )}
@@ -148,7 +148,7 @@ export default async function Index() {
                 <hr className="my-16" />
 
 
-                <div className="grid grid-cols-3 gap-8">
+                <div className="grid lg:grid-cols-3 gap-8">
                     {infoCardsSm.map((card, i) =>
                         <InfoCard card={card} key={i} />
                     )}
@@ -169,7 +169,7 @@ export default async function Index() {
 
 
             <div className="h-72 flex flex-col justify-center items-center relative">
-                <div className="max-w-maxw-default w-full grid grid-cols-2 items-center gap-8 absolute z-9">
+                <div className="max-w-maxw-default w-full grid lg:grid-cols-2 items-center gap-8 absolute z-9">
                     <h2 className="heading-2 text-c-white">
                         Tilmeld dig vores nyhedsbrev og hold dig opdateret på boligmarkedet
                     </h2>
@@ -177,7 +177,7 @@ export default async function Index() {
                     <NewsletterForm />
                 </div>
                 <figure className="size-full bg-c-multiply-5">
-                    <Image src={BuildingBgImage} alt="" className="size-full object-cover opacity-25 mix-blend-multiply" />
+                    <Image src={BuildingBgImage} alt="Bygninger baggrundsbillede" className="size-full object-cover opacity-25 mix-blend-multiply" />
                 </figure>
             </div>
 
@@ -194,9 +194,9 @@ export default async function Index() {
             </SectionWrapper>
 
 
-            <div className="h-128 flex justify-center items-center bg-c-primary-1">
-                <div className="max-w-maxw-default h-full flex justify-center items-center gap-10">
-                    <div className="flex-1">
+            <div className="flex justify-center items-center bg-c-primary-1">
+                <div className="max-w-maxw-default h-full flex flex-col lg:flex-row justify-center items-center gap-10">
+                    <div className="flex-1 pt-24 lg:py-24">
                         <h2 className="mb-5 heading-1 text-c-white">
                             Hold dig opdateret på salgsprocessen
                         </h2>
@@ -215,7 +215,7 @@ export default async function Index() {
                         </div>
                     </div>
 
-                    <Image src={iPhonesImage} alt="" className="self-end" />
+                    <Image src={iPhonesImage} alt="2 iPhones" className="lg:self-end" />
                 </div>
             </div>
 

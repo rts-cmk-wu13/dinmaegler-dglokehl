@@ -65,7 +65,7 @@ export default function HouseLightbox({ className, userObj, home, ...rest}: Hous
 
     return (
         <>
-            <div className={isOpen ? "w-screen h-screen p-16 fixed inset-0 z-999999 bg-black/75 flex justify-center items-center" : ""}>
+            <div className={isOpen ? "w-screen h-screen fixed inset-0 z-999999 bg-black/75 flex justify-center items-center" : ""}>
                 {isOpen && <IoClose className="size-14 absolute top-8 right-8 text-c-white hover-scale-sm" onClick={() => setIsOpen(false)} />}
 
                 {isOpen && lightboxType === "map" ? (
@@ -88,7 +88,7 @@ export default function HouseLightbox({ className, userObj, home, ...rest}: Hous
                             isOpen && lightboxType === "plan" ? home.floorplan.height : 
                             home.images[0].height
                         }
-                        className={`object-cover ${isOpen ? "size-fit" : "w-full h-195"}`}
+                        className={`${isOpen ? "" : "w-full h-195 object-cover"}`}
                     />
                 )}
 
@@ -102,8 +102,8 @@ export default function HouseLightbox({ className, userObj, home, ...rest}: Hous
 
 
             <div className="pt-10 max-w-maxw-default">
-                <div className="flex justify-between">
-                    <div className="heading-4">
+                <div className="flex max-lg:flex-col justify-between max-lg:items-center max-lg:text-center max-lg:gap-4">
+                    <div className="heading-4 max-lg:order-2 max-lg:mt-10">
                         <h1>
                             {home.adress1}
                         </h1>
@@ -112,15 +112,30 @@ export default function HouseLightbox({ className, userObj, home, ...rest}: Hous
                         </h2>
                     </div>
 
-                    <ul className={`flex justify-center items-center gap-12 *:*:size-12 *:*:cursor-pointer ${isOpen ? "w-fit fixed inset-x-1/2 translate-x-[-50%] bottom-12 z-9999999 text-c-white *:*:bg-transparent" : ""}`} {...rest}>
+                    <ul
+                        className={`flex justify-center items-center gap-12 *:*:size-12 *:*:cursor-pointer
+                        ${isOpen ? "w-fit fixed inset-x-1/2 translate-x-[-50%] bottom-12 z-9999999 text-c-white *:*:bg-transparent max-lg:order-1" : ""}`}
+                    >
                         <li>
-                            <IoImageOutline id="galleryBtn" className="hover-scale-sm" onClick={handleLightboxButton}/>
+                            <IoImageOutline
+                                id="galleryBtn"
+                                className={`hover-scale-sm ${isOpen && lightboxType === "gallery" ? "opacity-50" : ""}`}
+                                onClick={handleLightboxButton}
+                            />
                         </li>
                         <li>
-                            <IoLayersOutline id="planBtn" className="hover-scale-sm" onClick={handleLightboxButton}/>
+                            <IoLayersOutline
+                                id="planBtn"
+                                className={`hover-scale-sm ${isOpen && lightboxType === "plan" ? "opacity-50" : ""}`}
+                                onClick={handleLightboxButton}
+                            />
                         </li>
                         <li>
-                            <IoLocationOutline id="mapBtn" className="hover-scale-sm" onClick={handleLightboxButton}/>
+                            <IoLocationOutline
+                                id="mapBtn"
+                                className={`hover-scale-sm ${isOpen && lightboxType === "map" ? "opacity-50" : ""}`}
+                                onClick={handleLightboxButton}
+                            />
                         </li>
             
                         {userObj && (
@@ -135,7 +150,7 @@ export default function HouseLightbox({ className, userObj, home, ...rest}: Hous
                         )}
                     </ul>
 
-                    <h2 className="heading-2">
+                    <h2 className="heading-2 max-lg:order-3">
                         Kr. {formatPrice(home.price)}
                     </h2>
                 </div>

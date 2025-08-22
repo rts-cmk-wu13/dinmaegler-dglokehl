@@ -17,6 +17,7 @@ export default function NewsletterForm({ className, ...rest}: NewsletterFormProp
 
         const formData = new FormData(e.currentTarget)
         const newsletterData = Object.fromEntries(formData.entries());
+        console.log(formData, newsletterData)
 
         const res = await fetch(`https://dinmaegler.onrender.com/subscribers`, {
             method: "POST",

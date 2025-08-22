@@ -15,7 +15,7 @@ export default function PageHeading({ className, heading, ...rest}: PageHeadingP
             </h1>
 
             <figure className="w-full h-48 bg-c-multiply-1">
-                <Image src={PageHeadingImage} alt="" className="size-full object-cover mix-blend-multiply" />
+                <Image src={PageHeadingImage} alt="Bygning baggrundsbillede" className="size-full object-cover mix-blend-multiply" />
             </figure>
         </div>
     )

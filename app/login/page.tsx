@@ -25,7 +25,7 @@ export default async function LoginPage() {
             <PageHeading heading="Account Login" />
 
             <div className="max-w-maxw-default py-24">
-                <AuthForm onSubmit={"handleLogin"} className="p-48 py-16 flex flex-col gap-10 inset-shadow-default">
+                <AuthForm onSubmit={"handleLogin"} className="lg:p-48 py-16 flex flex-col gap-10 inset-shadow-default">
                     <div className="flex flex-col gap-6">
                         <h2 className="heading-2 text-center">
                             Log ind på din konto
@@ -45,10 +45,10 @@ export default async function LoginPage() {
                     </div>
 
                     <div>
-                        <p className="mb-4 body-1">
+                        <p className="mb-4 body-1 max-lg:text-center">
                             Log ind med
                         </p>
-                        <div className="grid grid-cols-3 gap-4">
+                        <div className="grid lg:grid-cols-3 gap-4">
                             <Button className="!py-4 !bg-[#DD4B39]">
                                 Google
                             </Button>

@@ -38,7 +38,7 @@ export default async function Agent({ params }: ParamsProps) {
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">
             <PageHeading heading="Kontakt en medarbejder" />
 
-            <div className="py-30 max-w-maxw-default flex gap-7.5">
+            <div className="py-30 max-w-maxw-default flex max-lg:flex-col gap-7.5">
                 <div className="p-10 inset-shadow-default rounded-sm">
                     <AgentContact agent={agent} />
 
@@ -65,7 +65,7 @@ export default async function Agent({ params }: ParamsProps) {
 
                         <Search agentId={agent.id}>
                             <LuSearch className="size-5 absolute left-3 text-c-body-2 pointer-events-none" />
-                            <input type="search" name="search" id="search" placeholder="Search" className="px-2.5 pl-10 size-full w-72 bg-c-white inset-shadow-default rounded-sm placeholder:text-c-body-2 focus:outline-0" />
+                            <input type="search" name="search" id="search" placeholder="Search" className="px-2.5 pl-10 size-full max-lg:w-full lg:w-72 bg-c-white inset-shadow-default rounded-sm placeholder:text-c-body-2 focus:outline-0" />
                         </Search>
                     </div>
 

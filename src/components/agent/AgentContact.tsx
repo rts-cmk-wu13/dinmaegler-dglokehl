@@ -12,7 +12,7 @@ type AgentContactProps = {
 
 export default function AgentContact({ className, agent, outline, ...rest}: AgentContactProps) {
     return (
-        <article className={`w-fit flex gap-8 ${outline ? "inset-shadow-[0_0_0_1px] inset-shadow-c-shape-1" : ""} ${className ? className : ""}`} {...rest}>
+        <article className={`lg:w-fit flex max-lg:flex-col max-lg:items-center gap-8 ${outline ? "inset-shadow-[0_0_0_1px] inset-shadow-c-shape-1" : ""} ${className ? className : ""}`} {...rest}>
             <figure className="relative">
                 <Image
                     src={agent.image.url}

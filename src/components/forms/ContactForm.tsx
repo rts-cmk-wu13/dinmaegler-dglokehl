@@ -22,6 +22,7 @@ export default function ContactForm({ className, heading, newsletter, ...rest}: 
 
         const formData = new FormData(e.currentTarget)
         const contactData = Object.fromEntries(formData.entries());
+        console.log(formData, contactData)
 
         const result = ContactSchema.safeParse(contactData);
         
@@ -32,24 +33,9 @@ export default function ContactForm({ className, heading, newsletter, ...rest}: 
             errorMsgs.forEach(msg => {
                 toast.error(msg)
             })
+        } else {
+            toast.success("Din besked er blevet sendt")
         }
-
-        const res = await fetch(`https://dinmaegler.onrender.com/contact`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(result.data)
-        });
-
-        const responseData = await res.json();
-        console.log("responseData: ", responseData);
-
-        if (!res.ok) {
-            toast("Error submitting your message");
-        }
-
-        toast.success("yay")
     }
 
     return (
@@ -67,10 +53,10 @@ export default function ContactForm({ className, heading, newsletter, ...rest}: 
             ) : ""}
 
             <div className="mb-7.5 grid grid-cols-2 gap-5">
-                <FormField label="Navn">
+                <FormField label="Navn" className="max-lg:col-span-2">
                     <input type="text" name="name" id="name" placeholder="Indtast navn" />
                 </FormField>
-                <FormField label="Email">
+                <FormField label="Email" className="max-lg:col-span-2">
                     <input type="email" name="email" id="email" placeholder="Indtast email" />
                 </FormField>
                 <FormField label="Emne" className="col-span-2">

@@ -50,7 +50,7 @@ export default function PriceRange({ className, ...rest }: PriceRangeProps) {
 
 
     return (
-        <div className={`w-135 flex flex-col ${className ? className : ""}`}>
+        <div className={`w-full flex flex-col ${className ? className : ""}`}>
             <h3 className="mb-1">Pris-interval</h3>
 
             <div className="w-full *:w-full">

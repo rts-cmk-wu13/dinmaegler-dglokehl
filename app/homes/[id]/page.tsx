@@ -42,7 +42,7 @@ export default async function Home({ params }: ParamsProps) {
                 <hr className="my-8 border-c-shape-1" />
 
 
-                <div className="grid grid-cols-3 gap-8 body-2 *:w-full *:*:grid *:*:grid-cols-2 *:*:gap-x-8 *:*:wrap-break-word">
+                <div className="grid lg:grid-cols-3 max-lg:*:*:text-right  max-lg:[&_span]:text-left gap-8 body-2 *:w-full *:*:grid *:*:grid-cols-2 *:*:gap-x-8 *:*:wrap-break-word">
                     <ul>
                         <li>
                             Sagsnummer: <span>123456789</span>
@@ -93,7 +93,7 @@ export default async function Home({ params }: ParamsProps) {
                 </div>
 
 
-                <div className="mt-20 flex justify-between gap-10 *:*:first:mb-5">
+                <div className="mt-20 flex max-lg:flex-col justify-between gap-10 *:*:first:mb-5">
                     <section className="flex-1">
                         <h2 className="heading-3">
                             Beskrivelse:

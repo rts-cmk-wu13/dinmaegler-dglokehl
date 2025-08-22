@@ -32,7 +32,7 @@ export default function HomeType({ className, ...rest }: HomeTypeProps) {
             <select
                 name="type"
                 id="type"
-                className="p-2.5 w-84 rounded-xs inset-shadow-[0_0_0_1px] inset-shadow-c-shape-1 text-c-body-2"
+                className="p-2.5 max-w-96 w-full rounded-xs inset-shadow-[0_0_0_1px] inset-shadow-c-shape-1 text-c-body-2"
                 onChange={(e) => handleSearch(e.target.value)}
                 defaultValue={String(searchParams.get('type_eq'))}
             >
