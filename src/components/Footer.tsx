@@ -31,7 +31,7 @@ export default function Footer({ className, ...rest}: FooterProps) {
                                         <p className="body-4 text-c-body-2">
                                             {card.heading}
                                         </p>
-                                        <Link href={card.href} className="text-button hover:underline wrap-anywhere">
+                                        <Link href={card.href} className="body-button hover:underline wrap-anywhere">
                                             {card.body}
                                         </Link>
                                     </div>

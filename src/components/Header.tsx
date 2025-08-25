@@ -43,7 +43,7 @@ export default async function Header({ className, ...rest}: HeaderProps) {
 
 
                 <nav className="flex-1 flex items-center justify-between">
-                    <Link href="/">
+                    <Link href="/" className="hover-75">
                         <img src="/dmlogo_text_dark.svg" alt="Din Mægler logo" className="h-12" />
                     </Link>
 

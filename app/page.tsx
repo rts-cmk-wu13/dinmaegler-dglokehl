@@ -33,9 +33,9 @@ export default async function Index() {
 
     return (
         <PageWrapper className="flex flex-col *:w-full *:self-center">
-            <div className="h-[698px] flex justify-center items-center relative">
-                <div className="centered-default lg:px-24 w-full absolute z-9">
-                    <h1 className="text-5xl font-bold text-c-white text-center mb-10">Søg efter din drømmebolig</h1>
+            <div className="py-48 flex justify-center items-center relative">
+                <div className="centered-default lg:px-24 w-full">
+                    <h1 className="text-5xl/16 font-bold text-c-white text-center mb-10">Søg efter din drømmebolig</h1>
 
                     <div className="p-8 bg-c-white rounded-sm">
                         <h4 className="heading-4">
@@ -63,14 +63,14 @@ export default async function Index() {
                 <Image
                     src={HeroImage}
                     alt="Et stort hus"
-                    className="size-full object-cover brightness-50"
+                    className="size-full object-cover brightness-50 absolute -z-1"
                 />
             </div>
 
 
             <div className="centered-default py-32">
-                <section className="flex max-lg:flex-col lg:gap-32 max-lg:gap-10">
-                    <div className="relative sm:size-[448px] select-none">
+                <section className="flex max-lg:flex-col max-lg:items-center gap-32 max-lg:gap-12">
+                    <div className="relative size-full sm:size-[448px] select-none">
                         <div className="size-full absolute top-8 left-8 z-5 inset-shadow-[0_0_0_12px] inset-shadow-c-primary-1 max-sm:hidden">
                             <div className="p-9 absolute bottom-0 right-0 flex flex-col justify-center items-center gap-2 bg-c-primary-1 text-c-white text-center">
                                 <p className="text-6xl font-bold">
@@ -163,8 +163,8 @@ export default async function Index() {
 
 
             <div className="flex justify-center items-center bg-c-primary-1">
-                <div className="centered-default h-full flex flex-col lg:flex-row justify-center items-center gap-10">
-                    <div className="flex-1 pt-24 lg:py-24">
+                <div className="centered-default h-full flex max-lg:flex-col justify-center items-center gap-10">
+                    <div className="flex-1 py-24 max-lg:pb-0">
                         <h2 className="mb-5 heading-1 text-c-white">
                             Hold dig opdateret på salgsprocessen
                         </h2>
@@ -173,17 +173,17 @@ export default async function Index() {
                         </p>
 
                         <div className="mt-6 flex max-sm:flex-col gap-4">
-                            <Button href="https://play.google.com/" target="_blank" className="bg-c-white text-button !text-c-primary-1">
+                            <Button href="https://play.google.com/" target="_blank" className="bg-c-white body-button !text-c-primary-1">
                                 <FaGooglePlay className="size-6" /> Google Play
                             </Button>
 
-                            <Button href="https://www.apple.com/app-store/" target="_blank" className="text-button inset-shadow-[0_0_0_1px] inset-shadow-c-white">
+                            <Button href="https://www.apple.com/app-store/" target="_blank" className="body-button inset-shadow-[0_0_0_1px] inset-shadow-c-white">
                                 <FaApple className="size-6" /> Apple Store
                             </Button>
                         </div>
                     </div>
 
-                    <Image src={iPhonesImage} alt="2 iPhones" className="lg:self-end" />
+                    <Image src={iPhonesImage} alt="2 iPhones" className="lg:mt-20 lg:self-end" />
                 </div>
             </div>
 
