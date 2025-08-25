@@ -50,7 +50,7 @@ export default async function HouseCard({ className, home, userObj, ...rest}: Ho
 
                     <hr />
 
-                    <div className="flex justify-between items-center">
+                    <div className="flex max-sm:flex-col max-sm:gap-4 justify-between items-center">
                         <div className="flex items-center gap-7">
                             <EnergyLabel label={home.energylabel} />
 

@@ -50,7 +50,7 @@ export default function NewsletterForm({ className, ...rest}: NewsletterFormProp
         >
 
             <button className="absolute right-6 z-2 hover-75">
-                <FaArrowRightLong className="w-7 h-auto" />
+                <FaArrowRightLong className="size-7 text-c-primary-1" />
             </button>
 
             <input type="email" name="newsletter" id="newsletter" placeholder="Indtast din email adresse" className="p-6 w-full bg-c-white rounded-sm focus:outline-0" />

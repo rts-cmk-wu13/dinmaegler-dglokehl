@@ -4,7 +4,6 @@ import Form from "next/form";
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react"
-import { toast } from 'react-toastify';
 
 import Button from "../Button"
 
@@ -75,7 +74,7 @@ export default function Search({ children, className, agentId, ...rest}: SearchP
 
                 {children}
 
-                <div className="w-full max-h-128 overflow-scroll absolute top-12 z-999 bg-c-white shadow-default">
+                <div className="w-full max-h-128 overflow-scroll absolute top-12 z-99 bg-c-white shadow-default">
                     {homeArr.map((home, i) =>
                         <Link href={`/homes/${home.id}`} className="p-4 w-full flex justify-between items-center bg-c-white select-none hover:bg-black/10 duration-75 rounded-sm" key={i}>
                             <div className="flex items-center gap-4">
@@ -87,15 +86,23 @@ export default function Search({ children, className, agentId, ...rest}: SearchP
                                     className="w-20 h-14 object-cover rounded-sm"
                                 />
 
-                                <p className="body-2">
-                                    {home.adress1}
-                                    {!agentId ? " · " : <br />}
-                                    <span className="text-c-body-2">{home.postalcode} {home.city}</span>
-                                </p>
+                                <div className="body-2 flex gap-1 max-lg:flex-col">
+                                    <p>
+                                        {home.adress1}
+                                    </p>
+                                    {!agentId ? (
+                                        <p className="max-lg:hidden">·</p>
+                                    ) : (
+                                        <br />
+                                    )}
+                                    <p className="text-c-body-2">
+                                        {home.postalcode} {home.city}
+                                    </p>
+                                </div>
                             </div>
 
                             {!agentId && (
-                                <p className="body-2">
+                                <p className="body-2 max-sm:hidden">
                                     Kr. {formatPrice(home.cost)}
                                 </p>
                             )}
@@ -105,7 +112,7 @@ export default function Search({ children, className, agentId, ...rest}: SearchP
             </div>
 
             {!agentId && (
-                <Button className="!px-10 !py-0">
+                <Button className="!px-10 !py-0 max-sm:hidden">
                     Søg
                 </Button>
             )}

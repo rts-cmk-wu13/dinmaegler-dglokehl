@@ -38,7 +38,7 @@ export default async function Agent({ params }: ParamsProps) {
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">
             <PageHeading heading="Kontakt en medarbejder" />
 
-            <div className="py-30 max-w-maxw-default flex max-lg:flex-col gap-7.5">
+            <div className="centered-default py-30 flex max-lg:flex-col gap-7.5">
                 <div className="p-10 inset-shadow-default rounded-sm">
                     <AgentContact agent={agent} />
 

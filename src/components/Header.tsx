@@ -47,7 +47,7 @@ export default async function Header({ className, ...rest}: HeaderProps) {
                         <img src="/dmlogo_text_dark.svg" alt="Din Mægler logo" className="h-12" />
                     </Link>
 
-                    <BurgerMenu className="lg:flex lg:items-center gap-10 bg-c-white whitespace-nowrap *:*:hover:underline">
+                    <BurgerMenu className="lg:flex lg:items-center gap-10 whitespace-nowrap *:*:hover:underline">
                         <li>
                             <Link href="/homes">
                                 Boliger til salg

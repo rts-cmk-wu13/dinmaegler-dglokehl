@@ -17,7 +17,7 @@ export default async function Agents() {
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">
             <PageHeading heading="Medarbejdere i Roskilde" />
 
-            <div className="max-w-maxw-default py-24">
+            <div className="centered-default py-24">
 
                 <AgentGrid data={agents} />
             </div>

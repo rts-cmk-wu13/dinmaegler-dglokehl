@@ -43,7 +43,7 @@ export default function ContactForm({ className, heading, newsletter, ...rest}: 
             action=""
             noValidate
             onSubmit={handleSubmit}
-            className={`p-10 inset-shadow-default rounded-sm ${className ? className : ""}`}
+            className={`p-10 max-sm:p-6 inset-shadow-default rounded-sm ${className ? className : ""}`}
             {...rest}
         >
             {heading ? (

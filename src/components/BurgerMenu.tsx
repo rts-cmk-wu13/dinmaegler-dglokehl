@@ -16,12 +16,12 @@ export default function BurgerMenu({ children, className, ...rest}: BurgerMenuPr
     }
 
     return (
-        <div className="relative">
-            <FaBars className="size-8 hover-75 lg:hidden" onClick={handleMenu} />
+        <div>
+            <FaBars className="size-8 hover-75 text-c-primary-1 lg:hidden" onClick={handleMenu} />
 
             <ul
-                className={`w-fit
-                ${open ? "flex flex-col p-12 absolute top-12 right-0 z-9999 rounded-sm shadow-default" : "hidden"}
+                className={`
+                ${open ? "w-screen flex flex-col items-center p-12 fixed inset-x-0 top-38 z-999 bg-c-primary-1 heading-2 text-c-white" : "hidden"}
                 ${className ? className : ""}`}
                 {...rest}>
 

@@ -4,8 +4,8 @@ import FamilyPhotoImage from "@/assets/img/familyphoto.jpg"
 import BuildingBgImage from "@/assets/img/building_background.jpg"
 import iPhonesImage from "@/assets/img/iphones.png"
 
-import { FaHouseLaptop, FaHouseMedical, FaLocationDot, FaUsersBetweenLines, FaGooglePlay, FaApple } from "react-icons/fa6";
-import { BsBuildingsFill } from "react-icons/bs";
+import { FaGooglePlay, FaApple } from "react-icons/fa6";
+import { homeInfoCardsSm, homeInfoCardsLg } from "@/data/homeInfoCards";
 
 import PageWrapper from "@/components/PageWrapper";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -31,42 +31,10 @@ export default async function Index() {
     const userObj = await getUserObj()
 
 
-    const infoCardsLg = [
-        {
-            icon: <FaHouseLaptop />,
-            heading: "4829",
-            body: "boliger solgt",
-        },
-        {
-            icon: <FaHouseMedical />,
-            heading: "158",
-            body: "boliger til salg",
-        }
-    ]
-
-    const infoCardsSm = [
-        {
-            icon: <BsBuildingsFill />,
-            heading: "Bestil et salgstjek",
-            body: "Med et Din Mægler Salgstjek bliver du opdateret på værdien af din bolig.",
-        },
-        {
-            icon: <FaLocationDot />,
-            heading: "74 butikker",
-            body: "Hos Din Mægler er din bolig til salg i alle vores 74 butikker, som er fordelt rundt om i Danmark.",
-        },
-        {
-            icon: <FaUsersBetweenLines />,
-            heading: "Tilmeld køberkartotek",
-            body: "Når du er tilmeldt vores køberkartotek, bliver du kontaktet inden en ny bolig bliver annonceret.",
-        }
-    ]
-
-
     return (
         <PageWrapper className="flex flex-col *:w-full *:self-center">
             <div className="h-[698px] flex justify-center items-center relative">
-                <div className="max-w-4xl w-full absolute z-9">
+                <div className="centered-default lg:px-24 w-full absolute z-9">
                     <h1 className="text-5xl font-bold text-c-white text-center mb-10">Søg efter din drømmebolig</h1>
 
                     <div className="p-8 bg-c-white rounded-sm">
@@ -100,10 +68,10 @@ export default async function Index() {
             </div>
 
 
-            <div className="py-32 max-w-maxw-default">
-                <section className="flex flex-col lg:flex-row gap-32">
-                    <div className="relative size-[448px] select-none">
-                        <div className="size-full absolute top-8 left-8 z-5 inset-shadow-[0_0_0_12px] inset-shadow-c-primary-1">
+            <div className="centered-default py-32">
+                <section className="flex max-lg:flex-col lg:gap-32 max-lg:gap-10">
+                    <div className="relative sm:size-[448px] select-none">
+                        <div className="size-full absolute top-8 left-8 z-5 inset-shadow-[0_0_0_12px] inset-shadow-c-primary-1 max-sm:hidden">
                             <div className="p-9 absolute bottom-0 right-0 flex flex-col justify-center items-center gap-2 bg-c-primary-1 text-c-white text-center">
                                 <p className="text-6xl font-bold">
                                     38+
@@ -137,7 +105,7 @@ export default async function Index() {
                         </p>
 
                         <div className="mt-10 grid sm:grid-cols-2 gap-8">
-                            {infoCardsLg.map((card, i) =>
+                            {homeInfoCardsLg.map((card, i) =>
                                 <InfoCard card={card} size="size-16" key={i} />
                             )}
                         </div>
@@ -149,7 +117,7 @@ export default async function Index() {
 
 
                 <div className="grid lg:grid-cols-3 gap-8">
-                    {infoCardsSm.map((card, i) =>
+                    {homeInfoCardsSm.map((card, i) =>
                         <InfoCard card={card} key={i} />
                     )}
                 </div>
@@ -168,15 +136,15 @@ export default async function Index() {
             </SectionWrapper>
 
 
-            <div className="h-72 flex flex-col justify-center items-center relative">
-                <div className="max-w-maxw-default w-full grid lg:grid-cols-2 items-center gap-8 absolute z-9">
+            <div className="py-25 flex flex-col justify-center items-center relative">
+                <div className="centered-default w-full grid lg:grid-cols-2 items-center gap-8">
                     <h2 className="heading-2 text-c-white">
                         Tilmeld dig vores nyhedsbrev og hold dig opdateret på boligmarkedet
                     </h2>
 
                     <NewsletterForm />
                 </div>
-                <figure className="size-full bg-c-multiply-5">
+                <figure className="absolute inset-0 -z-1 size-full bg-c-multiply-5">
                     <Image src={BuildingBgImage} alt="Bygninger baggrundsbillede" className="size-full object-cover opacity-25 mix-blend-multiply" />
                 </figure>
             </div>
@@ -195,7 +163,7 @@ export default async function Index() {
 
 
             <div className="flex justify-center items-center bg-c-primary-1">
-                <div className="max-w-maxw-default h-full flex flex-col lg:flex-row justify-center items-center gap-10">
+                <div className="centered-default h-full flex flex-col lg:flex-row justify-center items-center gap-10">
                     <div className="flex-1 pt-24 lg:py-24">
                         <h2 className="mb-5 heading-1 text-c-white">
                             Hold dig opdateret på salgsprocessen
@@ -204,7 +172,7 @@ export default async function Index() {
                             Når du sælger din bolig hos Din Mægler, kommunikerer du nemt med den ansvarlige mægler eller butik med vores app. Her kan du også se statistik på interessen for din bolig i alle vores salgskanaler.
                         </p>
 
-                        <div className="mt-6 flex gap-4">
+                        <div className="mt-6 flex max-sm:flex-col gap-4">
                             <Button href="https://play.google.com/" target="_blank" className="bg-c-white text-button !text-c-primary-1">
                                 <FaGooglePlay className="size-6" /> Google Play
                             </Button>

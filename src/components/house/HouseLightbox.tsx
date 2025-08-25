@@ -101,7 +101,7 @@ export default function HouseLightbox({ className, userObj, home, ...rest}: Hous
             </div>
 
 
-            <div className="pt-10 max-w-maxw-default">
+            <div className="centered-default pt-10">
                 <div className="flex max-lg:flex-col justify-between max-lg:items-center max-lg:text-center max-lg:gap-4">
                     <div className="heading-4 max-lg:order-2 max-lg:mt-10">
                         <h1>
@@ -113,7 +113,7 @@ export default function HouseLightbox({ className, userObj, home, ...rest}: Hous
                     </div>
 
                     <ul
-                        className={`flex justify-center items-center gap-12 *:*:size-12 *:*:cursor-pointer
+                        className={`flex justify-center items-center gap-12 *:*:size-12 max-sm:*:*:size-10 max-sm:gap-6 *:*:cursor-pointer
                         ${isOpen ? "w-fit fixed inset-x-1/2 translate-x-[-50%] bottom-12 z-9999999 text-c-white *:*:bg-transparent max-lg:order-1" : ""}`}
                     >
                         <li>

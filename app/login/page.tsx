@@ -24,8 +24,8 @@ export default async function LoginPage() {
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">
             <PageHeading heading="Account Login" />
 
-            <div className="max-w-maxw-default py-24">
-                <AuthForm onSubmit={"handleLogin"} className="lg:p-48 py-16 flex flex-col gap-10 inset-shadow-default">
+            <div className="centered-default py-24">
+                <AuthForm onSubmit={"handleLogin"} className="lg:px-48 max-lg:px-6 py-16 flex flex-col gap-10 inset-shadow-default">
                     <div className="flex flex-col gap-6">
                         <h2 className="heading-2 text-center">
                             Log ind på din konto

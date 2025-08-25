@@ -15,7 +15,7 @@ export default async function Contact() {
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">
             <PageHeading heading="Kontakt os" />
 
-            <div className="max-w-maxw-default py-24">
+            <div className="centered-default py-24">
                 <h2 className="mb-4 heading-2">
                     Vi sidder klar til at besvare dine spørgsmål
                 </h2>

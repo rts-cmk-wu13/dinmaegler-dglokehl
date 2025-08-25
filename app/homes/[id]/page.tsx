@@ -37,7 +37,7 @@ export default async function Home({ params }: ParamsProps) {
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">
             <HouseLightbox userObj={userObj} home={home} />
 
-            <div className="pt-10 pb-60 max-w-maxw-default">
+            <div className="centered-default pt-10 pb-60">
 
                 <hr className="my-8 border-c-shape-1" />
 
@@ -107,7 +107,7 @@ export default async function Home({ params }: ParamsProps) {
                         <h2 className="heading-3">
                             Ansvarlig mægler:
                         </h2>
-                        <AgentContact agent={home.agent} className="p-10 pr-24 inset-shadow-default" />
+                        <AgentContact agent={home.agent} className="p-10 lg:pr-24 inset-shadow-default" />
                     </section>
                 </div>
             </div>

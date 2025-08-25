@@ -41,7 +41,7 @@ export default function FavoritesList({ className, homes, userObj, ...rest}: Fav
     }
 
     return (
-        <div className={`max-w-maxw-default py-24 ${className ? className : ""}`} {...rest}>
+        <div className={`centered-default py-24 ${className ? className : ""}`} {...rest}>
             <form
                 action=""
                 noValidate

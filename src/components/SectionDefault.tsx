@@ -14,7 +14,7 @@ type SectionDefaultProps = {
 
 export default function SectionDefault({ children, className, obj, ...rest}: SectionDefaultProps) {
     return (
-        <section className={`flex flex-col items-center gap-14 ${className ? className : ""}`} {...rest}>
+        <section className={`centered-default flex flex-col items-center gap-14 ${className ? className : ""}`} {...rest}>
             <div className="text-center">
                 <h2 className="mb-4 heading-1">
                     {obj.heading}
