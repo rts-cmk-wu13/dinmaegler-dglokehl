@@ -112,4 +112,52 @@
     .centered-default {
         @apply max-w-maxw-default max-xl:px-padding-default
     }
+
+    /* .price-range {
+        @apply appearance-none [&::-moz-range-track]:h-1 [&::-moz-range-thumb]:size-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-c-body-3 [&::-moz-range-thumb]:hover:bg-c-body-2 [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:duration-75 [&::-moz-range-progress]:h-1
+    }
+    .price-range-min {
+        @apply [&::-moz-range-progress]:bg-c-body-3 [&::-moz-range-track]:bg-c-body-2 [&::-moz-range-track]:rounded-l-full [&::-moz-range-progress]:rounded-l-full
+    }
+    .price-range-max {
+        @apply [&::-moz-range-track]:bg-c-body-3 [&::-moz-range-progress]:bg-c-body-2 [&::-moz-range-track]:rounded-r-full [&::-moz-range-progress]:rounded-r-full
+    } */
+}
+
+
+.price-range {
+    appearance: none;
+    -webkit-appearance: none;
+
+    &::-moz-range-track, &::-moz-range-progress, &::-webkit-slider-runnable-track {
+        @apply h-1
+    }
+
+    &::-moz-range-thumb {
+        @apply size-5 border-0 rounded-full bg-c-body-3 hover:bg-c-body-2 cursor-pointer duration-75
+    }
+
+    &::-webkit-slider-thumb {
+        @apply size-5 border-0 rounded-full bg-c-body-3 hover:bg-c-body-2 cursor-pointer duration-75 mt-3
+    }
+}
+
+.price-range-min {
+    &::-moz-range-track, &::-webkit-slider-runnable-track {
+        @apply bg-c-body-2 rounded-l-full
+    }
+
+    &::-moz-range-progress, &::-webkit-slider-runnable-track {
+        @apply bg-c-body-3 rounded-l-full
+    }
+}
+
+.price-range-max {
+    &::-moz-range-track, &::-webkit-slider-runnable-track {
+        @apply bg-c-body-3 rounded-r-full
+    }
+
+    &::-moz-range-progress, &::-webkit-slider-runnable-track {
+        @apply bg-c-body-2 rounded-r-full
+    }
 }

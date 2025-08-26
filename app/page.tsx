@@ -8,13 +8,15 @@ import { FaGooglePlay, FaApple } from "react-icons/fa6";
 import { homeInfoCardsSm, homeInfoCardsLg } from "@/data/homeInfoCards";
 
 import PageWrapper from "@/components/PageWrapper";
-import SectionWrapper from "@/components/SectionWrapper";
-import SectionDefault from "@/components/SectionDefault";
 import Button from "@/components/Button";
 
+import SectionWrapper from "@/components/homepage/SectionWrapper";
+import SectionDefault from "@/components/homepage/SectionDefault";
+import InfoCard from "@/components/homepage/InfoCard";
+
 import NewsletterForm from "@/components/forms/NewsletterForm";
-import InfoCard from "@/components/InfoCard";
 import Search from "@/components/forms/Search";
+
 import HouseGrid from "@/components/house/HouseGrid";
 import AgentGrid from "@/components/agent/AgentGrid";
 

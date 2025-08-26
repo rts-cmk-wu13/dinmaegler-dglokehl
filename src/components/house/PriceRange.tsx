@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
+import { Range, getTrackBackground } from "react-range";
+
 import { formatPrice } from "@/utils/helpers";
 
 type PriceRangeProps = {
@@ -15,79 +17,89 @@ export default function PriceRange({ className, ...rest }: PriceRangeProps) {
     const pathname = usePathname();
     const { replace } = useRouter();
 
-    const [minPrice, setMinPrice] = useState(0);
-    const [maxPrice, setMaxPrice] = useState(7999000);
+
+    const STEP = 31996;
+    const MIN = 0;
+    const MAX = 7999000;
+
+    const [values, setValues] = useState([MIN, MAX]);
 
 
-    function handleChange(e: any) {
-        const num = Number(e.currentTarget.value)
-        if (e.currentTarget.id === "min") {
-            setMinPrice(num)
-        }
-        if (e.currentTarget.id === "max") {
-            setMaxPrice(num)
-        }
-    }
-
-    function handleMouseUp(e: any) {
-        const num = Number(e.currentTarget.value)
+    const handleMouseUp = () => {
         const params = new URLSearchParams(searchParams);
 
-        if (e.currentTarget.id === "min") {
-            params.set('price_gte', `${String(num)}`);
-            params.set('price_lte', `${String(maxPrice)}`);
-        }
-        if (e.currentTarget.id === "max") {
-            params.set('price_gte', `${String(minPrice)}`);
-            params.set('price_lte', `${String(num)}`);
-        }
+        params.set('price_gte', `${String(values[0])}`);
+        params.set('price_lte', `${String(values[1])}`);
 
-        if (minPrice === 0 && maxPrice === 7999000) {
+        if (values[0] === MIN && values[1] === MAX) {
             params.delete('price_gte');
             params.delete('price_lte');
         }
 
         console.log(params)
-        replace(`${pathname}?${params}`);
-        // window.history.pushState(null, '', `${pathname}?${params}`)
+        replace(`${pathname}?${params}`)
     }
 
 
     return (
         <div className={`w-full flex flex-col ${className ? className : ""}`}>
-            <h3 className="mb-1">Pris-interval</h3>
+            <h3 className="mb-1 body-2 text-c-body-1">Pris-interval</h3>
 
-            <div className="w-full *:w-full flex items-center *:appearance-none *:[&::-moz-range-track]:h-1 *:[&::-moz-range-thumb]:size-5 *:[&::-moz-range-thumb]:border-0 *:[&::-moz-range-thumb]:bg-c-body-3 *:[&::-moz-range-thumb]:hover:bg-c-body-2 *:[&::-moz-range-thumb]:cursor-pointer *:[&::-moz-range-thumb]:duration-75 *:[&::-moz-range-progress]:h-1">
-                <input
-                    type="range"
-                    name="min"
-                    id="min"
-                    className="[&::-moz-range-progress]:bg-c-body-3 [&::-moz-range-track]:bg-c-body-2 [&::-moz-range-track]:rounded-l-full [&::-moz-range-progress]:rounded-l-full"
-                    min={0}
-                    max={maxPrice}
-                    step={31996}
-                    onChange={handleChange}
-                    onMouseUp={handleMouseUp}
-                />
-                <input
-                    type="range"
-                    name="max"
-                    id="max"
-                    className="[&::-moz-range-track]:bg-c-body-3 [&::-moz-range-progress]:bg-c-body-2 [&::-moz-range-track]:rounded-r-full [&::-moz-range-progress]:rounded-r-full"
-                    min={minPrice}
-                    max={7999000}
-                    step={31996}
-                    onChange={handleChange}
-                    onMouseUp={handleMouseUp}
+            <div className="w-full *:w-full">
+                <Range
+                    values={values}
+                    step={STEP}
+                    min={MIN}
+                    max={MAX}
+                    onChange={(values) => setValues(values)}
+                    renderTrack={({ props, children }) => (
+                        <div
+                            onMouseDown={props.onMouseDown}
+                            onTouchStart={props.onTouchStart}
+                            className="w-full h-5 flex"
+                        >
+                            <div
+                                ref={props.ref}
+                                className="h-1 w-full rounded-full bg-c-body-3 self-center"
+                                style={{
+                                    height: "5px",
+                                    width: "100%",
+                                    borderRadius: "4px",
+                                    background: getTrackBackground({
+                                    values,
+                                    colors: ["#D5E0EA", "#7B7B7B", "#D5E0EA"],
+                                    min: MIN,
+                                    max: MAX
+                                }),
+                                alignSelf: "center",
+                                }}
+                            >
+                                {children}
+                            </div>
+                        </div>
+                    )}
+                    renderThumb={({ props, isDragged }) => (
+                        <div
+                            className="size-5 bg-c-body-3 rounded-full focus:outline-0 duration-75"
+                            {...props}
+                            key={props.key}
+                            onMouseUp={handleMouseUp}
+                            style={{
+                                ...props.style,
+                                backgroundColor: isDragged ? "#7B7B7B" : "#D5E0EA"
+                            }}
+                        >
+                        </div>
+                    )}
                 />
             </div>
 
-            <div className="w-full flex justify-between">
+            <div className="mt-1 w-full flex justify-between">
                 <p className="body-2 text-c-body-2">
-                    {formatPrice(minPrice)}kr.
+                    {formatPrice(values[0])} kr.
                 </p>
                 <p className="body-2 text-c-body-2">
-                    {formatPrice(maxPrice)}kr.
+                    {formatPrice(values[1])} kr.
                 </p>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import PageWrapper from "@/components/PageWrapper";
 import PageHeading from "@/components/PageHeading";
-import FavoritesList from "./components/FavoritesList";
+import FavoritesList from "@/components/house/FavoritesList";
 
 import { getHomesData, getUserObj } from "@/api/fetches";
 

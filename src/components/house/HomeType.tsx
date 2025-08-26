@@ -27,7 +27,7 @@ export default function HomeType({ className, ...rest }: HomeTypeProps) {
 
     return (
         <div className={`${className ? className : ""}`} {...rest}>
-            <h3 className="mb-1">Ejendomstype</h3>
+            <h3 className="mb-1 body-2 text-c-body-1">Ejendomstype</h3>
 
             <select
                 name="type"
