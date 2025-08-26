@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 }
 
 
-interface ParamsProps {
+type ParamsProps = {
     params: {
         id: string;
     };
