@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
                 <Header />
 
-                <main className="flex-1">
+                <main className="flex-1 pt-header-default">
                     {children}
                 </main>
 
