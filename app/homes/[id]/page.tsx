@@ -19,13 +19,9 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 }
 
 
-type ParamsProps = {
-    params: {
-        id: string;
-    };
-}
+type ParamsProps = Promise<{ id: string }>
 
-export default async function Home({ params }: ParamsProps) {
+export default async function Home(params: ParamsProps) {
     const { id } = await params;
 
     const home = await getHomeData(id)
