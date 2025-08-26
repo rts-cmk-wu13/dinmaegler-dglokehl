@@ -1,154 +1,164 @@
 @import "tailwindcss";
 
 
-@font-face {
-    font-family: "Roboto";
-    src: url("@/assets/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf")
-        format("truetype-variations");
-    font-weight: 100 900;
-    font-stretch: 75% 100%;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: "Roboto";
-    src: url("@/assets/fonts/Roboto/Roboto-Italic-VariableFont_wdth,wght.ttf")
-        format("truetype-variations");
-    font-weight: 100 900;
-    font-stretch: 75% 100%;
-    font-style: italic;
-    font-display: swap;
-}
-
-
 @theme {
-    --font-roboto: "Roboto", sans-serif;
-
-    --spacing-app-default: 1.5rem;
-    --height-app-header: 9.5rem;
+    --spacing-padding-default: 1.5rem;
+    --spacing-maxw-default: 69.375rem;
+    --spacing-header-default: 9.5rem;
+    --height-header-default: 9.5rem;
 
 
     /* COLORS */
-    --color-app-white: #FFFFFF;
-    --color-app-black: #000000;
+    --color-c-white: #FFFFFF;
+    --color-c-black: #000000;
 
-    --color-app-red: #F21515;
-    --color-app-green: #15F26E;
+    --color-c-red: #F21515;
+    --color-c-green: #15F26E;
+    --color-c-yellow: #F2C94C;
+    --color-c-orange: #F2994A;
 
-    --color-primary-1: #162A41;
-    --color-primary-2: #FA983A;
-    --color-primary-3: #A3CB38;
-    --color-primary-4: #10AC84;
+    --color-c-primary-1: #162A41;
+    --color-c-primary-2: #FA983A;
+    --color-c-primary-3: #A3CB38;
+    --color-c-primary-4: #10AC84;
 
-    --color-heading-1: #263048;
-    --color-heading-2: #2A2C30;
+    --color-c-heading-1: #263048;
+    --color-c-heading-2: #2A2C30;
 
-    --color-para-1: #333333;
-    --color-para-2: #7B7B7B;
-    --color-para-3: #D5E0EA;
+    --color-c-body-1: #333333;
+    --color-c-body-2: #7B7B7B;
+    --color-c-body-3: #D5E0EA;
 
-    --color-bg-1: #F8F8FB;
-    --color-bg-2: #F9FCFF;
-    --color-bg-3: #25517A;
+    --color-c-bg-1: #F8F8FB;
+    --color-c-bg-2: #F9FCFF;
+    --color-c-bg-3: #25517A;
 
-    --color-shape-1: #D3DEE8;
-    --color-shape-2: #EEF7FF;
-    --color-shape-3: #33628D;
+    --color-c-shape-1: #D3DEE8;
+    --color-c-shape-2: #EEF7FF;
+    --color-c-shape-3: #33628D;
 
-    --color-multiply-1: #33485C;
-    --color-multiply-2: #51789D;
-    --color-multiply-3: #465F78;
-    --color-multiply-4: #444444;
-    --color-multiply-5: #455463;
-
-
-    /* TEXT HEADINGS */
-    --text-heading-1: 3.75rem;
-    --text-heading-1--line-height: 5rem;
-    --text-heading-1--font-weight: 700;
-
-    --text-heading-2: 3.125rem;
-    --text-heading-2--line-height: 4.125rem;
-    --text-heading-2--font-weight: 700;
-
-    --text-heading-3: 1.5rem;
-    --text-heading-3--line-height: 3.125rem;
-    --text-heading-3--font-weight: 700;
-
-    --text-heading-4: 2.875rem;
-    --text-heading-4--line-height: 3.375rem;
-    --text-heading-4--font-weight: 700;
-
-    --text-heading-5: 12.5rem;
-    --text-heading-5--line-height: 12.5rem;
-    --text-heading-5--font-weight: 700;
-
-    
-    /* TEXT BUTTONS */
-    --text-button-1: 1.125rem;
-    --text-button-1--line-height: 1.875rem;
-    --text-button-1--font-weight: 500;
-
-    --text-button-2: 0.875rem;
-    --text-button-2--line-height: 1.5rem;
-    --text-button-2--font-weight: 400;
+    --color-c-multiply-1: #33485C;
+    --color-c-multiply-2: #51789D;
+    --color-c-multiply-3: #465F78;
+    --color-c-multiply-4: #444444;
+    --color-c-multiply-5: #455463;
 
 
-    /* TEXT SUBHEADINGS */
-    --text-subheading-1: 2.375rem;
-    --text-subheading-1--line-height: 3.375rem;
-    --text-subheading-1--font-weight: 700;
-
-    --text-subheading-2: 1.875rem;
-    --text-subheading-2--line-height: 2.625rem;
-    --text-subheading-2--font-weight: 500;
-
-    --text-subheading-3: 1.5rem;
-    --text-subheading-3--line-height: 2rem;
-    --text-subheading-3--font-weight: 500;
-
-    --text-subheading-4: 1.25rem;
-    --text-subheading-4--line-height: 1.875rem;
-    --text-subheading-4--font-weight: 500;
-
-    --text-subheading-5: 1rem;
-    --text-subheading-5--line-height: 1.625rem;
-    --text-subheading-5--font-weight: 500;
-
-
-    /* TEXT PARAGRAPHS */
-    --text-para-1: 1.125rem;
-    --text-para-1--line-height: 1.875rem;
-    --text-para-1--font-weight: 400;
-
-    --text-para-2: 1rem;
-    --text-para-2--line-height: 1.75rem;
-    --text-para-2--font-weight: 400;
-
-    --text-para-3: 0.875rem;
-    --text-para-3--line-height: 1.5rem;
-    --text-para-3--font-weight: 400;
-
-    --text-para-4: 0.75rem;
-    --text-para-4--line-height: 1.25rem;
-    --text-para-4--font-weight: 400;
-
-    --text-para-5: 1.5rem;
-    --text-para-5--line-height: 2rem;
-    --text-para-5--font-weight: 400;
-
-    --text-para-6: 1.25rem;
-    --text-para-6--line-height: 1.875rem;
-    --text-para-6--font-weight: 500;
-
-    --text-para-italic: 1.25rem;
-    --text-para-italic--line-height: 2rem;
-    --text-para-italic--font-weight: 400;
-    --text-para-italic--font-style: italic;
+    /* SHADOWS */
+    --inset-shadow-default: inset 0 0 0 1px var(--color-c-shape-1);
+    --shadow-default: 0 10px 30px 1px #0000000F;
 }
 
 
-body {
-    font-family: var(--font-roboto);
+@layer components {
+    .heading-main {
+        @apply text-6xl/20 font-bold text-c-white max-md:text-4xl/normal
+    }
+    .heading-1 {
+        @apply text-4xl/13.5 font-bold text-c-heading-1
+    }
+    .heading-2 {
+        @apply text-3xl/10.5 font-medium text-c-heading-2
+    }
+    .heading-3 {
+        @apply text-2xl/8 font-medium text-c-heading-2
+    }
+    .heading-4 {
+        @apply text-lg/7.5 font-medium text-c-heading-2
+    }
+    .heading-5 {
+        @apply text-base/6.5 font-medium text-c-heading-2
+    }
+
+    .body-1 {
+        @apply text-lg/7.5 font-normal text-c-body-1
+    }
+    .body-2 {
+        @apply text-base/7 font-normal text-c-body-1
+    }
+    .body-3 {
+        @apply text-sm/6 font-normal text-c-body-1
+    }
+    .body-4 {
+        @apply text-xs/5 font-normal text-c-body-1
+    }
+    .body-5 {
+        @apply text-2xl/8 font-normal text-c-body-1
+    }
+    .body-6 {
+        @apply text-xl/7.5 font-medium text-c-body-1
+    }
+    .body-italic {
+        @apply text-xl/8 font-normal text-c-body-1 italic
+    }
+    .body-button {
+        @apply text-lg/7.5 font-medium
+    }
+
+    .hover-75 {
+        @apply cursor-pointer select-none duration-75 sm:hover:opacity-75
+    }
+
+    .hover-scale-sm {
+        @apply cursor-pointer select-none sm:hover:scale-110 duration-200
+    }
+    .hover-scale-lg {
+        @apply cursor-pointer select-none sm:hover:scale-101 duration-200
+    }
+
+    .button {
+        @apply px-8 inline-block bg-c-primary-1 text-c-white cursor-pointer
+    }
+
+    .centered-default {
+        @apply max-w-maxw-default max-xl:px-padding-default
+    }
+
+    /* .price-range {
+        @apply appearance-none [&::-moz-range-track]:h-1 [&::-moz-range-thumb]:size-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-c-body-3 [&::-moz-range-thumb]:hover:bg-c-body-2 [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:duration-75 [&::-moz-range-progress]:h-1
+    }
+    .price-range-min {
+        @apply [&::-moz-range-progress]:bg-c-body-3 [&::-moz-range-track]:bg-c-body-2 [&::-moz-range-track]:rounded-l-full [&::-moz-range-progress]:rounded-l-full
+    }
+    .price-range-max {
+        @apply [&::-moz-range-track]:bg-c-body-3 [&::-moz-range-progress]:bg-c-body-2 [&::-moz-range-track]:rounded-r-full [&::-moz-range-progress]:rounded-r-full
+    } */
+}
+
+
+.price-range {
+    appearance: none;
+    -webkit-appearance: none;
+
+    &::-moz-range-track, &::-moz-range-progress, &::-webkit-slider-runnable-track {
+        @apply h-1
+    }
+
+    &::-moz-range-thumb {
+        @apply size-5 border-0 rounded-full bg-c-body-3 hover:bg-c-body-2 cursor-pointer duration-75
+    }
+
+    &::-webkit-slider-thumb {
+        @apply size-5 border-0 rounded-full bg-c-body-3 hover:bg-c-body-2 cursor-pointer duration-75 mt-3
+    }
+}
+
+.price-range-min {
+    &::-moz-range-track, &::-webkit-slider-runnable-track {
+        @apply bg-c-body-2 rounded-l-full
+    }
+
+    &::-moz-range-progress, &::-webkit-slider-runnable-track {
+        @apply bg-c-body-3 rounded-l-full
+    }
+}
+
+.price-range-max {
+    &::-moz-range-track, &::-webkit-slider-runnable-track {
+        @apply bg-c-body-3 rounded-r-full
+    }
+
+    &::-moz-range-progress, &::-webkit-slider-runnable-track {
+        @apply bg-c-body-2 rounded-r-full
+    }
 }
