@@ -23,9 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 }
 
 
-type ParamsProps = Promise<{ id: string }>
-
-export default async function Agent(params: ParamsProps) {
+export default async function Agent({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
     const agent = await getAgentData(id)
     console.log("agent:", agent)
