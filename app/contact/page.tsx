@@ -4,6 +4,7 @@ import { FaPhone, FaPaperPlane, FaLocationDot } from "react-icons/fa6";
 import PageWrapper from "@/components/PageWrapper";
 import PageHeading from "@/components/PageHeading";
 import ContactForm from "@/components/forms/ContactForm";
+import { footerCards } from "@/data/footerCards";
 
 export const metadata = {
     title: 'Kontakt os',
@@ -15,7 +16,7 @@ export default async function Contact() {
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">
             <PageHeading heading="Kontakt os" />
 
-            <div className="centered-default py-24">
+            <div className="centered-default py-24 max-sm:py-12">
                 <h2 className="mb-4 heading-2">
                     Vi sidder klar til at besvare dine spørgsmål
                 </h2>
@@ -23,50 +24,23 @@ export default async function Contact() {
                     Der kan opstå tvivl om mange ting nå man gerne vil, eller er i gang med at sælge sin bolig. Vores medarbejdere sider klar alle ugens dage til at svare på dine spørgsmål.
                 </p>
 
-                <div className="mt-16 flex max-lg:flex-col justify-between gap-7.5">
-                    <ContactForm newsletter />
+                <div className="mt-16 max-sm:mt-8 flex max-lg:flex-col justify-between gap-7.5">
+                    <ContactForm newsletter className="flex-1" />
 
-                    <div className="flex-1 px-8 py-14 flex flex-col items-center gap-12 inset-shadow-default text-center">
-                        <div className="flex flex-col items-center gap-3">
-                            <figure className="size-12 grid place-items-center rounded-full bg-c-primary-1 text-c-white *:size-6">
-                                <FaPhone />
-                            </figure>
-                            <h3 className="heading-4">
-                                Ring til os
-                            </h3>
-                            <Link href="tel:+4570704000" className="body-1 hover:underline">
-                                +45 7070 4000
-                            </Link>
-                        </div>
-
-                        <hr className="w-full border-c-shape-1" />
-
-                        <div className="flex flex-col items-center gap-3">
-                            <figure className="size-12 grid place-items-center rounded-full bg-c-primary-1 text-c-white *:size-6">
-                                <FaPaperPlane />
-                            </figure>
-                            <h3 className="heading-4">
-                                Send en mail
-                            </h3>
-                            <Link href="mailto:4000@dinmaegler.dk" className="body-1 hover:underline">
-                                4000@dinmaegler.dk
-                            </Link>
-                        </div>
-
-                        <hr className="w-full border-c-shape-1" />
-
-                        <div className="flex flex-col items-center gap-3">
-                            <figure className="size-12 grid place-items-center rounded-full bg-c-primary-1 text-c-white *:size-6">
-                                <FaLocationDot />
-                            </figure>
-                            <h3 className="heading-4">
-                                Besøg butikken
-                            </h3>
-                            <Link href="https://maps.app.goo.gl/fcRgnySdCMnvbxix7" target="_blank" className="body-1 hover:underline">
-                                Stændertorvet 78, <br />
-                                4000 Roskilde
-                            </Link>
-                        </div>
+                    <div className="px-8 sm:py-6 rounded-sm inset-shadow-default text-center *:border-b-[1px] *:border-b-c-shape-1 *:last:border-b-0">
+                        {footerCards.map((card, i) => (
+                            <div className="w-full p-12 max-sm:p-6 flex flex-col items-center gap-3 max-sm:gap-1" key={i}>
+                                <figure className="size-12 grid place-items-center rounded-full bg-c-primary-1 text-c-white *:size-6">
+                                    {card.icon}
+                                </figure>
+                                <h3 className="heading-4">
+                                    {card.heading}
+                                </h3>
+                                <Link href={card.href} className="body-1 hover:underline">
+                                    {card.body}
+                                </Link>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

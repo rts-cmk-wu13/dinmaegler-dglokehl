@@ -9,25 +9,25 @@ type FooterProps = {
 
 export default function Footer({ className, ...rest}: FooterProps) {
     return (
-        <footer className={`py-20 flex justify-center items-center bg-c-bg-1 ${className ? className : ""}`} {...rest}>
+        <footer className={`py-20 max-sm:py-12 flex justify-center items-center bg-c-bg-1 ${className ? className : ""}`} {...rest}>
             <div className="centered-default w-full">
                 <div>
-                    <img src="/dmlogo_text_dark.svg" alt="Din Mægler logo" className="w-74 h-auto" />
+                    <img src="/dmlogo_text_dark.svg" alt="Din Mægler logo" className="w-74 max-sm:w-48 h-auto" />
                     <p className="mt-6 body-1">
                         There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.
                     </p>
                 </div>
 
-                <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-20">
-                    <div className="p-12 bg-c-white rounded-sm shadow-[0_10px_30px] shadow-black/6">
+                <div className="mt-16 max-sm:mt-8 grid grid-cols-1 lg:grid-cols-2 gap-20 max-sm:gap-10">
+                    <div className="p-12 max-sm:p-7 bg-c-white rounded-sm shadow-[0_10px_30px] shadow-black/6">
                         <ul className="flex flex-col gap-8">
                             {footerCards.map((card, i) => (
                                 <li className="flex items-center gap-3" key={i}>
-                                    <figure className="size-15 grid place-items-center bg-c-primary-1 text-c-white rounded-full *:size-6">
+                                    <figure className="size-15 max-sm:size-10 grid place-items-center bg-c-primary-1 text-c-white rounded-full *:size-6 max-sm:*:size-4">
                                         {card.icon}
                                     </figure>
 
-                                    <div className="flex flex-col gap-1 flex-1">
+                                    <div className="flex flex-col gap-1 max-sm:gap-0 flex-1">
                                         <p className="body-4 text-c-body-2">
                                             {card.heading}
                                         </p>
@@ -43,7 +43,7 @@ export default function Footer({ className, ...rest}: FooterProps) {
                         </p>
                     </div>
 
-                    <div className="flex flex-col justify-between gap-10 max-lg:items-center lg:px-12">
+                    <div className="flex flex-col justify-between gap-10 max-lg:items-center lg:px-12 max-lg:text-center">
                         <div>
                             <h3 className="heading-3">
                                 Quick Links

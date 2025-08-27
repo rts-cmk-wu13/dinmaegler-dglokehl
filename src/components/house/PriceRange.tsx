@@ -37,7 +37,7 @@ export default function PriceRange({ className, ...rest }: PriceRangeProps) {
         }
 
         console.log(params)
-        replace(`${pathname}?${params}`)
+        replace(`${pathname}?${params}`, { scroll: false })
     }
 
 

@@ -22,11 +22,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en" className={roboto.className}>
             <body className="min-h-dvh flex flex-col bg-app-white text-app-black">
-                <ToastContainer hideProgressBar={true} pauseOnHover={false} autoClose={2500} style={{top: "10rem", zIndex: "99999999"}}/>
+                <ToastContainer
+                    hideProgressBar={true}
+                    pauseOnHover={false}
+                    autoClose={2500}
+                    toastClassName="top-header-default max-sm:top-header-mobile z-99999999"
+                />
 
                 <Header />
 
-                <main className="flex-1 pt-header-default">
+                <main className="flex-1 pt-header-default max-sm:pt-header-mobile">
                     {children}
                 </main>
 

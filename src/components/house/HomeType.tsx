@@ -21,7 +21,7 @@ export default function HomeType({ className, ...rest }: HomeTypeProps) {
             params.delete('type_eq');
         }
         console.log(params)
-        replace(`${pathname}?${params}`);
+        replace(`${pathname}?${params}`, { scroll: false });
         // window.history.pushState(null, '', `${pathname}?${params}`)
     }
 

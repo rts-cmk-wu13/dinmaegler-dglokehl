@@ -13,14 +13,14 @@ type AgentContactProps = {
 
 export default function AgentContact({ className, agent, outline, ...rest}: AgentContactProps) {
     return (
-        <article className={`lg:w-fit flex max-lg:flex-col max-lg:items-center gap-8 ${outline ? "inset-shadow-[0_0_0_1px] inset-shadow-c-shape-1" : ""} ${className ? className : ""}`} {...rest}>
-            <figure className="relative">
+        <article className={`lg:w-fit flex max-lg:flex-col max-lg:items-center gap-8 max-sm:gap-4 rounded-sm ${outline ? "inset-shadow-default" : ""} ${className ? className : ""}`} {...rest}>
+            <figure className="relative overflow-hidden rounded-sm">
                 <Image
                     src={agent.image.url}
                     alt={agent.name}
                     width={agent.image.width}
                     height={agent.image.height}
-                    className="size-70 object-cover rounded-sm"
+                    className="size-70 max-sm:w-full object-cover"
                 />
                 <ul className="px-6 py-3 flex sm:gap-5 absolute bottom-8 left-0 bg-c-primary-1 text-c-white *:*:size-5 max-sm:*:*:size-7 max-sm:w-full max-sm:justify-around max-sm:inset-x-0 max-sm:bottom-0">
                     <Link href="https://www.instagram.com" target="_blank">
@@ -37,7 +37,7 @@ export default function AgentContact({ className, agent, outline, ...rest}: Agen
                 </ul>
             </figure>
 
-            <div className="py-2.5">
+            <div className="py-2.5 wrap-anywhere">
                 <h3 className="heading-3">
                     {agent.name}
                 </h3>
@@ -45,7 +45,7 @@ export default function AgentContact({ className, agent, outline, ...rest}: Agen
                     {agent.title}
                 </p>
 
-                <hr className="mt-4 mb-5" />
+                <hr className="mt-4 mb-5 w-full h-[1px] bg-c-shape-1 border-0" />
 
                 <div className="flex flex-col gap-3 body-1 *:flex *:items-center *:gap-4 *:hover:underline *:*:size-5">
                     <Link href={`tel:${agent.phone}`}>

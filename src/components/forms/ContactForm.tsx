@@ -74,7 +74,7 @@ export default function ContactForm({ className, heading, newsletter, ...rest}: 
             </div>
 
 
-            <Button className="!py-4 mt-7.5">
+            <Button className="!py-4 mt-7.5 max-sm:w-full">
                 Send besked
             </Button>
         </form>

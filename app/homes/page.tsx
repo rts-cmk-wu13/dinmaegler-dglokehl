@@ -63,8 +63,8 @@ export default async function Homes(props: {
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">
             <PageHeading heading="Boliger til salg" />
 
-            <div className="centered-default py-24">
-                <div className="mb-18">
+            <div className="centered-default py-24 max-sm:py-8">
+                <div className="mb-18 max-sm:mb-12">
                     <h2 className="heading-4">
                         Søg efter dit drømmehus
                     </h2>

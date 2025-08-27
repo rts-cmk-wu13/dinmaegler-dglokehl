@@ -1,6 +1,7 @@
 "use client"
 
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 import { FaBars } from "react-icons/fa6";
 
 type BurgerMenuProps = {
@@ -9,11 +10,19 @@ type BurgerMenuProps = {
 }
 
 export default function BurgerMenu({ children, className, ...rest}: BurgerMenuProps) {
-    const [open, setOpen] = useState(false);
+    const pathname = usePathname()
+    const [open, setOpen] = useState(false)
 
     const handleMenu = (e: any) => {
         setOpen(!open)
     }
+
+    useEffect(() => {
+        if (open) {
+            setOpen(!open)
+        }
+    }, [pathname])
+
 
     return (
         <div>
@@ -21,7 +30,7 @@ export default function BurgerMenu({ children, className, ...rest}: BurgerMenuPr
 
             <ul
                 className={`
-                ${open ? "w-screen flex flex-col items-center p-12 fixed inset-x-0 top-38 z-999 bg-c-primary-1 heading-2 text-c-white" : "hidden"}
+                ${open ? "w-screen flex flex-col items-center gap-5 p-10 fixed inset-x-0 top-header-default max-sm:top-header-mobile z-999 bg-c-primary-1 heading-3 text-c-white" : "hidden"}
                 ${className ? className : ""}`}
                 {...rest}>
 

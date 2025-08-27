@@ -10,7 +10,6 @@ import { homeInfoCardsSm, homeInfoCardsLg } from "@/data/homeInfoCards";
 import PageWrapper from "@/components/PageWrapper";
 import Button from "@/components/Button";
 
-import SectionWrapper from "@/components/homepage/SectionWrapper";
 import SectionDefault from "@/components/homepage/SectionDefault";
 import InfoCard from "@/components/homepage/InfoCard";
 
@@ -35,16 +34,14 @@ export default async function Index() {
 
     return (
         <PageWrapper className="flex flex-col *:w-full *:self-center">
-            <div className="py-48 flex justify-center items-center relative">
+            <div className="py-48 max-sm:py-12 flex justify-center items-center relative">
                 <div className="centered-default lg:px-24 w-full">
-                    <h1 className="text-5xl/16 font-bold text-c-white text-center mb-10">Søg efter din drømmebolig</h1>
+                    <h1 className="text-5xl/16 max-sm:text-2xl/normal font-bold text-c-white text-center mb-10 max-sm:mb-4">Søg efter din drømmebolig</h1>
 
-                    <div className="p-8 bg-c-white rounded-sm">
-                        <h4 className="heading-4">
+                    <div className="p-8 max-sm:p-4 bg-c-white rounded-sm">
+                        <h4 className="heading-4 mb-5">
                             Søg blandt 158 boliger til salg i 74 butikker
                         </h4>
-
-                        <hr className="mt-1 mb-5" />
 
                         <label htmlFor="search" className="pb-1 block body-2">
                             Hvad skal din næste bolig indeholde?
@@ -70,9 +67,9 @@ export default async function Index() {
             </div>
 
 
-            <div className="centered-default py-32">
-                <section className="flex max-lg:flex-col max-lg:items-center gap-32 max-lg:gap-12">
-                    <div className="relative size-full sm:size-[448px] select-none">
+            <div className="centered-default py-32 max-sm:py-12">
+                <section className="flex max-lg:flex-col max-lg:items-center gap-32 max-lg:gap-12 max-sm:gap-8">
+                    <div className="relative size-full sm:size-[448px] max-sm:h-56 select-none">
                         <div className="size-full absolute top-8 left-8 z-5 inset-shadow-[0_0_0_12px] inset-shadow-c-primary-1 max-sm:hidden">
                             <div className="p-9 absolute bottom-0 right-0 flex flex-col justify-center items-center gap-2 bg-c-primary-1 text-c-white text-center">
                                 <p className="text-6xl font-bold">
@@ -87,12 +84,12 @@ export default async function Index() {
                         <Image
                             src={FamilyPhotoImage}
                             alt="Glad familie"
-                            className="size-full object-cover"
+                            className="size-full object-cover max-sm:rounded-sm object-[50%_35%]"
                         />
                     </div>
 
                     <div className="w-full flex-1">
-                        <h2 className="mb-8 heading-1">
+                        <h2 className="mb-8 max-sm:mb-4 heading-1">
                             Vi har fulgt danskerne hjem i snart 4 årtier
                         </h2>
 
@@ -106,7 +103,7 @@ export default async function Index() {
                             It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
                         </p>
 
-                        <div className="mt-10 grid sm:grid-cols-2 gap-8">
+                        <div className="mt-10 max-sm:mt-8 grid sm:grid-cols-2 gap-8 max-sm:gap-6">
                             {homeInfoCardsLg.map((card, i) =>
                                 <InfoCard card={card} size="size-16" key={i} />
                             )}
@@ -115,10 +112,10 @@ export default async function Index() {
                 </section>
 
 
-                <hr className="my-16" />
+                <hr className="w-full h-[1px] bg-c-shape-1 border-0 my-16 max-sm:my-10" />
 
 
-                <div className="grid lg:grid-cols-3 gap-8">
+                <div className="grid lg:grid-cols-3 gap-8 max-sm:gap-6">
                     {homeInfoCardsSm.map((card, i) =>
                         <InfoCard card={card} key={i} />
                     )}
@@ -126,21 +123,19 @@ export default async function Index() {
             </div>
 
 
-            <SectionWrapper bg>
-                <SectionDefault obj={{
-                    heading: "Udvalgte Boliger",
-                    subheading: "There are many variations of passages of Lorem Ipsum available but the this in majority have suffered alteration in some",
-                    href: "/homes",
-                    button: "Se alle boliger"
-                }}>
-                    {<HouseGrid data={homes} userObj={userObj} />}
-                </SectionDefault>
-            </SectionWrapper>
+            <SectionDefault bg obj={{
+                heading: "Udvalgte Boliger",
+                subheading: "There are many variations of passages of Lorem Ipsum available but the this in majority have suffered alteration in some",
+                href: "/homes",
+                button: "Se alle boliger"
+            }}>
+                {<HouseGrid data={homes} userObj={userObj} />}
+            </SectionDefault>
 
 
-            <div className="py-25 flex flex-col justify-center items-center relative">
-                <div className="centered-default w-full grid lg:grid-cols-2 items-center gap-8">
-                    <h2 className="heading-2 text-c-white">
+            <div className="py-25 max-sm:py-12 flex flex-col justify-center items-center relative">
+                <div className="centered-default w-full grid lg:grid-cols-2 items-center gap-8 max-sm:gap-6">
+                    <h2 className="heading-2 text-c-white max-lg:text-center">
                         Tilmeld dig vores nyhedsbrev og hold dig opdateret på boligmarkedet
                     </h2>
 
@@ -152,21 +147,19 @@ export default async function Index() {
             </div>
 
 
-            <SectionWrapper>
-                <SectionDefault obj={{
-                    heading: "Mød vores engagerede medarbejdere",
-                    subheading: "Din Mægler er garant for altid veluddannet assistance i dit boligsalg. Kontakt en af vores medarbejdere.",
-                    href: "/agents",
-                    button: "Se alle mæglere"
-                }}>
-                    <AgentGrid data={agents} />
-                </SectionDefault>
-            </SectionWrapper>
+            <SectionDefault obj={{
+                heading: "Mød vores engagerede medarbejdere",
+                subheading: "Din Mægler er garant for altid veluddannet assistance i dit boligsalg. Kontakt en af vores medarbejdere.",
+                href: "/agents",
+                button: "Se alle mæglere"
+            }}>
+                <AgentGrid data={agents} />
+            </SectionDefault>
 
 
             <div className="flex justify-center items-center bg-c-primary-1">
                 <div className="centered-default h-full flex max-lg:flex-col justify-center items-center gap-10">
-                    <div className="flex-1 py-24 max-lg:pb-0">
+                    <div className="flex-1 py-24 max-lg:pb-0 max-sm:py-12">
                         <h2 className="mb-5 heading-1 text-c-white">
                             Hold dig opdateret på salgsprocessen
                         </h2>
@@ -185,7 +178,7 @@ export default async function Index() {
                         </div>
                     </div>
 
-                    <Image src={iPhonesImage} alt="2 iPhones" className="lg:mt-20 lg:self-end" />
+                    <Image src={iPhonesImage} alt="2 iPhones" className="lg:mt-20 lg:self-end max-sm:hidden" />
                 </div>
             </div>
 

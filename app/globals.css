@@ -2,10 +2,14 @@
 
 
 @theme {
-    --spacing-padding-default: 1.5rem;
+    --spacing-padding-default: 1.25rem;
     --spacing-maxw-default: 69.375rem;
+
     --spacing-header-default: 9.5rem;
+    --spacing-header-mobile: 5rem;
+
     --height-header-default: 9.5rem;
+    --height-header-mobile: 5rem;
 
 
     /* COLORS */
@@ -52,16 +56,16 @@
 
 @layer components {
     .heading-main {
-        @apply text-6xl/20 font-bold text-c-white max-md:text-4xl/normal
+        @apply text-6xl/20 font-bold text-c-white max-md:text-4xl/normal max-sm:text-3xl/normal
     }
     .heading-1 {
-        @apply text-4xl/13.5 font-bold text-c-heading-1
+        @apply text-4xl/13.5 font-bold text-c-heading-1 max-sm:text-2xl/normal
     }
     .heading-2 {
-        @apply text-3xl/10.5 font-medium text-c-heading-2
+        @apply text-3xl/10.5 font-medium text-c-heading-2 max-sm:text-xl/normal
     }
     .heading-3 {
-        @apply text-2xl/8 font-medium text-c-heading-2
+        @apply text-2xl/8 font-medium text-c-heading-2 max-sm:text-xl/normal
     }
     .heading-4 {
         @apply text-lg/7.5 font-medium text-c-heading-2
@@ -92,7 +96,7 @@
         @apply text-xl/8 font-normal text-c-body-1 italic
     }
     .body-button {
-        @apply text-lg/7.5 font-medium
+        @apply text-lg/7.5 font-medium max-sm:text-base/normal
     }
 
     .hover-75 {
