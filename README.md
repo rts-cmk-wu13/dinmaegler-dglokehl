@@ -1,4 +1,44 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/BcRjmANr)
+# Projektdokumentation
+
+## Din Mægler - Loke - WU13
+
+Website link - https://dinmaegler-loke.netlify.app
+
+
+### Redegørelse for teknologi-stack.
+
+Jeg har brugt Next.js, typescript, tailwind, react-icons, react-range (slider til pris), react-toastify (til at vise beskeder, f.eks. fejlmeddelelser), zod (tror kun zod bliver brugt til kontakt-formularen)
+
+
+### Redegørelse for oprindelsen af evt. tredjepartskode anvendt i opgaveløsningen.
+
+Jeg tror ikke jeg har noget tredjepartskode andet end nogle enkelte linjer som jeg har ændret på, f.eks react-range slideren da dokumentationen til den var ret dårlig.
+
+
+### Argumentation for de valg du har truffet under løsningen af opgaven.
+
+Jeg har lavet et par små ændringer i designet, primært i lavere størrelser for at gøre siden bedre på mobil.
+
+Jeg har valgt at lave søgefunktionen så den viser en dropdown-menu med resultaterne mens man skriver, men den kan også submittes og vise resultaterne med search params.
+
+
+### Vurdering af din egen indsats og gennemførelse af opgaven (hvad gik godt / skidt).
+
+Jeg synes det er gået rimeligt godt for mig med opgaven, jeg har lært en del mere om Next og også lidt mere om typescript og tailwind.
+
+Jeg havde en del problemer med server/client components undervejs, men nu føler jeg at jeg har fået rimeligt godt styr på hvornår man skal bruge hvilken og hvordan man burde splitte dem op.
+
+Jeg har også brugt cookies for første gang med Next's indbyggede cookies function, men jeg har ikke brugt det særligt meget, så det har mest bare føltes som en lidt mere irriterrende localStorage da det er async.
+
+Den eneste ting jeg synes er lidt dårligt er min lightbox til husene, fordi jeg bare ikke rigtigt kan regne ud hvordan jeg burde positionere billederne. Ligemeget hvad jeg gjorde blev billederne enten for brede eller for små afhængig af ens skærm-størrelse.
+
+
+### Fremhævelse af eventuelle særlige punkter til bedømmelse.
+
+<br/>
+<br/>
+<br/>
+
 # Din Mægler
 
 ### Opgavebeskrivelse

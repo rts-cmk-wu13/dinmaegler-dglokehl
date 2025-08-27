@@ -9,8 +9,8 @@ type FooterProps = {
 
 export default function Footer({ className, ...rest}: FooterProps) {
     return (
-        <footer className={`py-20 max-sm:py-12 flex justify-center items-center bg-c-bg-1 ${className ? className : ""}`} {...rest}>
-            <div className="centered-default w-full">
+        <footer className={`flex flex-col justify-center items-center bg-c-bg-1 ${className ? className : ""}`} {...rest}>
+            <div className="centered-default py-20 max-sm:py-12 w-full">
                 <div>
                     <img src="/dmlogo_text_dark.svg" alt="Din Mægler logo" className="w-74 max-sm:w-48 h-auto" />
                     <p className="mt-6 body-1">
@@ -48,28 +48,30 @@ export default function Footer({ className, ...rest}: FooterProps) {
                             <h3 className="heading-3">
                                 Quick Links
                             </h3>
-                            <ul className="mt-5 flex flex-col gap-3 body-1 *:*:hover:underline">
-                                <li>
-                                    <Link href="/homes">
-                                        Boliger til salg
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/agents">
-                                        Mæglere
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/contact">
-                                        Kontakt os
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href="/login">
-                                        Log ind / bliv bruger
-                                    </Link>
-                                </li>
-                            </ul>
+                            <nav>
+                                <ul className="mt-5 flex flex-col gap-3 body-1 *:*:hover:underline">
+                                    <li>
+                                        <Link href="/homes">
+                                            Boliger til salg
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/agents">
+                                            Mæglere
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/contact">
+                                            Kontakt os
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/login">
+                                            Log ind / bliv bruger
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                         <div>
                             <p className="body-4 text-c-body-2">
@@ -85,6 +87,9 @@ export default function Footer({ className, ...rest}: FooterProps) {
                     </div>
                 </div>
             </div>
+            <small className="py-6 max-sm:py-3.5 w-full bg-c-primary-1 body-1 text-c-white text-center">
+                Layout By Jit Banik 2020
+            </small>
         </footer>
     )
 }
