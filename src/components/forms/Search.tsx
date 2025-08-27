@@ -2,7 +2,6 @@
 
 import Form from "next/form";
 import Link from "next/link"
-import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react"
 
 import Button from "../Button"
@@ -19,9 +18,6 @@ type SearchProps = {
 
 
 export default function Search({ children, className, agentId, ...rest}: SearchProps) {
-    const router = useRouter()
-    const searchParams = useSearchParams();
-
     const [homeArr, setHomeArr] = useState<HomeProps[]>([])
 
     const handleChange = async (e: React.FormEvent<HTMLFormElement>) => {

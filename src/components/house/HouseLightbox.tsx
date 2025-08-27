@@ -88,7 +88,7 @@ export default function HouseLightbox({ className, userObj, home, ...rest}: Hous
                             isOpen && lightboxType === "plan" ? home.floorplan.height : 
                             home.images[0].height
                         }
-                        className={`${isOpen ? "" : "w-full h-195 object-cover"}`}
+                        className={`${isOpen ? "" : "w-full h-195 max-lg:h-96 max-sm:h-80 object-cover"}`}
                     />
                 )}
 
@@ -101,9 +101,9 @@ export default function HouseLightbox({ className, userObj, home, ...rest}: Hous
             </div>
 
 
-            <div className="centered-default pt-10">
+            <div className="centered-default pt-10 max-sm:pt-6">
                 <div className="flex max-lg:flex-col justify-between max-lg:items-center max-lg:text-center max-lg:gap-4">
-                    <div className="heading-4 max-lg:order-2 max-lg:mt-10">
+                    <div className="max-lg:mt-4 heading-4 max-lg:order-2">
                         <h1>
                             {home.adress1}
                         </h1>

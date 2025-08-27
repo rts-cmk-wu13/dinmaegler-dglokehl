@@ -49,11 +49,11 @@ export default function NewsletterForm({ className, ...rest}: NewsletterFormProp
             {...rest}
         >
 
-            <button className="absolute right-6 z-2 hover-75">
+            <button className="absolute right-5 max-sm:right-4 z-2 hover-75">
                 <FaArrowRightLong className="size-7 text-c-primary-1" />
             </button>
 
-            <input type="email" name="newsletter" id="newsletter" placeholder="Indtast din email adresse" className="p-6 w-full bg-c-white rounded-sm focus:outline-0" />
+            <input type="email" name="newsletter" id="newsletter" placeholder="Indtast din email adresse" className="p-5 pr-16 max-sm:p-4 max-sm:pr-14 w-full bg-c-white rounded-sm focus:outline-0" />
         </Form>
     )
 }

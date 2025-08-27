@@ -20,7 +20,7 @@ export default function InfoCard({ className, card, size, ...rest}: InfoCardProp
                     {card.heading}
                 </h3>
 
-                <p className="mt-2 body-1">
+                <p className="sm:mt-2 body-1">
                     {card.body}
                 </p>
             </div>

@@ -32,11 +32,11 @@ export default async function HouseCard({ className, home, userObj, ...rest}: Ho
                     alt={home.adress1}
                     width={home.images[0].formats.thumbnail.width}
                     height={home.images[0].formats.thumbnail.height}
-                    className="w-full h-56 object-cover rounded-t-sm"
+                    className="w-full h-56 max-sm:h-48 object-cover rounded-t-sm"
                 />
 
-                <div className="p-6 flex flex-col gap-4">
-                    <div className="flex flex-col gap-2.5">
+                <div className="p-6 max-sm:px-5 max-sm:pt-4 flex flex-col gap-4">
+                    <div className="flex flex-col gap-2.5 max-sm:gap-1.5">
                         <h4 className="heading-4">
                             {home.adress1}
                         </h4>
@@ -51,7 +51,7 @@ export default async function HouseCard({ className, home, userObj, ...rest}: Ho
                     <hr />
 
                     <div className="flex max-sm:flex-col max-sm:gap-4 justify-between items-center">
-                        <div className="flex items-center gap-7">
+                        <div className="flex items-center gap-7 max-sm:gap-4">
                             <EnergyLabel label={home.energylabel} />
 
                             <p className="body-2">

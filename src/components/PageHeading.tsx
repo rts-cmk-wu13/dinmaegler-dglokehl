@@ -9,7 +9,7 @@ type PageHeadingProps = {
 
 export default function PageHeading({ className, heading, ...rest}: PageHeadingProps) {
     return (
-        <div className={`py-14 w-full relative grid place-items-center ${className ? className : ""}`} {...rest}>
+        <div className={`py-14 max-sm:py-8 w-full relative grid place-items-center ${className ? className : ""}`} {...rest}>
             <h1 className="heading-main text-center">
                 {heading}
             </h1>

@@ -32,8 +32,8 @@ export default async function Agent({ params }: { params: Promise<{ id: string }
         <PageWrapper className="flex flex-col justify-center items-center *:w-full">
             <PageHeading heading="Kontakt en medarbejder" />
 
-            <div className="centered-default py-30 flex max-lg:flex-col gap-7.5">
-                <div className="p-10 inset-shadow-default rounded-sm">
+            <div className="centered-default py-30 max-sm:py-12 flex max-lg:flex-col gap-7.5">
+                <div className="p-10 max-sm:p-6 inset-shadow-default rounded-sm">
                     <AgentContact agent={agent} />
 
                     <section className="my-7.5">
@@ -63,7 +63,7 @@ export default async function Agent({ params }: { params: Promise<{ id: string }
                         </Search>
                     </div>
 
-                    <div className="py-28 px-8 bg-c-primary-1 heading-2 text-c-white text-center rounded-sm">
+                    <div className="py-28 max-sm:py-16 px-8 max-sm:px-5 bg-c-primary-1 heading-2 text-c-white text-center rounded-sm">
                         <h4>
                             Find The Best Property <br />
                             For Rent Or Buy

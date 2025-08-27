@@ -41,7 +41,7 @@ export default function FavoritesList({ className, homes, userObj, ...rest}: Fav
     }
 
     return (
-        <div className={`centered-default py-24 ${className ? className : ""}`} {...rest}>
+        <div className={`centered-default py-24 max-sm:py-padding-default ${className ? className : ""}`} {...rest}>
             <form
                 action=""
                 noValidate
@@ -58,7 +58,7 @@ export default function FavoritesList({ className, homes, userObj, ...rest}: Fav
                     className="px-2.5 pl-10 size-full w-96 bg-c-white inset-shadow-default rounded-sm placeholder:text-c-body-2 focus:outline-0" />
             </form>
 
-            <hr className="mt-4 mb-10" />
+            <hr className="mt-4 mb-10 max-sm:mb-padding-default h-[1px] w-full bg-c-shape-1 border-0" />
 
             <div className="flex flex-col gap-10">
                 {homeArr.map((home, i) => <FavoriteCard home={home} userObj={userObj} key={i} />)}
